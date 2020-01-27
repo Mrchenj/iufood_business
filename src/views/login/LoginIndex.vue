@@ -1,5 +1,13 @@
 <template>
   <div class="login-page">
+    <div class="login-main">
+      <i class="login-logo">IUfood</i>
+      <div class="login-from">
+        <van-field class="l" :border="true" placeholder="請輸入賬號" type="text" left-icon="manager" />
+        <van-field class="l" :border="true" placeholder="請輸入密码" left-icon="lock" type="password" />
+      </div>
+      <van-button type="default" to='/home' >默认按钮</van-button>
+    </div>
 
   </div>
 </template>
@@ -62,6 +70,35 @@
   font-size: 16px;
   @include iu-bg;
 }
+
+.login-main{
+  width: 670px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  .login-logo{
+    padding-top: 150px ;
+    border-bottom: 1px solid #c45026;
+    background-image: url(/images/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .login-from{
+    padding: 65px 65px 0;
+    font-size: 16px;
+    border-top: 1px solid #ff652e;
+    .l{
+      margin-bottom: 20px;
+      background: #e86a3c;
+      border:2px solid #fff;
+      border-radius: 10px;
+      height: 65px;
+      }
+  }
+}
+
+.van-field__left-icon .van-icon {font-size: 30px}
 
 .other-box {
   padding: 13px 0px;

@@ -5,7 +5,8 @@ $iu-background-glay: #fafafa;
 $iu-background-orange: #e65622;
 $iu-text-gary: #B0B2BA;
 $iu-oringe-dark: #bd481a;
-$iu-oringe: #e25722;
+$iu-white: #fff;
+$iu-oringe: #e65622;
 $iu-text-normal: #999999;
 $iu-text-point: #545454;
 
@@ -24,6 +25,16 @@ $iu-text-point: #545454;
     -moz-box-shadow:0px 0px 20px #ccc;
     -webkit-box-shadow:0px 0px 20px #ccc; 
     box-shadow:0px 0px 20px #ccc;
+}
+
+/*
+重置
+*/
+.login-logo{
+    display: block;
+    text-indent: -100%;
+    overflow: hidden;
+    height: 0;
 }
 
 .em-button {
@@ -55,18 +66,6 @@ $iu-text-point: #545454;
     color: #B0B2BA;
 }
 //登录页面
-.login_from{
-    font-size: 16px;
-    padding: 13px;
-    p {
-      margin: 15px 0px 10px 0px;
-    }
-    .van-field {
-      border-radius: 12px;
-      border:1px solid #eeeeee;
-      padding: 6px 8px;
-    }
-}
 
 .login-page{
     .login-bar {
