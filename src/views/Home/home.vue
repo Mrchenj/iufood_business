@@ -33,7 +33,7 @@ export default {
         {
           text: '營業設置',
           icon: 'h-sbusi',
-          to: '/bussiness-set',
+          to: '/business',
         },
         {
           text: '營業菜單',
@@ -64,30 +64,5 @@ export default {
 
 
 <style lang="scss" scoped>
-
-.home{
-  min-height: 100%;
-  position: relative;
-  font-size: 16px;
-  @include iu-bg;
-}
-
-.iu-nav{
-  background: rgba(0, 0, 0, 0.2);
-  .van-nav-bar{
-    background: none;
-    max-width: 1200px;
-    height: 65px;
-    line-height: 65px;
-    margin: 0 auto;
-    border: 0;
-    color: $iu-white;
-    font-weight: bold;
-  }
-  .van-hairline--bottom::after{border: 0}
-}
-
-.van-hairline--top::after{border: 0}
-
 
 </style>

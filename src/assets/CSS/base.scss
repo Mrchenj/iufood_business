@@ -20,14 +20,23 @@ $iu-text-point: #545454;
     background-color: $iu-background-orange;
 }
 
+@mixin iu-bg-white {
+    background-image: url(/images/bg-white.jpg);
+    background-position: center;
+    background-repeat: repeat;
+    background-color: $iu-white;
+}
+
 @mixin iu-shadow {
     -moz-box-shadow:0px 0px 20px #ccc;
     -webkit-box-shadow:0px 0px 20px #ccc; 
     box-shadow:0px 0px 20px #ccc;
 }
 
+
+
 /*
-重置
+全局
 */
 .login-logo{
     display: block;
@@ -36,60 +45,30 @@ $iu-text-point: #545454;
     height: 0;
 }
 
-.em-button {
-    color: white;
-    background-color: $iu-oringe;
-}
-
-.iu-price {
+.home,.page{
+    min-height: 100%;
+    position: relative;
     font-size: 16px;
-    color: $iu-oringe;
-    display: inline;
-    .small {
-        font-size: 12px;
+}
+.home{
+    @include iu-bg;
+}
+.page{
+    @include iu-bg-white;
+}
+.iu-nav{
+    background: rgba(0, 0, 0, 0.2);
+    .van-nav-bar{
+        background: none;
+        max-width: 1200px;
+        height: 65px;
+        line-height: 65px;
+        margin: 0 auto;
+        border: 0;
+        color: $iu-white;
+        font-weight: bold;
     }
-}
-.van-nav-bar--fixed{
-    border-bottom: 3px solid $iu-oringe
+    .van-hairline--bottom::after{border: 0}
 }
 
-.nav-bottom{
-    padding-top: 50px;
-}
 
-.van-nav-bar .van-icon {
-    color: #333333;
-}
-
-.van-icon .van-icon-arrow-left .van-nav-bar__arrow {
-    color: #B0B2BA;
-}
-//登录页面
-
-.login-page{
-    .login-bar {
-        background-color: $iu-oringe;
-        border-bottom: none;
-        .van-nav-bar__title {
-            color: white;
-        }
-        .van-nav-bar__arrow {
-            color: white;
-        }
-       
-    }
-}
-
-.dialog-box {
-    padding: 30px 20px;
-    // display: flex;
-    p {
-        text-align: center;
-        margin-bottom: 30px;
-        font-size: 15px;
-    }
-    button {
-        margin-bottom: 20px;
-    }
-    background-color: #eeeeeef3
-}

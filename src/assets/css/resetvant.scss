@@ -1,6 +1,7 @@
 /*
 全局
 */
+.van-hairline--top::after{border: 0}
 .van-cell:not(:last-child)::after{border: 0;}
 .van-field__control{ 
     color: $iu-white;
