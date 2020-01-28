@@ -2,8 +2,14 @@
   <div class="home">
     <div class="iu-nav">
       <van-nav-bar>
-        <div slot="left"><span>員工編號112</span><button>购买服务/续费</button></div>
-        <div slot="right" ><span>員工編號112</span><button>退出</button></div>
+        <div slot="left">
+          <span>系統到期时间：2019.01.02</span>
+          <van-button plain type="primary">购买服务/续费</van-button>
+        </div>
+        <div slot="right" >
+          <span>員工編號112</span>
+          <van-button plain type="primary" to='/login'>退出</van-button>
+        </div>
       </van-nav-bar>
     </div>
     <van-grid :column-num="3" class="home-menu">
@@ -29,23 +35,23 @@ export default {
         },
         {
           text: '營業菜單',
-          icon: 'h-sbusi',
+          icon: 'h-mbusi',
         },
         {
           text: '後廚菜單',
-          icon: 'h-sbusi',
+          icon: 'h-mchef',
         },
         {
           text: '店面管理',
-          icon: 'h-sbusi',
+          icon: 'h-mshop',
         },
         {
           text: '財務管理',
-          icon: 'h-sbusi',
+          icon: 'h-mfin',
         },
         {
           text: '帳號管理',
-          icon: 'h-sbusi',
+          icon: 'h-macco',
         },
       ],
     };
@@ -69,9 +75,12 @@ export default {
   .van-nav-bar{
     background: none;
     max-width: 1200px;
+    height: 65px;
+    line-height: 65px;
     margin: 0 auto;
     border: 0;
     color: $iu-white;
+    font-weight: bold;
   }
   .van-hairline--bottom::after{border: 0}
 }

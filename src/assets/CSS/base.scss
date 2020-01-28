@@ -14,11 +14,10 @@ $iu-text-point: #545454;
 背景
 */
 @mixin iu-bg {
-    background-image: url(/images/bg-orange.png);
+    background-image: url(/images/bg-orange.jpg);
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-color: $iu-background-orange;
-    background-size: cover;
 }
 
 @mixin iu-shadow {

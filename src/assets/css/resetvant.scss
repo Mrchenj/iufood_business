@@ -1,8 +1,65 @@
 /*
+全局
+*/
+.van-cell:not(:last-child)::after{border: 0;}
+.van-field__control{ 
+    color: $iu-white;
+    font-size: 20px;
+    margin-top: 9px;
+    margin-left: 10px;
+}
+.van-button--plain.van-button--primary{
+    background: rgba(255, 255, 255, .2);
+    color: $iu-white;
+    border-radius: 20px;
+    border: 2px solid $iu-white;
+    margin-left: 10px;
+    height: 35px;
+    line-height: 35px;
+}
+
+/*
+登入
+*/
+.login-main{
+    .van-field__left-icon{
+        background: $iu-oringe;
+        margin-left: -15px;
+        margin-top: -9px;
+        width: 70px;
+        height: 70px;
+        .van-icon {
+            margin-top: 15px;
+            font-size: 35px;
+            color: $iu-white;
+        }
+    }
+    .van-button--primary{
+        background: url(/images/bg-btn.jpg);
+        color: $iu-oringe;
+        height: 70px;
+        line-height: 70px;
+        font-size: 30px;
+        font-weight: bold;
+        border: 0;
+        width: 535px;
+        border-radius: 10px;
+        letter-spacing: 5px;
+    }
+}
+
+/*
+頂欄導航
+*/
+.van-nav-bar{
+    font-size: 20px;
+}
+
+/*
 首頁
 */
 .home-menu{   
-    width: 730px;
+    width: 1000px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -14,9 +71,10 @@
     }
     .van-grid-item__content{
         padding: 0;
-        margin: 10px;
+        margin: 10px 50px;
         border-radius: 100%;
         overflow: hidden;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, .1);
     }
     .van-grid-item__text{
         background: #ffebdc;
@@ -35,6 +93,21 @@
         height: 140px;
         background-position: center;
         background-repeat: no-repeat;
+    }
+    .van-icon-h-macco{
+        background-image: url(/images/icon/icon-h-macco.png);
+    }
+    .van-icon-h-mbusi{
+        background-image: url(/images/icon/icon-h-mbusi.png);
+    }
+    .van-icon-h-mchef{
+        background-image: url(/images/icon/icon-h-mchef.png);
+    }
+    .van-icon-h-mfin{
+        background-image: url(/images/icon/icon-h-mfin.png);
+    }
+    .van-icon-h-mshop{
+        background-image: url(/images/icon/icon-h-mshop.png);
     }
     .van-icon-h-sbusi{
         background-image: url(/images/icon/icon-h-sbusi.png);

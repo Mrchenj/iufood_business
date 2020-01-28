@@ -1,12 +1,19 @@
 <template>
   <div class="login-page">
+
+    <div class="option-language">
+      <van-dropdown-menu>
+        <van-dropdown-item v-model="value1" :options="option1" />
+      </van-dropdown-menu>
+    </div>
+
     <div class="login-main">
       <i class="login-logo">IUfood</i>
       <div class="login-from">
         <van-field class="l" :border="true" placeholder="請輸入賬號" type="text" left-icon="manager" />
         <van-field class="l" :border="true" placeholder="請輸入密码" left-icon="lock" type="password" />
       </div>
-      <van-button type="default" to='/home' >默认按钮</van-button>
+      <van-button type="primary" to='/home' >登陸</van-button>
     </div>
 
   </div>
@@ -61,6 +68,19 @@
 //     }
 //   }
 // }
+
+export default {
+  data() {
+    return {
+      value1: 0,
+      option1: [
+        { text: '繁體中文', value: 0 },
+        { text: '日文', value: 1 },
+        { text: '英文', value: 2 },
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -69,59 +89,37 @@
   position: relative;
   font-size: 16px;
   @include iu-bg;
-}
-
-.login-main{
-  width: 670px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-  .login-logo{
-    padding-top: 150px ;
-    border-bottom: 1px solid #c45026;
-    background-image: url(/images/logo.png);
-    background-repeat: no-repeat;
-    background-position: center;
+  .option-language{
+    position: absolute;
+    width: 200px;
+    right: 0;
   }
-  .login-from{
-    padding: 65px 65px 0;
-    font-size: 16px;
-    border-top: 1px solid #ff652e;
-    .l{
-      margin-bottom: 20px;
-      background: #e86a3c;
-      border:2px solid #fff;
-      border-radius: 10px;
-      height: 65px;
-      }
-  }
-}
-
-.van-field__left-icon .van-icon {font-size: 30px}
-
-.other-box {
-  padding: 13px 0px;
-  margin: 0px 13px;
-  display: flex;
-  align-items: flex-end ;
-  justify-content: space-between;
-
-  border-bottom: 1px solid #BABABA
-}
-.third-box {
-  margin: 0px 13px;
-
-  display: flex;
-  align-items: flex-end ;
-  justify-content: center;
-
-  padding: 13px 0px;
-  button:first-child {
-    margin-right: 20px;
-  }
-  .van-button--small {
-    padding: 0px 20px;
+  .login-main{
+    width: 670px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    .login-logo{
+      padding-top: 160px ;
+      border-bottom: 1px solid #c45026;
+      background-image: url(/images/logo.png);
+      background-repeat: no-repeat;
+      background-position: center top;
+    }
+    .login-from{
+      padding: 65px 65px 0;
+      font-size: 16px;
+      border-top: 1px solid #ff652e;
+      .l{
+        margin-bottom: 20px;
+        background: #e86a3c;
+        border:2px solid #fff;
+        border-radius: 10px;
+        height: 65px;
+        padding-top: 10px
+        }
+    }
   }
 }
 </style>
