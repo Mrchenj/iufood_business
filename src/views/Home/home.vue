@@ -32,6 +32,7 @@ export default {
         {
           text: '營業設置',
           icon: 'h-sbusi',
+          to: '/login',
         },
         {
           text: '營業菜單',
