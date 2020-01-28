@@ -18,6 +18,7 @@
         :key="value"
         :icon="value.icon"
         :text="value.text"
+        :to="value.to"
       />
     </van-grid>
 
@@ -32,7 +33,7 @@ export default {
         {
           text: '營業設置',
           icon: 'h-sbusi',
-          to: '/login',
+          to: '/bussiness-set',
         },
         {
           text: '營業菜單',
