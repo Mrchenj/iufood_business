@@ -18,7 +18,21 @@
 </template>
 
 <script>
-
+export default {
+  data() {
+    return {
+      activeKey: 0,
+    };
+  },
+  // methods: {
+  //   onClickLeft() {
+  //     Toast('返回');
+  //   },
+  //   onClickRight() {
+  //     Toast('按钮');
+  //   },
+  // },
+};
 </script>
 
 
