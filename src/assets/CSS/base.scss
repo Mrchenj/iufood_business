@@ -9,6 +9,9 @@ $iu-white: #fff;
 $iu-oringe: #e65622;
 $iu-text-normal: #999999;
 $iu-text-point: #545454;
+$iu-gap: 20px;
+$iu-width: 1200px;
+
 
 /*
 背景
@@ -25,6 +28,10 @@ $iu-text-point: #545454;
     background-position: center;
     background-repeat: repeat;
     background-color: $iu-white;
+}
+
+@mixin iu-page-width {
+    max-width: $iu-width;
 }
 
 @mixin iu-shadow {
@@ -60,7 +67,7 @@ $iu-text-point: #545454;
     background: rgba(0, 0, 0, 0.2);
     .van-nav-bar{
         background: none;
-        max-width: 1200px;
+        @include iu-page-width;
         height: 65px;
         line-height: 65px;
         margin: 0 auto;
@@ -73,6 +80,14 @@ $iu-text-point: #545454;
 
 .page{
     .iu-nav{background: #f25d28;}
+    .iu-page-main{
+        @include iu-page-width;
+        margin: $iu-gap auto;
+        display: flex;
+        justify-content: space-between;
+    }
 }
+
+
 
 
