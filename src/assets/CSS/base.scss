@@ -3,14 +3,18 @@ color
 */
 $iu-background-glay: #fafafa;
 $iu-background-orange: #e65622;
+$iu-background-black: #595959;
 $iu-text-gary: #B0B2BA;
 $iu-oringe-dark: #bd481a;
 $iu-white: #fff;
+$iu-black: #595959;
 $iu-oringe: #e65622;
-$iu-text-normal: #999999;
-$iu-text-point: #545454;
+$iu-ipt-bg: #f2f2f2;
 $iu-gap: 20px;
+$iu-ipt-height: 60px;
 $iu-width: 1200px;
+$iu-gap: 20px;
+$iu-font: 20px;
 
 
 /*
@@ -33,6 +37,8 @@ $iu-width: 1200px;
 @mixin iu-page-width {
     max-width: $iu-width;
 }
+
+
 
 @mixin iu-shadow {
     -moz-box-shadow:0px 0px 20px #ccc;

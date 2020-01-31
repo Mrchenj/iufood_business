@@ -1,16 +1,29 @@
 /*
 全局
 */
+@font-face {
+    font-family: 'iu-iconfont';  /* project id 1623694 */
+    src: url('//at.alicdn.com/t/font_1623694_7fwmifebow8.eot');
+    src: url('//at.alicdn.com/t/font_1623694_7fwmifebow8.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1623694_7fwmifebow8.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1623694_7fwmifebow8.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1623694_7fwmifebow8.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1623694_7fwmifebow8.svg#iu-iconfont') format('svg');
+  }
+
+.iu-sidebar .van-sidebar-item--select::before{
+    font-family: 'iu-iconfont';
+    display: block;
+}
+
 .van-nav-bar .van-icon{color: $iu-white; font-size: 35px;}
 .van-nav-bar__title{color: $iu-white; font-size: 24px;}
 .van-hairline--top::after{border: 0}
 .van-cell:not(:last-child)::after{border: 0;}
-.van-field__control{ 
-    color: $iu-white;
-    font-size: 20px;
-    margin-top: 9px;
-    margin-left: 10px;
-}
+
+/*
+內頁主要元素
+*/
 .van-button--plain.van-button--primary{
     background: rgba(255, 255, 255, .2);
     color: $iu-white;
@@ -19,6 +32,26 @@
     margin-left: 10px;
     height: 35px;
     line-height: 35px;
+}
+.tent-main{
+    .van-field__control{
+        background-color: $iu-ipt-bg;
+        border-radius: $iu-gap/2;
+        height: 55px;
+        line-height: 55px;
+        padding-left: 20px;
+        font-size: $iu-font;
+    }
+    .van-button--primary{
+        background-color: $iu-oringe;
+        border: 0;
+        height: $iu-ipt-height;
+        line-height: $iu-ipt-height;
+        min-width: 250px;
+        border-radius: $iu-ipt-height;
+        font-size: $iu-font;
+        margin-top: $iu-gap;
+    }
 }
 
 /*
@@ -46,6 +79,13 @@ icon
             color: $iu-white;
         }
     }
+    .van-field__control{ 
+        color: $iu-white;
+        font-size: 20px;
+        margin-top: 9px;
+        margin-left: 10px;
+        background: none;
+    }
     .van-button--primary{
         background: url(/images/bg-btn.jpg);
         color: $iu-oringe;
@@ -58,6 +98,7 @@ icon
         border-radius: 10px;
         letter-spacing: 5px;
     }
+
 }
 
 /*
@@ -133,7 +174,41 @@ icon
     background: $iu-white;
     border-radius: $iu-gap/2;
     width: 150px;
+    overflow: hidden;
+    .iu-siderbar-title{
+        background-color: $iu-background-black;
+        color: $iu-white;
+        height: $iu-gap * 2.5;
+        line-height: $iu-gap * 2.5;
+        font-weight: bold;
+        margin:0;
+        font-size: 20px;
+    }
+    .van-sidebar{
+        width: auto;
+        padding: 0 15px;
+        .van-sidebar-item{
+            border: 0;
+            text-align: center;
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid #ccc;
+            color: $iu-black;
+        }
+        .van-sidebar-item--select{
+            color: $iu-oringe;
+        }
+        .iu-licon-open::before {
+            content: '&#xe603;';
+        }
+        .van-sidebar-item:last-child{
+            border: 0;
+        }
+    }
+
 }
+
+
 
 /*
 右側內容
@@ -142,6 +217,20 @@ icon
     width: 1020px;
     background: $iu-white;
     border-radius: $iu-gap/2;
+    .tent-main{
+        max-width: $iu-width/2;
+        margin: 0 auto;
+        padding: $iu-gap;
+        .van-field__label{
+            min-width: 150px;
+            text-align: right;
+            padding-right: $iu-gap;
+            height: $iu-ipt-height;
+            line-height: $iu-ipt-height;
+            font-size: $iu-gap;
+            width: auto;
+        }
+    }
 }
 
 

@@ -32,6 +32,8 @@ const routes = [
     path: '/business',
     name: 'business',
     component: () => import('../views/buet/bindex.vue'),
+    // 給二級頁面設置默認顯示地址
+    redirect: '/business/status',
     children: [
       {
         path: 'status',
@@ -43,21 +45,19 @@ const routes = [
       },
     ],
   },
-  // {
-  //   path: '/business-set',
-  //   name: 'cart',
-  //   component: () => import('../views/BusinessSet/bset-index.vue'),
-  //   children: [
-  //     {
-  //       path: 'status',
-  //       component: () => import('../views/BusinessSet/bset-index.vue'),
-  //     },
-  //     {
-  //       path: 'time',
-  //       component: () => import('../views/BusinessSet/bset-index.vue'),
-  //     },
-  //   ],
-  // },
+  {
+    path: '/order',
+    name: 'order',
+    component: () => import('../views/Order/order-index.vue'),
+    // 給二級頁面設置默認顯示地址
+    redirect: '/order/place',
+    children: [
+      {
+        path: 'place',
+        component: () => import('../views/Order/order-place.vue'),
+      },
+    ],
+  },
 ];
 
 const router = new VueRouter({
