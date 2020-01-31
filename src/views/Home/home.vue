@@ -21,7 +21,6 @@
         :to="value.to"
       />
     </van-grid>
-
   </div>
 </template>
 
@@ -38,6 +37,7 @@ export default {
         {
           text: '營業菜單',
           icon: 'h-mbusi',
+          to: '/order',
         },
         {
           text: '後廚菜單',
