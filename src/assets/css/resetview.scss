@@ -3,17 +3,55 @@
 */
 @font-face {
     font-family: 'iu-iconfont';  /* project id 1623694 */
-    src: url('//at.alicdn.com/t/font_1623694_7fwmifebow8.eot');
-    src: url('//at.alicdn.com/t/font_1623694_7fwmifebow8.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_1623694_7fwmifebow8.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_1623694_7fwmifebow8.woff') format('woff'),
-    url('//at.alicdn.com/t/font_1623694_7fwmifebow8.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_1623694_7fwmifebow8.svg#iu-iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_1623694_ysa2lilz0i.eot');
+    src: url('//at.alicdn.com/t/font_1623694_ysa2lilz0i.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1623694_ysa2lilz0i.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1623694_ysa2lilz0i.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1623694_ysa2lilz0i.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1623694_ysa2lilz0i.svg#iu-iconfont') format('svg');
   }
-
-.iu-sidebar .van-sidebar-item--select::before{
-    font-family: 'iu-iconfont';
-    display: block;
+.iu-iconfont,.van-grid-item__icon,.van-sidebar-item{
+    font-family: "iu-iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.van-icon-sbusi::before{
+    content: "\e601";
+}
+.van-icon-mbusi::before{
+    content: "\e607";
+}
+.van-icon-mchef::before{
+    content: "\e60b";
+}
+.van-icon-mshop::before{
+    content: "\e60d";
+}
+.van-icon-mfin::before{
+    content: "\e60a";
+}
+.van-icon-macco::before{
+    content: "\e60c";
+}
+.van-icon-open::before{
+    content: "\e602";
+}
+.van-icon-close::before{
+    content: "\e603";
+}
+.iu-icon-place::before {
+    content: "\e607";
+}
+.iu-icon-issue::before {
+    content: "\e60d";
+}
+.iu-icon-change::before {
+    content: "\e60e";
+}
+.iu-icon-bill::before {
+    content: "\e60f";
 }
 
 .van-nav-bar .van-icon{color: $iu-white; font-size: 35px;}
@@ -24,7 +62,17 @@
 /*
 內頁主要元素
 */
+.van-button--primary{
+    min-width: 120px;
+    height: 45px;
+    line-height: 45px;
+    background-color: $iu-orange;
+    border-color: $iu-orange;
+    border-radius: 100px;
+    display: inline-block;
+}
 .van-button--plain.van-button--primary{
+    min-width: 80px;
     background: rgba(255, 255, 255, .2);
     color: $iu-white;
     border-radius: 20px;
@@ -43,7 +91,7 @@
         font-size: $iu-font;
     }
     .van-button--primary{
-        background-color: $iu-oringe;
+        background-color: $iu-orange;
         border: 0;
         height: $iu-ipt-height;
         line-height: $iu-ipt-height;
@@ -64,11 +112,24 @@ icon
 }
 
 /*
+下拉
+*/
+.van-dropdown-item{
+    position: absolute;
+    width: 100%;
+    height: 170px;
+    .van-overlay{display: none;}
+    .van-dropdown-item__content{
+        height: 170px;
+    }
+}
+
+/*
 登入
 */
 .login-main{
     .van-field__left-icon{
-        background: $iu-oringe;
+        background: $iu-orange;
         margin-left: -15px;
         margin-top: -9px;
         width: 70px;
@@ -77,6 +138,7 @@ icon
             margin-top: 15px;
             font-size: 35px;
             color: $iu-white;
+            text-align: center;
         }
     }
     .van-field__control{ 
@@ -88,7 +150,7 @@ icon
     }
     .van-button--primary{
         background: url(/images/bg-btn.jpg);
-        color: $iu-oringe;
+        color: $iu-orange;
         height: 70px;
         line-height: 70px;
         font-size: 30px;
@@ -137,33 +199,17 @@ icon
         padding-top: 10px;
         font-size: 20px;
         font-weight: bold;
-        color: $iu-oringe;
+        color: $iu-orange;
         margin: 0;
         letter-spacing: 2px;
     }
     .van-icon{
         width: 100px;
         height: 140px;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .van-icon-h-macco{
-        background-image: url(/images/icon/icon-h-macco.png);
-    }
-    .van-icon-h-mbusi{
-        background-image: url(/images/icon/icon-h-mbusi.png);
-    }
-    .van-icon-h-mchef{
-        background-image: url(/images/icon/icon-h-mchef.png);
-    }
-    .van-icon-h-mfin{
-        background-image: url(/images/icon/icon-h-mfin.png);
-    }
-    .van-icon-h-mshop{
-        background-image: url(/images/icon/icon-h-mshop.png);
-    }
-    .van-icon-h-sbusi{
-        background-image: url(/images/icon/icon-h-sbusi.png);
+        text-align: center;
+        line-height: 140px;
+        font-size: 80px;
+        color: $iu-orange;
     }
 }
 
@@ -192,23 +238,41 @@ icon
             text-align: center;
             display: block;
             width: 100%;
-            border-bottom: 1px solid #ccc;
+            border-bottom: 1px solid #e6e6e6;
             color: $iu-black;
+            background: none;
+            .van-sidebar-item__text{
+                margin-top: 10px;
+                font-weight: bold;
+            }
+        }
+        .van-sidebar-item::before{
+            height: 105px;
+            line-height: 105px;
+            width: 105px;
+            background: #f2f2f2;
+            border-radius: 105px;
+            font-size: 60px;
+            display: block;
         }
         .van-sidebar-item--select{
-            color: $iu-oringe;
-        }
-        .iu-licon-open::before {
-            content: '&#xe603;';
+            color: $iu-orange;
         }
         .van-sidebar-item:last-child{
             border: 0;
         }
+        .iu-iconfont::before{
+            font-size: 50px;
+            display: block;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            border-radius: 100px;
+            background-color: #f2f2f2;
+        }
     }
 
 }
-
-
 
 /*
 右側內容
@@ -230,6 +294,62 @@ icon
             font-size: $iu-gap;
             width: auto;
         }
+    }
+}
+
+/*
+分頁
+*/
+.van-pagination__item{
+    background: #7d7d7d;
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    border-radius: 50px;
+}
+.van-pagination__page-desc{
+    height: 50px;
+    line-height:50px;
+    font-size:23px;
+}
+/*
+营业开门打烊设置
+*/
+.status-title b{color: $iu-orange;}
+.operate-set{
+    padding-top: $iu-gap;
+    .van-grid-item__content{
+        background: $iu-orange;
+        width: 200px;
+        height: 200px;
+        border-radius: $iu-gap;
+        color: $iu-white;
+        margin: 0 auto;
+        .van-grid-item__icon{
+            font-size: 80px;
+        }
+        .van-grid-item__text{
+            color: $iu-white;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: $iu-gap;
+        }
+    }
+}
+
+
+/*
+主頁搜索&菜單
+*/
+.order-main{
+    width: 100%;
+    .van-search{
+        color: #fff;
+    }
+    .order-tent{
+        width: 100%;
+        margin-top: $iu-gap;
     }
 }
 
