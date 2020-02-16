@@ -56,6 +56,18 @@ const routes = [
         path: 'place',
         component: () => import('../views/Order/order-place.vue'),
       },
+      {
+        path: 'issue',
+        component: () => import('../views/Order/order-issue.vue'),
+      },
+      {
+        path: 'change',
+        component: () => import('../views/Order/order-change.vue'),
+      },
+      {
+        path: 'pay',
+        component: () => import('../views/Order/order-pay.vue'),
+      },
     ],
   },
 ];
