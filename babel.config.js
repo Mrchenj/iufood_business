@@ -8,5 +8,9 @@ module.exports = {
       libraryDirectory: 'es',
       style: true,
     }, 'vant'],
+    // ["import", {
+    //   "libraryName": "view-design",
+    //   "libraryDirectory": "src/components"
+    // }],
   ],
 };
