@@ -1,7 +1,7 @@
 <template>
   <div class="tent-main">
     <h3 class="status-title">當前狀態：<b>{{status}}</b></h3>
-    <van-grid :column-num="3">
+    <van-grid :column-num="2" class="operate-set">
       <van-grid-item
         v-for="value in menuList"
         :key="value"
@@ -9,23 +9,24 @@
         :text="value.text"
       />
     </van-grid>
+    <van-icon class-prefix="my-icon" name="extra1" />
   </div>
+
 </template>
 
 <script>
 export default {
   data() {
     return {
-      status: '關閉',
+      status: '營業中',
       menuList: [
         {
-          text: '營業設置',
-          icon: 'h-sbusi',
-          to: '/business',
+          text: '開門營業',
+          icon: 'open',
         },
         {
-          text: '營業菜單',
-          icon: 'h-mbusi',
+          text: '打烊',
+          icon: 'close',
         },
       ],
     };

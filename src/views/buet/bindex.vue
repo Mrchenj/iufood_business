@@ -1,24 +1,24 @@
 <template>
   <div class="page">
-    <div class="iu-nav">
+    <header class="iu-nav">
       <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
         <div slot="right" >
           <span>員工編號112</span>
           <van-button plain type="primary" to='/login'>退出</van-button>
         </div>
       </van-nav-bar>
-    </div>
+    </header>
     <div class="iu-page-main">
-      <div class="iu-sidebar">
-        <h2>{{title}}</h2>
+      <aside class="iu-sidebar">
+        <h2 class="iu-siderbar-title">{{title}}</h2>
         <van-sidebar v-model="activeKey">
-          <van-sidebar-item title="開業打烊" to="/business/status" />
-          <van-sidebar-item title="營業時間設置" to="/business/time" />
+          <van-sidebar-item class="iu-iconfont iu-icon-open" title="開業打烊" to="/business/status" />
+          <van-sidebar-item class="iu-iconfont iu-icon-time" title="時間設置" to="/business/time" />
         </van-sidebar>
-      </div>
-      <div class="iu-tent-main">
+      </aside>
+      <section class="iu-tent-main">
         <router-view></router-view>
-      </div>
+      </section>
     </div>
   </div>
 </template>
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     onClickLeft() {
-      Toast('返回');
+      this.$router.push('/home/');
     },
     onClickRight() {
       Toast('退出');

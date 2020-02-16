@@ -10,12 +10,12 @@
     </header>
     <div class="iu-page-main">
       <aside class="iu-sidebar">
-        <h2 class="iu-siderbar-title">{{title}}</h2>
+        <h2 class="iu-siderbar-title">{{status}}</h2>
         <van-sidebar v-model="activeKey">
-          <van-sidebar-item class="iu-licon-open" title="下單" to="/business/status" />
-          <van-sidebar-item class="iu-licon-time" title="出單" to="/business/time" />
-          <van-sidebar-item class="iu-licon-time" title="換桌" to="/business/time" />
-          <van-sidebar-item class="iu-licon-time" title="結帳" to="/business/time" />
+          <van-sidebar-item class="iu-icon-place" title="下單" to="/order/place" />
+          <van-sidebar-item class="iu-icon-issue" title="出單" to="/order/issue" />
+          <van-sidebar-item class="iu-icon-change" title="換桌" to="/order/change" />
+          <van-sidebar-item class="iu-icon-bill" title="結帳" to="/order/pay" />
         </van-sidebar>
       </aside>
       <section class="iu-tent-main order">
@@ -33,6 +33,7 @@ export default {
     return {
       activeKey: 0,
       title: '下單',
+      status: '营业中',
     };
   },
   methods: {
