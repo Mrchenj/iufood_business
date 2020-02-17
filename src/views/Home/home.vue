@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <!-- 頂欄 -->
     <div class="iu-nav">
       <van-nav-bar>
         <div slot="left">
@@ -12,6 +13,7 @@
         </div>
       </van-nav-bar>
     </div>
+    <!-- 主頁列表 -->
     <van-grid :column-num="3" class="home-menu">
       <van-grid-item
         v-for="value in tabList"
