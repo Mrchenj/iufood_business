@@ -1,21 +1,8 @@
 <template>
   <div class="page">
-    <header class="iu-nav">
-      <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
-        <div slot="right" >
-          <span>員工編號112</span>
-          <van-button plain type="primary" to='/login'>退出</van-button>
-        </div>
-      </van-nav-bar>
-    </header>
+    <PageHeader :title="titleMsg" />
     <div class="iu-page-main">
-      <aside class="iu-sidebar">
-        <h2 class="iu-siderbar-title">{{title}}</h2>
-        <van-sidebar v-model="activeKey">
-          <van-sidebar-item class="iu-iconfont iu-icon-open" title="開業打烊" to="/business/status" />
-          <van-sidebar-item class="iu-iconfont iu-icon-time" title="時間設置" to="/business/time" />
-        </van-sidebar>
-      </aside>
+      <PageSidebar :title="titleMsg" :sidebarMessage="sidebarMessageMsg" />
       <section class="iu-tent-main">
         <router-view></router-view>
       </section>
@@ -25,18 +12,33 @@
 
 <script>
 import { Toast } from 'vant';
+// import PageHeader from '../../components/content/page-header';
+// import PageSidebar from '../../components/content/page-sidebar';
 
 export default {
   data() {
     return {
-      activeKey: 0,
-      title: '營業設置',
+      titleMsg: '營業設置',
+      sidebarMessageMsg: [
+        {
+          sideClass: 'iu-icon-open',
+          sideTitle: '開業打烊',
+          sideTo: '/business/status',
+        },
+        {
+          sideClass: 'iu-icon-time',
+          sideTitle: '時間設置',
+          sideTo: '/business/time',
+        },
+      ],
     };
   },
+  components: {
+    // PageHeader,
+    // PageSidebar,
+  },
   methods: {
-    onClickLeft() {
-      this.$router.push('/home/');
-    },
+
     onClickRight() {
       Toast('退出');
     },
