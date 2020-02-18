@@ -12,8 +12,8 @@
 
 <script>
 import { Toast } from 'vant';
-// import PageHeader from '../../components/content/page-header';
-// import PageSidebar from '../../components/content/page-sidebar';
+// import PageHeader from '@components/content/page-header';
+// import PageSidebar from '../../page-header.vue';
 
 export default {
   data() {
