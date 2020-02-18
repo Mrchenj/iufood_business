@@ -87,7 +87,7 @@
     "preset": "@vue/cli-plugin-unit-jest"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    
   },
   "lint-staged": {
     "*.{js,vue}": [
