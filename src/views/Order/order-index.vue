@@ -5,7 +5,6 @@
     <div class="iu-page-main">
       <!-- 侧栏 -->
       <PageSidebar :title="titleMsg" :sidebarMessage="sidebarMessageMsg" />
-
       <section class="iu-tent-main order">
         <router-view></router-view>
       </section>
@@ -21,7 +20,7 @@ export default {
   data() {
     return {
       activeKey: 0,
-      titleMsg: '營業設置',
+      titleMsg: '營業菜單',
       memberMsg: '員工編號112',
       sidebarMessageMsg: [
         {

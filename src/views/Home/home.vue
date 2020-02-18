@@ -36,6 +36,7 @@ export default {
         {
           text: '後廚菜單',
           icon: 'mchef',
+          to: '/kitchen'
         },
         {
           text: '店面管理',

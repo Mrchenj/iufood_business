@@ -1,32 +1,24 @@
 <template>
   <div class="order-main">
-      <van-search
-        shape="round"
-        v-model="value"
-        show-action
-        placeholder="请输入搜索关键词"
-        background="#595959"
-        @search="onSearch"
-      >
-        <div slot="action" @click="onSearch">搜索</div>
-      </van-search>
-      <div class="order-tent">
-        <van-panel v-for="item in orderList" :key="item">
-          <div class="order-t-l">
-            <strong class="order-title">取餐號碼：<b>{{item.orderNumber}}</b></strong>
-            <span class="order-time">{{item.orderTime}}</span>
-            <p class="order-text">{{item.orderTent}}</p>
-          </div>
-          <div class="order-t-r">
-            <van-button type="primary">上菜</van-button>
-          </div>
-        </van-panel>
-        <van-pagination
-          v-model="currentPage"
-          :page-count="12"
-          mode="simple"
-        />
-      </div>
+    <!-- 搜索 -->
+    <IuSearch :searchTips="searchTipsMsg" />
+    <div class="order-tent">
+      <van-panel v-for="item in orderList" :key="item">
+        <div class="order-t-l">
+          <strong class="order-title">取餐號碼：<b>{{item.orderNumber}}</b></strong>
+          <span class="order-time">{{item.orderTime}}</span>
+          <p class="order-text">{{item.orderTent}}</p>
+        </div>
+        <div class="order-t-r">
+          <van-button type="primary">上菜</van-button>
+        </div>
+      </van-panel>
+      <van-pagination
+        v-model="currentPage"
+        :page-count="12"
+        mode="simple"
+      />
+    </div>
 
 
 <van-button type="primary" @click="onClick">登录</van-button>
@@ -52,11 +44,12 @@
 </template>
 
 <script>
-// import { Dialog } from 'vant';
+import iuSearch from 'coms/common/iu-search';
 
 export default {
   data() {
     return {
+      searchTipsMsg: 'dfsdfsdfsdf',
       isShow: false,
       activeKey: 0,
       title: '下單',
@@ -99,6 +92,9 @@ export default {
       activeName: 'a',
     };
   },
+  components: {
+    IuSearch,
+  },
   methods: {
     onClick() {
       // this.$dialog.alert({
@@ -115,41 +111,46 @@ export default {
 
 
 <style lang="scss" scoped>
-.van-panel{
-  margin-bottom: $iu-gap;
-  padding: $iu-gap;
-  border-radius: 10px;
-  .van-panel__header{display: none}
-  .van-panel__content{
-    display: flex;
-    color: $iu-black;
-    .order-t-l{
-      flex: 1;
-      text-align: left;
-      .order-title{
-          b{
-          color:$iu-orange;
+.order-main{
+
+  .van-panel{
+    margin-bottom: $iu-gap;
+    padding: $iu-gap;
+    border-radius: 10px;
+    .van-panel__header{display: none}
+    .van-panel__content{
+      display: flex;
+      color: $iu-black;
+      .order-t-l{
+        flex: 1;
+        padding-right: $iu-gap;
+        text-align: left;
+        .order-title{
+            b{
+            color:$iu-orange;
+          }
+        }
+        .order-time{
+          float: right;
+        }
+        .order-text{
+          margin: 0;
+          margin-top: 5px;
+          color: $iu-text-gary;
+          overflow:hidden; //超出的文本隐藏
+          text-overflow:ellipsis; //溢出用省略号显示
+          white-space:nowrap;
         }
       }
-      .order-time{
-        float: right;
+      .order-t-r{
+        width: 18%;
+        text-align: center;
       }
-      .order-text{
-        margin: 0;
-        margin-top: 5px;
-        color: $iu-text-gary;
-        overflow:hidden; //超出的文本隐藏
-        text-overflow:ellipsis; //溢出用省略号显示
-        white-space:nowrap;
-      }
-    }
-    .order-t-r{
-      width: 20%;
-      text-align: center;
-      padding-left: $iu-gap;
     }
   }
 }
+
+
 .van-pagination{
   width: 350px;
   margin: 40px auto;

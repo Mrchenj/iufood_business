@@ -4,6 +4,7 @@
         <van-sidebar v-model="activeKey">
             <van-sidebar-item v-for="item in sidebarMessage" v-bind:key="item.id" :class="item.sideClass" :title="item.sideTitle" :to="item.sideTo"  />
         </van-sidebar>
+        <slot name="sidebar-bottom"></slot>
     </aside>
 </template>
 
@@ -23,7 +24,7 @@ export default {
 
 
 <style lang="scss" scoped>
-.iu-siderbar-title{
+.iu-sidebar{
     text-align: center
 }
 </style>

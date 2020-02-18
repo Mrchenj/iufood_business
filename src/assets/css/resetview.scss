@@ -3,12 +3,12 @@
 */
 @font-face {
     font-family: 'iu-iconfont';  /* project id 1623694 */
-    src: url('//at.alicdn.com/t/font_1623694_ysa2lilz0i.eot');
-    src: url('//at.alicdn.com/t/font_1623694_ysa2lilz0i.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_1623694_ysa2lilz0i.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_1623694_ysa2lilz0i.woff') format('woff'),
-    url('//at.alicdn.com/t/font_1623694_ysa2lilz0i.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_1623694_ysa2lilz0i.svg#iu-iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_1623694_d14oieqtsvq.eot');
+    src: url('//at.alicdn.com/t/font_1623694_d14oieqtsvq.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1623694_d14oieqtsvq.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1623694_d14oieqtsvq.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1623694_d14oieqtsvq.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1623694_d14oieqtsvq.svg#iu-iconfont') format('svg');
   }
 .iu-iconfont,.van-grid-item__icon,.van-sidebar-item{
     font-family: "iu-iconfont" !important;
@@ -58,6 +58,9 @@
 }
 .iu-icon-bill:before {
     content: "\e60f";
+}
+.iu-icon-call:before {
+    content: "\e610";
 }
 
 .van-nav-bar .van-icon{color: $iu-white; font-size: 35px;}
@@ -275,7 +278,8 @@ icon
 右側內容
 */
 .iu-tent-main{
-    width: 1020px;
+    flex:1;
+    margin-left: $iu-gap;
     background: $iu-white;
     border-radius: $iu-gap/2;
     .tent-main{
@@ -341,9 +345,6 @@ icon
 */
 .order-main{
     width: 100%;
-    .van-search{
-        color: #fff;
-    }
     .order-tent{
         width: 100%;
         margin-top: $iu-gap;

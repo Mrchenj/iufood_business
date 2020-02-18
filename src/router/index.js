@@ -67,6 +67,19 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/kitchen',
+    name: 'kitchen',
+    component: () => import('../views/Kitchen/kitchen-index.vue'),
+    // 給二級頁面設置默認顯示地址
+    redirect: '/kitchen/call',
+    children: [
+      {
+        path: 'call',
+        component: () => import('../views/Kitchen/kitchen-call.vue'),
+      },
+    ],
+  },
 ];
 
 const router = new VueRouter({
