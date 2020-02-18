@@ -12,7 +12,7 @@ import store from './store';
 // import 'view-design/dist/styles/iview.css';
 // import './theme/index.less';
 import 'vant/lib/index.css';
-import './assets/css/resetview.scss';
+import './assets/CSS/resetview.scss';
 
 Vue.use(Button).use(Field).use(DropdownMenu).use(DropdownItem)
   .use(NavBar)

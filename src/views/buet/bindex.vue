@@ -3,6 +3,7 @@
     <PageHeader :title="titleMsg" />
     <div class="iu-page-main">
       <PageSidebar :title="titleMsg" :sidebarMessage="sidebarMessageMsg" />
+      <HelloWorld />
       <section class="iu-tent-main">
         <router-view></router-view>
       </section>
@@ -12,8 +13,9 @@
 
 <script>
 import { Toast } from 'vant';
-// import PageHeader from '@components/content/page-header';
-// import PageSidebar from '../../page-header.vue';
+import HelloWorld from 'coms/HelloWorld';
+import PageHeader from 'coms/content/page-header';
+import PageSidebar from 'coms/content/page-sidebar';
 
 export default {
   data() {
@@ -34,8 +36,9 @@ export default {
     };
   },
   components: {
-    // PageHeader,
-    // PageSidebar,
+    HelloWorld,
+    PageHeader,
+    PageSidebar,
   },
   methods: {
 

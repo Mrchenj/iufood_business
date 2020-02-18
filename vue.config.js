@@ -2,12 +2,22 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 const pxtorem = require('postcss-pxtorem');
 
-module.exports = {
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
 
+module.exports = {
+  lintOnSave:true,
   chainWebpack: (config) => {
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal'];
     types.forEach(type => addStyleResource(config.module.rule('scss').oneOf(type)));
-  },
+    config.resolve.alias
+          .set('assets',resolve('src/assets'))
+          .set('coms',resolve('src/components'))
+          .set('layout',resolve('src/layout'))
+          .set('base',resolve('src/base'))
+          .set('static',resolve('src/static'))
+    }
 };
 
 
