@@ -17,40 +17,46 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-.van-icon-sbusi::before{
+.van-icon-sbusi:before{
     content: "\e601";
 }
-.van-icon-mbusi::before{
+.van-icon-mbusi:before{
     content: "\e607";
 }
-.van-icon-mchef::before{
+.van-icon-mchef:before{
     content: "\e60b";
 }
-.van-icon-mshop::before{
+.van-icon-mshop:before{
     content: "\e60d";
 }
-.van-icon-mfin::before{
+.van-icon-mfin:before{
     content: "\e60a";
 }
-.van-icon-macco::before{
+.van-icon-macco:before{
     content: "\e60c";
 }
-.van-icon-open::before{
+.van-icon-open:before{
     content: "\e602";
 }
-.van-icon-close::before{
+.van-icon-close:before{
     content: "\e603";
 }
-.iu-icon-place::before {
+.iu-icon-open:before{
+    content: "\e602";
+}
+.iu-icon-time:before{
+    content: "\e605";
+}
+.iu-icon-place:before {
     content: "\e607";
 }
-.iu-icon-issue::before {
+.iu-icon-issue:before {
     content: "\e60d";
 }
-.iu-icon-change::before {
+.iu-icon-change:before {
     content: "\e60e";
 }
-.iu-icon-bill::before {
+.iu-icon-bill:before {
     content: "\e60f";
 }
 
@@ -246,22 +252,7 @@ icon
                 font-weight: bold;
             }
         }
-        .van-sidebar-item::before{
-            height: 105px;
-            line-height: 105px;
-            width: 105px;
-            background: #f2f2f2;
-            border-radius: 105px;
-            font-size: 60px;
-            display: block;
-        }
-        .van-sidebar-item--select{
-            color: $iu-orange;
-        }
-        .van-sidebar-item:last-child{
-            border: 0;
-        }
-        .iu-iconfont::before{
+        .van-sidebar-item:before{
             font-size: 50px;
             display: block;
             width: 100px;
@@ -269,6 +260,12 @@ icon
             line-height: 100px;
             border-radius: 100px;
             background-color: #f2f2f2;
+        }
+        .van-sidebar-item--select{
+            color: $iu-orange;
+        }
+        .van-sidebar-item:last-child{
+            border: 0;
         }
     }
 

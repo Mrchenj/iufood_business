@@ -1,8 +1,9 @@
 <template>
     <header class="iu-nav">
-      <van-nav-bar :title="title" left-arrow @click-left="onClickLeft">
+      <van-nav-bar>
         <div slot="left">
-            <van-icon name="wap-home" />
+          <span>系統到期时间：{{maturityTime}}</span>
+          <van-button plain type="primary">购买服务/续费</van-button>
         </div>
         <div slot="right" >
           <span>{{member}}</span>
@@ -14,13 +15,13 @@
 
 <script>
 export default {
-  name: 'pageHeader',
+  name: 'homeHeader',
   data() {
     return {
 
     };
   },
-  props: ['title', 'member'],
+  props: ['maturityTime', 'member'],
   methods: {
     onClickLeft() {
       this.$router.push('/home/');

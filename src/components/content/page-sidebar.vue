@@ -2,8 +2,7 @@
     <aside class="iu-sidebar">
         <h2 class="iu-siderbar-title">{{title}}</h2>
         <van-sidebar v-model="activeKey">
-            <van-sidebar-item v-for="item in sidebarMessage" v-bind:key="item.id"
-             :class="item.sideClass" :title="item.sideTitle" :to="item.sideTo"  />
+            <van-sidebar-item v-for="item in sidebarMessage" v-bind:key="item.id" :class="item.sideClass" :title="item.sideTitle" :to="item.sideTo"  />
         </van-sidebar>
     </aside>
 </template>

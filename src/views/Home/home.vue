@@ -1,23 +1,12 @@
 <template>
   <div class="home">
     <!-- 頂欄 -->
-    <div class="iu-nav">
-      <van-nav-bar>
-        <div slot="left">
-          <span>系統到期时间：{{maturityTime}}</span>
-          <van-button plain type="primary">购买服务/续费</van-button>
-        </div>
-        <div slot="right" >
-          <span>員工編號112</span>
-          <van-button plain type="primary" to='/login'>退出</van-button>
-        </div>
-      </van-nav-bar>
-    </div>
+    <HomeHeader :maturityTime="maturityTimeMsg" :member="memberMsg" />
     <!-- 主頁列表 -->
     <van-grid :column-num="3" class="home-menu">
       <van-grid-item
         v-for="value in tabList"
-        :key="value"
+        v-bind:key="value.id"
         :icon="value.icon"
         :text="value.text"
         :to="value.to"
@@ -27,10 +16,12 @@
 </template>
 
 <script>
+import HomeHeader from 'coms/content/home-header';
+
 export default {
   data() {
     return {
-      maturityTime: '2019.01.02',
+      maturityTimeMsg: '2019.01.02',
       tabList: [
         {
           text: '營業設置',
@@ -60,6 +51,9 @@ export default {
         },
       ],
     };
+  },
+  components: {
+    HomeHeader,
   },
 };
 

@@ -1,23 +1,11 @@
 <template>
   <div class="page">
-    <header class="iu-nav">
-      <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
-        <div slot="right" >
-          <span>員工編號112</span>
-          <van-button plain type="primary" to='/login'>退出</van-button>
-        </div>
-      </van-nav-bar>
-    </header>
+    <!-- 顶栏 -->
+    <PageHeader :title="titleMsg" :member="memberMsg" />
     <div class="iu-page-main">
-      <aside class="iu-sidebar">
-        <h2 class="iu-siderbar-title">{{status}}</h2>
-        <van-sidebar v-model="activeKey">
-          <van-sidebar-item class="iu-icon-place" title="下單" to="/order/place" />
-          <van-sidebar-item class="iu-icon-issue" title="出單" to="/order/issue" />
-          <van-sidebar-item class="iu-icon-change" title="換桌" to="/order/change" />
-          <van-sidebar-item class="iu-icon-bill" title="結帳" to="/order/pay" />
-        </van-sidebar>
-      </aside>
+      <!-- 侧栏 -->
+      <PageSidebar :title="titleMsg" :sidebarMessage="sidebarMessageMsg" />
+
       <section class="iu-tent-main order">
         <router-view></router-view>
       </section>
@@ -26,15 +14,42 @@
 </template>
 
 <script>
-import { Toast } from 'vant';
+import PageHeader from 'coms/content/page-header';
+import PageSidebar from 'coms/content/page-sidebar';
 
 export default {
   data() {
     return {
       activeKey: 0,
-      title: '下單',
-      status: '营业中',
+      titleMsg: '營業設置',
+      memberMsg: '員工編號112',
+      sidebarMessageMsg: [
+        {
+          sideClass: 'iu-icon-place',
+          sideTitle: '下單',
+          sideTo: '/order/place',
+        },
+        {
+          sideClass: 'iu-icon-issue',
+          sideTitle: '出單',
+          sideTo: '/order/issue',
+        },
+        {
+          sideClass: 'iu-icon-change',
+          sideTitle: '換桌',
+          sideTo: '/order/change',
+        },
+        {
+          sideClass: 'iu-icon-bill',
+          sideTitle: '結帳',
+          sideTo: '/order/bill',
+        },
+      ],
     };
+  },
+  components: {
+    PageHeader,
+    PageSidebar,
   },
   methods: {
     onClickLeft() {

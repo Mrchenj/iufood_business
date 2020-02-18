@@ -1,9 +1,8 @@
 <template>
   <div class="page">
-    <PageHeader :title="titleMsg" />
+    <PageHeader :title="titleMsg" :member="memberMsg" />
     <div class="iu-page-main">
       <PageSidebar :title="titleMsg" :sidebarMessage="sidebarMessageMsg" />
-      <HelloWorld />
       <section class="iu-tent-main">
         <router-view></router-view>
       </section>
@@ -13,7 +12,6 @@
 
 <script>
 import { Toast } from 'vant';
-import HelloWorld from 'coms/HelloWorld';
 import PageHeader from 'coms/content/page-header';
 import PageSidebar from 'coms/content/page-sidebar';
 
@@ -21,6 +19,7 @@ export default {
   data() {
     return {
       titleMsg: '營業設置',
+      memberMsg: '員工編號112',
       sidebarMessageMsg: [
         {
           sideClass: 'iu-icon-open',
@@ -36,7 +35,6 @@ export default {
     };
   },
   components: {
-    HelloWorld,
     PageHeader,
     PageSidebar,
   },
