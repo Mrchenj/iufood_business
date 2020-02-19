@@ -31,9 +31,19 @@ export default {
     border-bottom: 2px solid #bababa;
     .van-search__content{
       background: none;
-      .van-icon{
-        font-size: 20px
-      }
+    }
+    .van-search__action{
+      background: $iu-black;
+      color: #fff;
+      font-weight: bold;
+      height: 40px;
+      line-height: 42px;
+      min-width: 80px;
+      border-radius: 100px;
+      text-align:center;
+      font-size: 18px;
     }
   }
+
+
 </style>

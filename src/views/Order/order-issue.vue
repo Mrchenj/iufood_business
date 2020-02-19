@@ -1,9 +1,10 @@
 <template>
   <div class="order-main">
     <!-- 搜索 -->
-    <IuSearch :searchTips="searchTipsMsg" />
+    <iuSearch :searchTips="searchTipsMsg" />
     <div class="order-tent">
-      <van-panel v-for="item in orderList" :key="item">
+      <!-- 訂單列表 -->
+      <van-panel v-for="item in orderList" v-bind:key="item.id">
         <div class="order-t-l">
           <strong class="order-title">取餐號碼：<b>{{item.orderNumber}}</b></strong>
           <span class="order-time">{{item.orderTime}}</span>
@@ -13,6 +14,7 @@
           <van-button type="primary">上菜</van-button>
         </div>
       </van-panel>
+      <!-- 分頁 -->
       <van-pagination
         v-model="currentPage"
         :page-count="12"
@@ -49,7 +51,7 @@ import iuSearch from 'coms/common/iu-search';
 export default {
   data() {
     return {
-      searchTipsMsg: 'dfsdfsdfsdf',
+      searchTipsMsg: '請輸入單號',
       isShow: false,
       activeKey: 0,
       title: '下單',
@@ -93,7 +95,7 @@ export default {
     };
   },
   components: {
-    IuSearch,
+    iuSearch,
   },
   methods: {
     onClick() {

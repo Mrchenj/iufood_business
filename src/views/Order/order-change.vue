@@ -1,40 +1,34 @@
 <template>
   <div class="order-main">
-      <van-search
-        shape="round"
-        v-model="value"
-        show-action
-        placeholder="请输入搜索关键词"
-        background="#595959"
-        @search="onSearch"
-      >
-        <div slot="action" @click="onSearch">搜索</div>
-      </van-search>
-      <div class="order-tent">
-        <van-panel v-for="item in orderList" :key="item">
+    <!-- 搜索 -->
+    <iuSearch :searchTips="searchTipsMsg" />
+    <div class="order-tent">
+        <!-- 桌號列表 -->
+        <van-panel v-for="item in orderList" v-bind:key="item.id">
           <div class="order-t-l">
             <strong class="order-title">桌號：<b>{{item.orderNumber}}</b></strong>
             <p class="order-text">{{item.orderTent}}</p>
           </div>
           <div class="order-t-r">
-            <van-button type="primary">上菜</van-button>
+            <van-button plain type="transfer">轉移<van-icon class-prefix="iu-icon" name="transfer" /></van-button>
           </div>
         </van-panel>
+        <!-- 分頁 -->
         <van-pagination
           v-model="currentPage"
           :page-count="12"
           mode="simple"
         />
-      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { Toast } from 'vant';
 
 export default {
   data() {
     return {
+      searchTipsMsg: '請輸入卓號',
       activeKey: 0,
       title: '下單',
       unit: '¥',
@@ -121,6 +115,11 @@ export default {
       width: 20%;
       text-align: center;
       padding-left: $iu-gap;
+      .iu-icon{
+        font-size: 20px;
+        color: $iu-orange;
+        margin-left: 3px;
+      }
     }
   }
 }
