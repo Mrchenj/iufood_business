@@ -1,14 +1,33 @@
 <template>
   <div class="order-main">
     <div class="order-menu">
-      <!-- 搜索 -->
-      <iuSearch :searchTips="searchTipsMsg" />
+      <van-search
+        v-model="value"
+        shape="round"
+        background="#595959"
+        placeholder="請輸入菜的id或者菜名"
+      />
       <div class="order-tent">
-        <!-- 食物類別 -->
         <van-sidebar v-model="activeKey" >
           <van-sidebar-item v-for="value in menuList" :key="value.key" :title="value.title" />
         </van-sidebar>
-        <!-- 食物類別 對應品項 -->
+
+        <!-- <van-tabs v-model="activeName">
+          <van-tab title="标签 1" name="a">
+            <van-list
+            v-model="loading"
+            :finished="finished"
+            finished-text="没有更多了"
+            @load="onLoad"
+            >
+            <van-cell v-for="item in list" :key="item" :title="item" />
+            </van-list>
+          </van-tab>
+          <van-tab title="标签 2" name="b">内容 2</van-tab>
+          <van-tab title="标签 3" name="c">内容 3</van-tab>
+
+        </van-tabs> -->
+
         <div class="menu-detail" >
             <ul>
               <li v-for="item in attribute" :key="item.key">
@@ -25,45 +44,17 @@
       </div>
     </div>
     <div class="order-form">
-        <!-- 已點菜單頭部 -->
-        <div class="order-f-top">
-          <van-nav-bar>
-            <span slot="left"><van-icon class-prefix="iu-icon" name="issue" />已點點菜</span>
-            <van-button slot="right" plain type="primary"><van-icon name="close" />一鍵清空</van-button>
-          </van-nav-bar>
-        </div>
-        <!-- 已點菜單列表 -->
-        <div class="order-f-middle">
-          <ul>
-            <li>
-              <van-card
-                num="2"
-                price="2.00"
-                origin-price="2.00"
-                desc="描述信息"
-                title="商品标题"
-              >
-                <div slot="footer">
-                  <van-button size="mini">按钮</van-button>
-                  <van-button size="mini">按钮</van-button>
-                </div>
-              </van-card>
-            </li>
-          </ul>
-        </div>
+
     </div>
   </div>
 </template>
 
 <script>
-import iuSearch from 'coms/common/iu-search'
-
 import { Toast } from 'vant';
 
 export default {
   data() {
     return {
-      searchTipsMsg: '請輸入菜的ID或者菜名',
       activeKey: 0,
       title: '下單',
       unit: '¥',
@@ -121,9 +112,6 @@ export default {
       activeName: 'a',
     };
   },
-  components: {
-    iuSearch,
-  },
   methods: {
     onClickLeft() {
       this.$router.go(-1);
@@ -144,21 +132,6 @@ export default {
     .van-search{
       border-radius: 10px 10px 0 0;
     }
-    .van-sidebar{
-      .van-sidebar-item{
-        border:0px;
-        border-bottom: 1px solid $iu-border-gary;
-        background: none;
-        padding: 15px;
-        font-weight: bold
-      }
-      .van-sidebar-item--select{
-        color: $iu-orange;
-        .van-sidebar-item__text:before{
-          content: "\e611"
-        }
-      }
-    }
     .order-tent{
       display: flex;
       margin-top: $iu-gap;
@@ -170,89 +143,27 @@ export default {
         background:$iu-white;
       }
       .menu-detail{
-        margin-left: 15px;
-        flex: 1;
+        margin-left: $iu-gap/2;
         .food-inf{
           background: $iu-white;
           text-align: left;
+          margin-bottom: $iu-gap;
           border-radius: $iu-gap/2;
-          padding: 15px;
+          padding: 10px;
           position: relative;
           span,b{
             display: block
           }
-          .food-name{
-            font-size: 18px;
-            max-height: 50px;
-            margin-bottom: 5px;
-          }
-          .food-number{
-            color: $iu-text-gary;
-            margin-bottom: 5px;
-          }
-          .food-cprice{
-            font-size: 22px;
-            font-weight: bold;
-            color: $iu-orange;
-            margin-bottom: 5px;
-          }
-          .food-oprice{
-            display: inline-block;
-            padding: 0 10px;
-            position: relative;
-            text-decoration:line-through;
-          }
           .van-button--default{
             position: absolute;
-            right: 15px;
-            bottom: 15px;
+            right: 10px;
+            bottom: 10px;
           }
-          .btn-join{
-            height: 38px;
-            line-height: 38px;
-            font-size: 16px;
-          }
-        }
-        ul li{
-          margin-top: 15px;
-        }
-        ul li:first-child{
-          margin-top: 0;
         }
       }
 
     }
   }
-  .order-form{
-    flex: 1;
-    margin-left: $iu-gap;
-    .order-f-top{
-      color: #fff;
-      .van-nav-bar{
-        height: 50px;
-        line-height: 50px;
-        background: $iu-orange;
-        border-radius: 10px 10px 0 0;
-        .van-nav-bar__left{
-          font-size: 18px;
-          font-weight: bold;
-          .iu-icon{
-            margin-right: 5px;
-            font-size: 18px;
-          }
-        }
-        .van-button--plain.van-button--primary{
-          font-size: 15px;
-          border:0;
-          .van-icon{
-            font-size: 23px;
-            margin-right: 5px;
-            vertical-align: -6px;
-          }
-        }
-      } 
-    }
 
-  }
 }
 </style>

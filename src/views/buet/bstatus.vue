@@ -22,11 +22,11 @@ export default {
       menuList: [
         {
           text: '開門營業',
-          icon: 'open',
+          icon: 'stopen',
         },
         {
           text: '打烊',
-          icon: 'close',
+          icon: 'stclose',
         },
       ],
     };
