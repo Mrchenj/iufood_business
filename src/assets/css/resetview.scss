@@ -111,6 +111,20 @@
         color: $iu-orange;
     }
 }
+.van-button--edit,.van-button--delete{
+    width: 107px;
+    height: 107px;
+    color: $iu-white;
+    border: 0;
+    border-radius: 10px;
+}
+.van-button--edit{
+    background-color: $iu-orange;
+}
+.van-button--delete{
+    background-color: $iu-background-black;
+}
+
 
 .van-button--plain.van-button--primary{
     min-width: 80px;

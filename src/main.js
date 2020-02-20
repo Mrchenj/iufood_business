@@ -3,7 +3,7 @@ import {
   Button, Field, DropdownMenu, DropdownItem, NavBar, Grid, GridItem, Sidebar, SidebarItem,
   Icon, Toast, Col, Row, Search, TreeSelect, Image, IndexAnchor, IndexBar,
   Cell, List, Tab, Tabs, Panel, Pagination, Dialog, Card, Stepper, Radio,
-  Checkbox,
+  Checkbox, Tag,
 } from 'vant';
 // import { Button, Table, Dropdown, DropdownItem, DropdownMenu, Icon } from 'view-design';
 import App from './App.vue';
@@ -40,6 +40,7 @@ Vue.use(Button).use(Field).use(DropdownMenu).use(DropdownItem)
   .use(Stepper)
   .use(Radio)
   .use(Checkbox)
+  .use(Tag)
   .use(Card);
   
 // Vue.component('Button', Button);
