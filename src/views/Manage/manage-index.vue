@@ -24,24 +24,24 @@ export default {
       memberMsg: '員工編號112',
       sidebarMessageMsg: [
         {
-          sideClass: 'iu-icon-place',
-          sideTitle: '下單',
-          sideTo: '/order/place',
+          sideClass: 'iu-icon-number',
+          sideTitle: '桌號管理',
+          sideTo: '/manage/number',
         },
         {
-          sideClass: 'iu-icon-issue',
-          sideTitle: '出單',
-          sideTo: '/order/issue',
+          sideClass: 'iu-icon-food',
+          sideTitle: '食物管理',
+          sideTo: '/manage/food',
         },
         {
-          sideClass: 'iu-icon-change',
-          sideTitle: '換桌',
-          sideTo: '/order/change',
+          sideClass: 'iu-icon-sort',
+          sideTitle: '食物分類',
+          sideTo: '/manage/sort',
         },
         {
-          sideClass: 'iu-icon-bill',
-          sideTitle: '結帳',
-          sideTo: '/order/pay',
+          sideClass: 'iu-icon-stock',
+          sideTitle: '庫存管理',
+          sideTo: '/manage/stock',
         },
       ],
     };

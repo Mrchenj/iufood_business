@@ -41,6 +41,7 @@ export default {
         {
           text: '店面管理',
           icon: 'mshop',
+          to: '/manage',
         },
         {
           text: '財務管理',

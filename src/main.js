@@ -2,7 +2,8 @@ import Vue from 'vue';
 import {
   Button, Field, DropdownMenu, DropdownItem, NavBar, Grid, GridItem, Sidebar, SidebarItem,
   Icon, Toast, Col, Row, Search, TreeSelect, Image, IndexAnchor, IndexBar,
-  Cell, List, Tab, Tabs, Panel, Pagination, Dialog, Card,
+  Cell, List, Tab, Tabs, Panel, Pagination, Dialog, Card, Stepper, Radio,
+  Checkbox,
 } from 'vant';
 // import { Button, Table, Dropdown, DropdownItem, DropdownMenu, Icon } from 'view-design';
 import App from './App.vue';
@@ -36,7 +37,11 @@ Vue.use(Button).use(Field).use(DropdownMenu).use(DropdownItem)
   .use(Panel)
   .use(Pagination)
   .use(Dialog)
+  .use(Stepper)
+  .use(Radio)
+  .use(Checkbox)
   .use(Card);
+  
 // Vue.component('Button', Button);
 // Vue.component('Icon', Icon);
 // Vue.component('Table', Table);

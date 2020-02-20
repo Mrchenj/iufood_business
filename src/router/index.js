@@ -80,6 +80,31 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/manage',
+    name: 'manage',
+    component: () => import('../views/Manage/manage-index.vue'),
+    // 給二級頁面設置默認顯示地址
+    redirect: '/manage/number',
+    children: [
+      {
+        path: 'number',
+        component: () => import('../views/Manage/manage-number.vue'),
+      },
+      {
+        path: 'food',
+        component: () => import('../views/Manage/manage-food.vue'),
+      },
+      {
+        path: 'sort',
+        component: () => import('../views/Manage/manage-sort.vue'),
+      },
+      {
+        path: 'stock',
+        component: () => import('../views/Manage/manage-stock.vue'),
+      },
+    ],
+  },
 ];
 
 const router = new VueRouter({
