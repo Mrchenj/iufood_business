@@ -49,8 +49,12 @@ export default {
     dialogShow(){
       this.isShow = !this.isShow
     },
-    beforeClose(){
-
+    beforeClose(action, done){
+      if (action === 'confirm') {
+        setTimeout(done, 1000);
+      } else {
+        done();
+      }
     }
   },
 };
