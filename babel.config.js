@@ -6,8 +6,8 @@ module.exports = {
     ['import', {
       libraryName: 'vant',
       libraryDirectory: 'es',
-      //style: true,
-      //style: Button => `${Button}/style/less`,
+      // style: true,
+      style: name => `${name}/style/less`,
     }, 'vant'],
     // ["import", {
     //   "libraryName": "view-design",

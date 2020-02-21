@@ -12,7 +12,8 @@ import store from './store';
 
 // import 'view-design/dist/styles/iview.css';
 // import './theme/index.less';
-import 'vant/lib/index.css';
+// import 'vant/lib/index.less';
+// import 'vant/lib/button/style/less';
 import './assets/css/resetview.scss';
 
 Vue.use(Button).use(Field).use(DropdownMenu).use(DropdownItem)

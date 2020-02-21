@@ -8,6 +8,23 @@ function resolve (dir) {
 
 module.exports = {
   lintOnSave:true,
+  css: {
+    loaderOptions: {
+      less: {
+        modifyVars: {
+          'font-size-sm': '13px',
+          'font-size-md': '15px',
+          'font-size-lg': '17px',
+          'goods-action-button-danger-color': '#7232dd',
+          'goods-action-button-warning-color': '#3eaf7c',
+          'font-color':'#fff',
+          'button-danger-color': 'red',
+          'button-danger-background-color': '#eee',
+          'button-danger-border-color': '#fff',
+        }
+      }
+    }
+  },
   chainWebpack: (config) => {
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal'];
     types.forEach(type => addStyleResource(config.module.rule('scss').oneOf(type)));
@@ -18,22 +35,6 @@ module.exports = {
           .set('base',resolve('src/base'))
           .set('static',resolve('src/static'));
 
-
-    config.module
-          .rule('less')
-          .use('less-loader')
-          .tap(
-            options => (options, {
-             includePaths: [path.resolve(__dirname, 'node_modules')],
-             modifyVars: {
-              // 直接覆盖变量
-              'text-color': '#111',
-              'border-color': '#eee'
-              // 或者可以通过 less 文件覆盖（文件路径为绝对路径）
-              //'hack': `true; @import "your-less-file-path.less";`
-              }
-            })
-          )
 
     }
 };

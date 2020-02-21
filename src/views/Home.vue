@@ -35,6 +35,8 @@ export default {
   data() {
     return {
       isShow: false,
+      userName:'',
+      userPass:''
     };
   },
   components: {
@@ -46,13 +48,20 @@ export default {
     },
     dialogShow(){
       this.isShow = !this.isShow
+    },
+    beforeClose(){
+
     }
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .home{
-    text-align: center
+    text-align: center;
   }
+h1{
+  font-size:@font-size-lg;
+  color:@font-color;
+}
 </style>

@@ -73,10 +73,14 @@
       "vue/no-reserved-keys": "warning",
       "vue/no-shared-component-data": "warning",
       "vue/no-side-effects-in-computed-properties": "warning",
-      "import/extensions": ["error", "always", {
-        "js": "never",
-        "vue": "never"
-        }]
+      "import/extensions": [
+        "error",
+        "always",
+        {
+          "js": "never",
+          "vue": "never"
+        }
+      ]
     }
   },
   "browserslist": [
@@ -86,9 +90,7 @@
   "jest": {
     "preset": "@vue/cli-plugin-unit-jest"
   },
-  "gitHooks": {
-    
-  },
+  "gitHooks": {},
   "lint-staged": {
     "*.{js,vue}": [
       "vue-cli-service lint"
