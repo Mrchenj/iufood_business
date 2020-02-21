@@ -22,7 +22,7 @@ module.exports = {
           // 'button-danger-background-color': '#eee',
           // 'button-danger-border-color': '#fff',
           // 'dialog-width': '620px',
-          'hack': `true; @import "./src/theme/iuTheme.less";`
+          hack: `true; @import "${path.join(__dirname,'/src/theme/iuTheme.less')}"`
         }
       }
     }
@@ -36,8 +36,6 @@ module.exports = {
           .set('layout',resolve('src/layout'))
           .set('base',resolve('src/base'))
           .set('static',resolve('src/static'));
-
-
     }
 };
 
