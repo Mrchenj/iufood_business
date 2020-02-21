@@ -60,12 +60,8 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="scss" scoped>
 .home{
     text-align: center;
-  }
-h1{
-  font-size:@font-size-lg;
-  color:@font-color;
 }
 </style>

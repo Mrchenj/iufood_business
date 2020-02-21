@@ -8,6 +8,7 @@ module.exports = {
       libraryDirectory: 'es',
       // style: true,
       style: name => `${name}/style/less`,
+      //style: Dialog => `${Dialog}/style/less`,
     }, 'vant'],
     // ["import", {
     //   "libraryName": "view-design",
