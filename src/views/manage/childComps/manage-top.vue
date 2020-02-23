@@ -6,8 +6,9 @@
       </slot>
     </div>
     <div class="m-h-right">
-        <van-button icon="printer" type="danger">導出所有桌子</van-button>
-        <van-button icon="plus" type="primary">增加桌位</van-button>
+        <slot name="h-right">
+        
+        </slot>
     </div>
   </div>
 </template>
@@ -38,12 +39,14 @@ export default {
   .m-h-left{
     .van-search{
       border: 0;
+      padding: 0;
     }
   }
   .m-h-right{
     .van-button{
       height: 40px;
       line-height: 40px;
+      .van-button__icon{margin-top: -2px;}
     }
     .van-button--danger{
       margin-right: $iu-gap;

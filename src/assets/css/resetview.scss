@@ -258,21 +258,24 @@
 /*
 分頁
 */
-.van-pagination__item{
-    background: #7d7d7d;
-    color: #fff;
-    height: 50px;
-    line-height: 50px;
-    font-weight: bold;
-    border-radius: 50px;
+.van-pagination{
+    width: 350px;
+    margin: 40px auto 0;
+    font-size: 18px;
+    .van-pagination__item{
+        background: #7d7d7d;
+        color: #fff;
+        height: 50px;
+        line-height: 50px;
+        font-weight: bold;
+        border-radius: 50px;
+    }
+    .van-pagination__page-desc{
+        height: 50px;
+        line-height:50px;
+        font-size:23px;
+    }
 }
-.van-pagination__page-desc{
-    height: 50px;
-    line-height:50px;
-    font-size:23px;
-}
-
-
 
 /*
 主頁搜索&菜單
@@ -284,6 +287,34 @@
         margin-top: $iu-gap;
     }
 }
+
+/*
+食物添加和編輯
+*/
+.food-add{
+    .van-cell__title, .van-cell__value{
+        font-size: 18px;
+        height: 50px;
+        line-height: 50px;
+    }
+    .van-cell__value{
+        background: #f2f2f2;
+        border-radius: 10px;
+        padding-left: 20px;
+    }
+    .bottom{
+        margin-top: 30px;
+        padding-left: 20px;
+        .van-uploader__upload{
+          width: 100px;
+          height: 100px;
+        }
+        .van-cell__value{
+            height: auto;
+        }
+    }
+}
+
 
 
 @media screen and (min-width: 760px){

@@ -130,10 +130,4 @@ export default {
   }
 }
 
-
-.van-pagination{
-  width: 350px;
-  margin: 40px auto;
-  font-size: 18px;
-}
 </style>

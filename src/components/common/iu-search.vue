@@ -23,10 +23,10 @@ export default {
   props: ['searchTips'],
   methods: {
     onSearch(val) {
-      Toast(val);
+      
     },
     onCancel() {
-      Toast('取消');
+      
     }
   }
 };

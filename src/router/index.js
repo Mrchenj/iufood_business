@@ -91,6 +91,18 @@ const routes = [
       {
         path: 'food',
         component: () => import('../views/manage/ManageFood.vue'),
+        //三級子類
+        redirect: '/manage/food/list',
+        children: [
+          {
+            path: 'list',
+            component: () => import('../views/manage/manageSort/Managefoodlist.vue'),
+          },
+          {
+            path: 'add',
+            component: () => import('../views/manage/manageSort/ManageFoodAdd.vue'),
+          },
+        ],
       },
       {
         path: 'sort',
