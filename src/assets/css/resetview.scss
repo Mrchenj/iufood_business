@@ -78,11 +78,9 @@
   content: '\e612';
 }
 
-
-
-
-.van-nav-bar .van-icon{color: $iu-white; font-size: 35px;}
-.van-nav-bar__title{color: $iu-white; font-size: 24px;}
+/*
+頂欄icon
+*/
 .van-hairline--top::after{border: 0}
 .van-cell:not(:last-child)::after{border: 0;}
 
@@ -99,10 +97,10 @@
     font-size: 18px;
     font-weight: bold;
 }
-.van-button--primary{
-    background-color: $iu-orange;
-    border-color: $iu-orange;     
-}
+// .van-button--primary{
+//     background-color: $iu-orange;
+//     border-color: $iu-orange;     
+// }
 .van-button--transfer{
     background-color: $iu-white;
     border-color: $iu-border-gary;
@@ -197,106 +195,13 @@
 
 
 /*
-下拉
-*/
-.van-dropdown-item{
-    position: absolute;
-    width: 100%;
-    height: 170px;
-    .van-overlay{display: none;}
-    .van-dropdown-item__content{
-        height: 170px;
-    }
-}
-
-/*
-登入
-*/
-.login-main{
-    .van-field__left-icon{
-        background: $iu-orange;
-        margin-left: -15px;
-        margin-top: -9px;
-        width: 70px;
-        height: 70px;
-        .van-icon {
-            margin-top: 15px;
-            font-size: 35px;
-            color: $iu-white;
-            text-align: center;
-        }
-    }
-    .van-field__control{ 
-        color: $iu-white;
-        font-size: 20px;
-        margin-top: 9px;
-        margin-left: 10px;
-        background: none;
-    }
-    .van-button--primary{
-        background: url(/images/bg-btn.jpg);
-        color: $iu-orange;
-        height: 70px;
-        line-height: 70px;
-        font-size: 30px;
-        font-weight: bold;
-        border: 0;
-        width: 535px;
-        border-radius: 10px;
-        letter-spacing: 5px;
-    }
-
-}
-
-/*
 頂欄導航
 */
 .van-nav-bar{
     font-size: 20px;
 }
 
-/*
-首頁菜單
-*/
-.home-menu{   
-    width: 1000px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    .van-grid-item{
-        height: 230px;
-        width: 230px;
-        margin: 70px 0;
-    }
-    .van-grid-item__content{
-        padding: 0;
-        margin: 10px 50px;
-        border-radius: 100%;
-        overflow: hidden;
-        box-shadow: 10px 10px 10px rgba(0, 0, 0, .1);
-    }
-    .van-grid-item__text{
-        background: #ffebdc;
-        display: block;
-        width: 100%;
-        height: 90px;
-        padding-top: 10px;
-        font-size: 20px;
-        font-weight: bold;
-        color: $iu-orange;
-        margin: 0;
-        letter-spacing: 2px;
-    }
-    .van-icon{
-        width: 100px;
-        height: 140px;
-        text-align: center;
-        line-height: 140px;
-        font-size: 80px;
-        color: $iu-orange;
-    }
-}
+
 
 /*
 左側菜單
@@ -351,30 +256,6 @@
 }
 
 /*
-右側內容
-*/
-.iu-tent-main{
-    flex:1;
-    margin-left: $iu-gap;
-    background: $iu-white;
-    border-radius: $iu-gap/2;
-    .tent-main{
-        max-width: $iu-width/2;
-        margin: 0 auto;
-        padding: $iu-gap;
-        .van-field__label{
-            min-width: 150px;
-            text-align: right;
-            padding-right: $iu-gap;
-            height: $iu-ipt-height;
-            line-height: $iu-ipt-height;
-            font-size: $iu-gap;
-            width: auto;
-        }
-    }
-}
-
-/*
 分頁
 */
 .van-pagination__item{
@@ -390,30 +271,7 @@
     line-height:50px;
     font-size:23px;
 }
-/*
-营业开门打烊设置
-*/
-.status-title b{color: $iu-orange;}
-.operate-set{
-    padding-top: $iu-gap;
-    .van-grid-item__content{
-        background: $iu-orange;
-        width: 200px;
-        height: 200px;
-        border-radius: $iu-gap;
-        color: $iu-white;
-        margin: 0 auto;
-        .van-grid-item__icon{
-            font-size: 80px;
-        }
-        .van-grid-item__text{
-            color: $iu-white;
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: $iu-gap;
-        }
-    }
-}
+
 
 
 /*
@@ -428,4 +286,173 @@
 }
 
 
+@media screen and (min-width: 760px){
+
+    /*
+    下拉
+    */
+    .van-dropdown-menu{
+        border-radius: 10px;
+        font-weight: bold;
+        .van-dropdown-menu__title{
+            font-size: 18px;
+        }
+    }
+    .van-dropdown-item{
+        position: absolute;
+        width: 100%;
+        min-height: 300px;
+        .van-dropdown-item__option{
+            font-size: 16px;
+        }
+        .van-overlay{display: none;}
+    }
+
+    /*
+    頂欄
+    */
+    .iu-nav{
+        .van-nav-bar{
+            background: none;
+            @include iu-page-width;
+            height: 65px;
+            line-height: 65px;
+            margin: 0 auto;
+            border: 0;
+            color: $iu-white;
+            font-weight: bold;
+        }
+        .van-nav-bar .van-icon{color: $iu-white; font-size: 35px;}
+        .van-nav-bar__title{color: $iu-white; font-size: 24px;}
+        .van-hairline--bottom::after{border: 0}
+    }
+
+    /*
+    登入
+    */
+    .login-main{
+        .van-field__left-icon{
+            background: $iu-orange;
+            margin-left: -15px;
+            margin-top: -9px;
+            width: 70px;
+            height: 70px;
+            .van-icon {
+                margin-top: 15px;
+                font-size: 35px;
+                color: $iu-white;
+                text-align: center;
+            }
+        }
+        .van-field__control{ 
+            color: $iu-white;
+            font-size: 20px;
+            margin-top: 9px;
+            margin-left: 10px;
+            background: none;
+        }
+        .van-button--primary{
+            background: url(/images/bg-btn.jpg);
+            color: $iu-orange;
+            height: 70px;
+            line-height: 70px;
+            font-size: 30px;
+            font-weight: bold;
+            border: 0;
+            width: 535px;
+            border-radius: 10px;
+            letter-spacing: 5px;
+        }
+
+    }
+
+    /*
+    主頁菜單
+    */
+    .home-menu{
+        .van-grid-item{
+            height: 230px;
+            width: 230px;
+            margin: 70px 0;
+        }
+        .van-grid-item__content{
+            padding: 0;
+            margin: 10px 50px;
+            border-radius: 100%;
+            overflow: hidden;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, .1);
+        }
+        .van-grid-item__text{
+            background: #ffebdc;
+            display: block;
+            width: 100%;
+            height: 90px;
+            padding-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: $iu-orange;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        .van-icon{
+            width: 100px;
+            height: 140px;
+            text-align: center;
+            line-height: 140px;
+            font-size: 80px;
+            color: $iu-orange;
+        }
+    }
+
+    /*
+    营业开门打烊设置
+    */
+    .status-title b{color: $iu-orange;}
+    .operate-set{
+        padding-top: $iu-gap;
+        .van-grid-item__content{
+            background: $iu-orange;
+            width: 200px;
+            height: 200px;
+            border-radius: $iu-gap;
+            color: $iu-white;
+            margin: 0 auto;
+            .van-grid-item__icon{
+                font-size: 80px;
+            }
+            .van-grid-item__text{
+                color: $iu-white;
+                font-size: 20px;
+                font-weight: bold;
+                margin-top: $iu-gap;
+            }
+        }
+    }
+
+    /*
+    右側內容
+    */
+    .iu-tent-main{
+        flex:1;
+        margin-left: $iu-gap;
+        background: $iu-white;
+        border-radius: $iu-gap/2;
+        .tent-main{
+            text-align: center;
+            max-width: $iu-width/2;
+            margin: 0 auto;
+            padding: $iu-gap;
+            .van-field__label{
+                min-width: 150px;
+                text-align: right;
+                padding-right: $iu-gap;
+                height: $iu-ipt-height;
+                line-height: $iu-ipt-height;
+                font-size: $iu-gap;
+                width: auto;
+            }
+        }
+    }
+
+}
 

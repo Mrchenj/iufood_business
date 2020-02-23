@@ -44,6 +44,7 @@ export default {
           sideTo: '/order/pay',
         },
       ],
+      currentPage: 1,
     };
   },
   components: {

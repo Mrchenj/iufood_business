@@ -32,5 +32,7 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.iu-nav{
+  background: rgba(0, 0, 0, 0.2);
+}
 </style>

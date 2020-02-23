@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/home',
     name: 'main',
-    component: () => import('../views/Home/home.vue'),
+    component: () => import('../views/home/HomeIndex.vue'),
   },
   {
     path: '/login',
@@ -28,80 +28,77 @@ const routes = [
   {
     path: '/business',
     name: 'business',
-    component: () => import('../views/buet/bindex.vue'),
+    component: () => import('../views/business/BusinessIndex.vue'),
     // 給二級頁面設置默認顯示地址
     redirect: '/business/status',
     children: [
       {
         path: 'status',
-        component: () => import('../views/buet/bstatus.vue'),
+        component: () => import('../views/business/BusinessStatus.vue'),
       },
       {
         path: 'time',
-        component: () => import('../views/buet/btime.vue'),
+        component: () => import('../views/business/BusinessTime.vue'),
       },
     ],
   },
   {
     path: '/order',
     name: 'order',
-    component: () => import('../views/Order/order-index.vue'),
-    // 給二級頁面設置默認顯示地址
+    component: () => import('../views/order/OrderIndex.vue'),
     redirect: '/order/place',
     children: [
       {
         path: 'place',
-        component: () => import('../views/Order/order-place.vue'),
+        component: () => import('../views/order/OrderPlace.vue'),
       },
       {
         path: 'issue',
-        component: () => import('../views/Order/order-issue.vue'),
+        component: () => import('../views/order/OrderIssue.vue'),
       },
       {
         path: 'change',
-        component: () => import('../views/Order/order-change.vue'),
+        component: () => import('../views/order/OrderChange.vue'),
       },
       {
         path: 'pay',
-        component: () => import('../views/Order/order-pay.vue'),
+        component: () => import('../views/order/OrderPay.vue'),
       },
     ],
   },
   {
     path: '/kitchen',
     name: 'kitchen',
-    component: () => import('../views/Kitchen/kitchen-index.vue'),
-    // 給二級頁面設置默認顯示地址
+    component: () => import('../views/kitchen/KitchenIndex.vue'),
     redirect: '/kitchen/call',
     children: [
       {
         path: 'call',
-        component: () => import('../views/Kitchen/kitchen-call.vue'),
+        component: () => import('../views/kitchen/KitchenCall.vue'),
       },
     ],
   },
   {
     path: '/manage',
     name: 'manage',
-    component: () => import('../views/Manage/manage-index.vue'),
-    // 給二級頁面設置默認顯示地址
+    component: () => import('../views/manage/ManageIndex.vue'),
     redirect: '/manage/number',
     children: [
       {
         path: 'number',
-        component: () => import('../views/Manage/manage-number.vue'),
+        component: () => import('../views/manage/ManageNumber.vue'),
       },
       {
         path: 'food',
-        component: () => import('../views/Manage/manage-food.vue'),
+        component: () => import('../views/manage/ManageFood.vue'),
       },
       {
         path: 'sort',
-        component: () => import('../views/Manage/manage-sort.vue'),
+        component: () => import('../views/manage/ManageSort.vue'),
       },
       {
         path: 'stock',
-        component: () => import('../views/Manage/manage-stock.vue'),
+        component: () => import('../views/manage/ManageStock.vue'),
       },
     ],
   },

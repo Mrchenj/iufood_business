@@ -3,8 +3,8 @@
     <h3 class="status-title">當前狀態：<b>{{status}}</b></h3>
     <van-grid :column-num="2" class="operate-set">
       <van-grid-item
-        v-for="value in menuList"
-        :key="value"
+        v-for="(value,index) in menuList"
+        :key="index"
         :icon="value.icon"
         :text="value.text"
       />
@@ -36,5 +36,12 @@ export default {
 
 
 <style lang="scss" scoped>
+/*
+营业开门打烊设置
+*/
+.status-title{
+  text-align: center;
+  b{color: $iu-orange;}
+} 
 
 </style>

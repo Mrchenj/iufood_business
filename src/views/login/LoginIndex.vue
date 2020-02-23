@@ -1,25 +1,40 @@
 <template>
   <div class="login-page">
-
+    <!-- 選擇語言 -->
     <div class="option-language">
       <van-dropdown-menu>
         <van-dropdown-item v-model="value" :options="option" />
       </van-dropdown-menu>
     </div>
-
+    <!-- 登入表單 -->
     <div class="login-main">
       <i class="login-logo">IUfood</i>
       <div class="login-from">
-        <van-field class="login-input" :border="true"
-         placeholder="請輸入賬號" left-icon="manager" type="text" />
-        <van-field class="login-input" :border="true"
-         placeholder="請輸入密码" left-icon="lock" type="password" />
+         <!-- vant-form 引用的時候有問題待解決 -->
+        <!-- <form > -->
+          <van-field
+            v-model="username"
+            name="請輸入賬號"
+            placeholder="請輸入賬號"
+            left-icon="manager" 
+            type="text"
+            class="login-input" 
+          />
+          <van-field
+            v-model="password"
+            name="請輸入密碼"
+            placeholder="請輸入密碼"
+            left-icon="lock" 
+            type="password"
+            class="login-input" 
+          />
+          <van-button type="primary" native-type="submit" @click="onSubmit" >登陸</van-button>
+        <!-- </form> -->
       </div>
-      <van-button type="primary" to='/home' >登陸</van-button>
     </div>
-
+    <!-- 我要開店 外跳 -->
     <div class="login-bottom">
-      <van-button type="primary"  class="btn-store"
+      <van-button type="info"  class="btn-store"
        to='/home' >我要開店<van-icon name="arrow" /></van-button>
     </div>
 
@@ -36,8 +51,15 @@ export default {
         { text: '日文', value: 1 },
         { text: '英文', value: 2 },
       ],
+      username: '',
+      password: '',
     };
   },
+  methods: {
+    onSubmit() {
+     this.$router.push('/home');
+    },
+  }
 };
 </script>
 
@@ -50,7 +72,11 @@ export default {
   .option-language{
     position: absolute;
     width: 200px;
-    right: 0;
+    right: 5px;
+    top: 5px;
+    .van-hairline--top-bottom::after{
+      border: 0;
+    }
   }
   .login-main{
     width: 670px;
@@ -102,7 +128,6 @@ export default {
       line-height: 50px;
       min-width: 150px;
       font-weight: bold;
-      background:#454444;
       .van-icon{
         vertical-align: -2px;
         margin-left: 5px

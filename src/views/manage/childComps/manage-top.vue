@@ -1,7 +1,9 @@
 <template>
   <div class="main-head">
     <div class="m-h-left">
-      <slot name="h-left"></slot>
+      <slot name="h-left">
+       
+      </slot>
     </div>
     <div class="m-h-right">
         <van-button icon="printer" type="danger">導出所有桌子</van-button>
@@ -11,14 +13,17 @@
 </template>
 
 <script>
+
 export default {
   name: 'manageTop',
   data() {
     return {
-
+      
     };
   },
-  props: ['searchTips'],
+  components: {
+    
+  }
 };
 </script>
 

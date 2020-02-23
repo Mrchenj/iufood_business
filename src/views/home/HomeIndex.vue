@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- 頂欄 -->
-    <HomeHeader :maturityTime="maturityTimeMsg" :member="memberMsg" />
+    <HomeHeader :maturityTime="maturityTimeMsg" />
     <!-- 主頁列表 -->
     <van-grid :column-num="3" class="home-menu">
       <van-grid-item
@@ -63,5 +63,12 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.home-menu{   
+    width: 1000px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+}
 </style>

@@ -31,5 +31,5 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.iu-nav{background: $iu-background-orange;}
 </style>

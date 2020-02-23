@@ -3,7 +3,7 @@
     <!-- 頂部 -->
     <ManageTop>
       <div slot="h-left">
-        <iuSearch :searchTips="searchTipsMsg" />
+         <iuSearch :searchTips="searchTipsMsg" />
       </div>
     </ManageTop>
     <!-- 食物編輯列表 -->
@@ -35,7 +35,7 @@
 <script>
 import IuSearch from 'coms/common/iu-search'
 
-import ManageTop from './Mancom/manage-top'
+import ManageTop from './childComps/manage-top'
 
 export default{
   data(){

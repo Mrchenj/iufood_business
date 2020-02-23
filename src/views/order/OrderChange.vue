@@ -65,10 +65,7 @@ export default {
           orderTent: '蜂蜜面包棍、乐蔬沙拉、松露雜菌湯、桂圆灵芝汤、牛油果慕斯、爽脆青酱意粉、桂花圣女果、草莓牛油果慕斯',
         },
       ],
-      list: [],
-      loading: false,
-      finished: false,
-      activeName: 'a',
+      currentPage: 1,
     };
   },
   components: {

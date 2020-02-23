@@ -6,7 +6,7 @@
       <div class="order-tent">
         <!-- 食物類別 -->
         <van-sidebar v-model="activeKey" >
-          <van-sidebar-item v-for="value in menuList" :key="value.key" :title="value.title" />
+          <van-sidebar-item v-for="(item,index) in menuList" :key="index" :title="item.title" />
         </van-sidebar>
         <!-- 食物類別 對應品項 -->
         <div class="menu-detail" >
@@ -50,6 +50,12 @@
             </li>
           </ul>
         </div>
+        <!-- 提交訂單 -->
+        <van-submit-bar
+          :price="3050"
+          button-text="提交订单"
+          @submit="onSubmit"
+        />
     </div>
   </div>
 </template>
@@ -114,6 +120,8 @@ export default {
           key: '3',
         },
       ],
+      checked: true,
+      value: 1,
       list: [],
       loading: false,
       finished: false,
@@ -129,6 +137,9 @@ export default {
     },
     onClickRight() {
       Toast('退出');
+    },
+    onSubmit() {
+      Toast('提交订单');
     },
   },
 };
@@ -227,6 +238,9 @@ export default {
   .order-form{
     flex: 1;
     margin-left: $iu-gap;
+    background:$iu-white;
+    border-radius: 10px;
+    position: relative;
     .order-f-top{
       color: #fff;
       .van-nav-bar{
@@ -312,6 +326,14 @@ export default {
           }
         }
       }
+    }
+    .van-submit-bar{
+      position: absolute;
+      background: #e5e5e5;
+      border-radius: 0 0 10px 10px;
+      padding: 10px 0;
+      justify-content: space-between;
+      .van-submit-bar__text{text-align: left}
     }
   }
 }

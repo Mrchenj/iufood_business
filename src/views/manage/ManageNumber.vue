@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import ManageTop from './Mancom/manage-top'
+import ManageTop from './childComps/manage-top'
 
 export default{
   data(){

@@ -4,7 +4,7 @@ color
 $iu-background-glay: #fafafa;
 $iu-background-orange: #e65622;
 $iu-background-black: #595959;
-$iu-text-black: #4a4a4a;
+$iu-text-black: #424242;
 $iu-text-gary: #6f6f6f;
 $iu-border-gary: #ddd;
 $iu-orange-dark: #bd481a;
@@ -71,23 +71,7 @@ $iu-font: 20px;
 .page{
     @include iu-bg-white;
 }
-.iu-nav{
-    background: rgba(0, 0, 0, 0.2);
-    .van-nav-bar{
-        background: none;
-        @include iu-page-width;
-        height: 65px;
-        line-height: 65px;
-        margin: 0 auto;
-        border: 0;
-        color: $iu-white;
-        font-weight: bold;
-    }
-    .van-hairline--bottom::after{border: 0}
-}
-
 .page{
-    .iu-nav{background: #f25d28;}
     .iu-page-main{
         @include iu-page-width;
         margin: $iu-gap auto;
@@ -95,6 +79,8 @@ $iu-font: 20px;
         justify-content: space-between;
     }
 }
+
+
 
 
 

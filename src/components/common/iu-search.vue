@@ -17,10 +17,18 @@ export default {
   name: 'homeHeader',
   data() {
     return {
-
+      value: ''
     };
   },
   props: ['searchTips'],
+  methods: {
+    onSearch(val) {
+      Toast(val);
+    },
+    onCancel() {
+      Toast('取消');
+    }
+  }
 };
 </script>
 

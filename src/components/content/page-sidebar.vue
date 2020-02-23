@@ -2,7 +2,7 @@
     <aside class="iu-sidebar">
         <h2 class="iu-siderbar-title">{{title}}</h2>
         <van-sidebar v-model="activeKey">
-            <van-sidebar-item v-for="item in sidebarMessage" v-bind:key="item.id" :class="item.sideClass" :title="item.sideTitle" :to="item.sideTo"  />
+            <van-sidebar-item v-for="(item , index) in sidebarMessage" :key="index" :class="item.sideClass" :title="item.sideTitle" :to="item.sideTo" />
         </van-sidebar>
         <slot name="sidebar-bottom"></slot>
     </aside>
@@ -16,8 +16,19 @@ export default {
       activeKey: 0,
     };
   },
-  props: ['title', 'sidebarMessage'],
+  props: {
+    title : String , 
+    sidebarMessage: {
+      type: Array,
+      default(){
+        return []
+      }
+    },
+  },
   methods: {
+    // change(index){
+    //   this.$emit(index);
+    // }
   },
 };
 </script>

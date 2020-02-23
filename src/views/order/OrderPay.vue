@@ -11,7 +11,7 @@
           <p class="order-text">{{item.orderTent}}</p>
         </div>
         <div class="order-t-r">
-          <van-button type="primary">上菜</van-button>
+          <van-button type="primary">結帳</van-button>
         </div>
       </van-panel>
       <!-- 分頁 -->
@@ -21,27 +21,6 @@
         mode="simple"
       />
     </div>
-
-
-<!-- <van-button type="primary" @click="onClick">登录</van-button> -->
-<van-dialog
-   v-model="isShow"
-   show-cancel-button
-   :beforeClose="beforeClose"
->
-   <van-field
-      v-model="userName"
-      label="用户名"
-      placeholder="请输入姓名"
-   />
-   <van-field
-      v-model="userPass"
-      label="密码"
-      placeholder="请输入密码"
-   />
-</van-dialog>
-
-
   </div>
 </template>
 
@@ -51,7 +30,7 @@ import iuSearch from 'coms/common/iu-search';
 export default {
   data() {
     return {
-      searchTipsMsg: '請輸入單號',
+      searchTipsMsg: '請輸入桌號',
       isShow: false,
       activeKey: 0,
       title: '下單',
@@ -88,10 +67,7 @@ export default {
           orderTent: '蜂蜜面包棍、乐蔬沙拉、松露雜菌湯、桂圆灵芝汤、牛油果慕斯、爽脆青酱意粉、桂花圣女果、草莓牛油果慕斯',
         },
       ],
-      list: [],
-      loading: false,
-      finished: false,
-      activeName: 'a',
+      currentPage: 1,
     };
   },
   components: {
