@@ -5,7 +5,7 @@
 
     <!-- 对话框测试 -->
     <div style="margin-top:100px;">
-      <van-button type="danger" @click="dialogShow">对话框显示</van-button>
+      <van-button type="info" @click="dialogShow">对话框显示</van-button>
     </div>
 
     <van-dialog

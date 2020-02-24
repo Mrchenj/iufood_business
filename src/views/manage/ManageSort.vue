@@ -3,7 +3,7 @@
     <!-- 頂部 -->
     <ManageTop>
       <div slot="h-right">
-        <van-button icon="plus" type="danger">增加菜的分類</van-button>
+        <van-button icon="plus" type="info">增加菜的分類</van-button>
         <van-button icon="plus" type="primary">增加菜品</van-button>
       </div>
     </ManageTop>

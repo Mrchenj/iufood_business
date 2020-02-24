@@ -1,7 +1,7 @@
 <template>
     <aside class="iu-sidebar">
         <h2 class="iu-siderbar-title">{{title}}</h2>
-        <van-sidebar v-model="activeKey">
+        <van-sidebar v-model="activeKey" @change="getIndex">
             <van-sidebar-item v-for="(item , index) in sidebarMessage" :key="index" :class="item.sideClass" :title="item.sideTitle" :to="item.sideTo" />
         </van-sidebar>
         <slot name="sidebar-bottom"></slot>
@@ -26,9 +26,9 @@ export default {
     },
   },
   methods: {
-    // change(index){
-    //   this.$emit(index);
-    // }
+    getIndex(index) {
+      this.$emit('transferIndex',index);
+    }
   },
 };
 </script>

@@ -338,6 +338,22 @@
         }
         .van-overlay{display: none;}
     }
+    .header-left{
+        .van-dropdown-menu{
+            background: none;
+        }
+        .van-dropdown-menu__item{
+            border:1px solid $iu-border-gary;
+            margin-right: 10px;
+            background: $iu-white;
+            border-radius: 10px;
+            min-width: 130px;
+            margin-left: 10px;
+        }
+        .van-dropdown-item{
+          top: 50px!important;
+        }
+    }
 
     /*
     頂欄

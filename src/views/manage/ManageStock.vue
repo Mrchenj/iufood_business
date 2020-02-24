@@ -6,7 +6,7 @@
         <iuSearch :searchTips="searchTipsMsg" />
       </div>
       <div slot="h-right">
-        <van-button type="danger">一鍵停售</van-button>
+        <van-button type="info">一鍵停售</van-button>
         <van-button type="primary">一鍵開售</van-button>
       </div>
     </ManageTop>

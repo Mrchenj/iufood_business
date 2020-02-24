@@ -3,7 +3,7 @@
     <PageHeader :title="titleMsg" :member="memberMsg" />
     <div class="iu-page-main">
       <PageSidebar :title="titleMsg" :sidebarMessage="sidebarMessageMsg">
-        <van-button slot="sidebar-bottom" type="danger">一鍵清空</van-button>
+        <van-button slot="sidebar-bottom" type="info">一鍵清空</van-button>
       </PageSidebar>
       <section class="iu-tent-main bg-off">
         <router-view></router-view>
@@ -49,7 +49,7 @@ export default {
 .bg-off{background: none}
 .iu-sidebar{
   position: relative;
-  .van-button--danger{
+  .van-button--info{
     position: absolute;
     bottom: 10px;
     left: 50%;

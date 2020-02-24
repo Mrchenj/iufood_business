@@ -48,7 +48,7 @@ export default {
       line-height: 40px;
       .van-button__icon{margin-top: -2px;}
     }
-    .van-button--danger{
+    .van-button--info{
       margin-right: $iu-gap;
       border-color: $iu-black;
       background:$iu-black

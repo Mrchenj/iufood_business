@@ -46,6 +46,7 @@ export default {
         {
           text: '財務管理',
           icon: 'mfin',
+          to: '/finance'
         },
         {
           text: '帳號管理',

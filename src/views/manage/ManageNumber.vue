@@ -3,7 +3,7 @@
     <!-- 頂部 -->
     <ManageTop>
       <div slot="h-right">
-        <van-button icon="printer" type="danger">導出所有桌子</van-button>
+        <van-button icon="printer" type="info">導出所有桌子</van-button>
         <van-button icon="plus" type="primary">增加桌位</van-button>
       </div>
     </ManageTop>
