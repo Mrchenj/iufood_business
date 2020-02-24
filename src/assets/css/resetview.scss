@@ -122,8 +122,10 @@
 .van-button--delete{
     background-color: $iu-background-black;
 }
-
-
+.van-button--clear{
+    color: $iu-orange;
+    border-color: $iu-orange;
+}
 .van-button--plain.van-button--primary{
     min-width: 80px;
     background: rgba(255, 255, 255, .2);
@@ -303,14 +305,15 @@
         padding-left: 20px;
     }
     .bottom{
-        margin-top: 30px;
-        padding-left: 20px;
         .van-uploader__upload{
-          width: 100px;
-          height: 100px;
+          width: 120px;
+          height: 120px;
         }
         .van-cell__value{
             height: auto;
+        }
+        .van-cell{
+            padding-top: 0;
         }
     }
 }
@@ -339,6 +342,22 @@
         .van-overlay{display: none;}
     }
     .header-left{
+        .van-dropdown-menu{
+            background: none;
+        }
+        .van-dropdown-menu__item{
+            border:1px solid $iu-border-gary;
+            margin-right: 10px;
+            background: $iu-white;
+            border-radius: 10px;
+            min-width: 130px;
+            margin-left: 10px;
+        }
+        .van-dropdown-item{
+          top: 50px!important;
+        }
+    }
+    .sort-top{
         .van-dropdown-menu{
             background: none;
         }

@@ -117,11 +117,11 @@ const routes = [
         children: [
           {
             path: 'list',
-            component: () => import('../views/manage/manageSort/Managefoodlist.vue'),
+            component: () => import('../views/manage/manageFood/Managefoodlist.vue'),
           },
           {
             path: 'add',
-            component: () => import('../views/manage/manageSort/ManageFoodAdd.vue'),
+            component: () => import('../views/manage/manageFood/ManageFoodAdd.vue'),
           },
         ],
       },
