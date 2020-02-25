@@ -117,7 +117,7 @@ const routes = [
         children: [
           {
             path: 'list',
-            component: () => import('../views/manage/manageFood/Managefoodlist.vue'),
+            component: () => import('../views/manage/manageFood/ManageFoodList.vue'),
           },
           {
             path: 'add',
@@ -125,9 +125,25 @@ const routes = [
           },
         ],
       },
+      // {
+      //   path: 'sort',
+      //   component: () => import('../views/manage/ManageSort.vue'),
+      // },
       {
         path: 'sort',
         component: () => import('../views/manage/ManageSort.vue'),
+        //三級子類
+        redirect: '/manage/sort/list',
+        children: [
+          {
+            path: 'list',
+            component: () => import('../views/manage/manageSort/ManageSortList.vue'),
+          },
+          {
+            path: 'add',
+            component: () => import('../views/manage/manageSort/ManageSortAdd.vue'),
+          },
+        ],
       },
       {
         path: 'stock',
