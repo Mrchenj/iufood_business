@@ -1,56 +1,52 @@
 <template>
   <div class="manage-main">
-    <div>
-      <!-- 頂部 -->
-      <ManageTop>
-        <div slot="h-right">
-          <van-button icon="plus" type="info">增加菜的分類</van-button>
-          <van-button icon="plus" type="primary">增加菜品</van-button>
-        </div>
-      </ManageTop>
-      <!-- 食物編輯列表 -->
-      <div class="food-sort">
-        <!-- 側欄 -->
-        <div class="food-sort-side">
-          <h3 class="side-title"><van-icon name="wap-nav" />分類</h3>
-          <ul class="side-menu">
-            <li v-for="(item,index) in menuList" :key="index">
-                <van-button type="icon"><van-icon name="clear" /></van-button>
-                <span>{{item.title}}</span>
-            </li>
-          </ul>
-        </div>
-        <!-- 內容 -->
-        <div class="food-sort-tent">
-          <h3 class="tent-title">當前分類：本店推薦</h3>
-          <div class="tent-list">
-            <div class="tent-list-m" v-for="(item,index) in sortList" :key="index" >
-              <div class="list-m-l">
-                <b class="title">{{item.title}}</b>
-                <span class="price">{{item.price}}</span>
-                <span class="origin-price">{{item.originPrice}}</span>
-              </div>
-              <div class="list-m-r">
-                <van-button icon="clear" type="transfer">刪除</van-button>
-              </div>
+    <!-- 頂部 -->
+    <ManageTop>
+      <div slot="h-right">
+        <van-button icon="plus" type="info">增加菜的分類</van-button>
+        <van-button icon="plus" type="primary" @click="gotoAdd()">增加菜品</van-button>
+      </div>
+    </ManageTop>
+    <!-- 食物編輯列表 -->
+    <div class="food-sort">
+      <!-- 側欄 -->
+      <div class="food-sort-side">
+        <h3 class="side-title"><van-icon name="wap-nav" />分類</h3>
+        <ul class="side-menu">
+          <li v-for="(item,index) in menuList" :key="index">
+              <van-button type="icon"><van-icon name="clear" /></van-button>
+              <span>{{item.title}}</span>
+          </li>
+        </ul>
+      </div>
+      <!-- 內容 -->
+      <div class="food-sort-tent">
+        <h3 class="tent-title">當前分類：本店推薦</h3>
+        <div class="tent-list">
+          <div class="tent-list-m" v-for="(item,index) in sortList" :key="index" >
+            <div class="list-m-l">
+              <b class="title">{{item.title}}</b>
+              <span class="price">{{item.price}}</span>
+              <span class="origin-price">{{item.originPrice}}</span>
+            </div>
+            <div class="list-m-r">
+              <van-button icon="clear" type="transfer">刪除</van-button>
             </div>
           </div>
-          <!-- 分頁 -->
-          <van-pagination
-            v-model="currentPage"
-            :page-count="12"
-            mode="simple"
-          />
         </div>
+        <!-- 分頁 -->
+        <van-pagination
+          v-model="currentPage"
+          :page-count="12"
+          mode="simple"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import iuSearch from 'coms/common/iu-search';
-
-import ManageTop from './childComps/manage-top'
+import ManageTop from '../childComps/manage-top'
 
 export default{
   data(){
@@ -142,15 +138,19 @@ export default{
     }
   },
   components: {
-    ManageTop,
-    iuSearch
+    ManageTop
+  },
+  methods: {
+    gotoAdd(){
+      this.$router.push('/manage/sort/add')
+    }
   }
 }
 </script>
 
 
 <style lang="scss" scoped>
-.manage-main,.sort-add{
+.sort-add{
   height: 100%;
 }
 .food-sort{
@@ -223,59 +223,5 @@ export default{
     }
   }
 }
-.food-item-menu{
 
-  .list{
-    margin-top: 15px;
-    li{
-      height: 55px;
-      line-height: 55px;
-      background: $iu-white;
-      margin-bottom: 15px;
-      padding: 0 15px;
-      b{
-        color: $iu-orange;
-        margin-right: 20px;
-      }
-      .van-icon{
-        font-size: 20px;
-        color: $iu-orange
-      }
-    }
-  }
-}
-.food-sort-menu{
-  flex:1;
-  margin-left: 20px;
-  .sort-top{
-    display: flex;
-    margin-bottom: 15px;
-  }
-  .sort-main{
-    background: $iu-white;
-    padding: 10px;
-    height: calc(100% - 50px);
-    ul li{
-      padding: 15px 15px;
-      border-bottom: 1px solid $iu-border-gary;
-      align-items: center;
-      .number{
-        color: $iu-orange;
-        margin-right: $iu-gap
-      }
-      .title{
-         margin-right: $iu-gap
-      }
-      .price{
-        margin-right: 10px;
-        color: $iu-orange;
-      }
-    }
-    .van-button--clear{
-      height: 30px;
-      line-height: 30px;
-      min-width: 90px;
-    }
-  }
-}
 </style>

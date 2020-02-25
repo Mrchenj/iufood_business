@@ -1,67 +1,63 @@
 <template>
-  <div class="manage-main">
-    
-    <div class="sort-add line-between">
-      <!-- 菜品項列表 -->
-      <div class="food-item-menu">
-        <!-- 搜索 -->
-        <iuSearch :searchTips="searchTipsMsg" />
-        <ul class="list">
-          <li v-for="(item , index) in foodMenu" :key="index" class="line-between">
-            <div>
-              <b>{{item.number}}</b>
-              <span>{{item.title}}</span>
-            </div>
-            <div>
-              <van-icon name="arrow" />
-            </div>
-          </li>
-        </ul>
-        <!-- 分頁 -->
-        <van-pagination
-          v-model="currentPage"
-          :page-count="12"
-          mode="simple"
-        />
-      </div>
-      <!-- 菜品項列表 -->
-      <div class="food-sort-menu">
-        <div class="sort-top">
-          <label>將已選擇的食物加入到:</label>
-          <van-dropdown-menu>
-            <van-dropdown-item v-model="value" :options="option" />
-          </van-dropdown-menu>
-        </div>
-        <div class="sort-main">
+  <div class="sort-add line-between">
+    <!-- 菜品項列表 -->
+    <div class="food-item-menu">
+      <!-- 搜索 -->
+      <iuSearch :searchTips="searchTipsMsg" />
+      <ul class="list">
+        <li v-for="(item , index) in foodMenu" :key="index" class="line-between">
           <div>
-            <ul>
-              <li v-for="(item , index) in foodMenu" :key="index" class="line-between">
-                <div>
-                  <b class="number">{{item.number}}</b>
-                  <span class="title">{{item.title}}</span>
-                  <span class="price">{{item.price}}</span>
-                  <span class="origin-price">{{item.originPrice}}</span>
-                </div>
-                <div>
-                  <van-button plain type="clear">刪除</van-button>
-                </div>
-              </li>
-            </ul>
+            <b>{{item.number}}</b>
+            <span>{{item.title}}</span>
           </div>
+          <div>
+            <van-icon name="arrow" />
+          </div>
+        </li>
+      </ul>
+      <!-- 分頁 -->
+      <van-pagination
+        v-model="currentPage"
+        :page-count="12"
+        mode="simple"
+      />
+    </div>
+    <!-- 菜品項列表 -->
+    <div class="food-sort-menu">
+      <div class="sort-top">
+        <label>將已選擇的食物加入到:</label>
+        <van-dropdown-menu>
+          <van-dropdown-item v-model="value" :options="option" />
+        </van-dropdown-menu>
+      </div>
+      <div class="sort-main">
+        <div class="sort-m-list">
+          <ul>
+            <li v-for="(item , index) in foodMenu" :key="index" class="line-between">
+              <div>
+                <b class="number">{{item.number}}</b>
+                <span class="title">{{item.title}}</span>
+                <span class="price">{{item.price}}</span>
+                <span class="origin-price">{{item.originPrice}}</span>
+              </div>
+              <div>
+                <van-button plain type="clear">刪除</van-button>
+              </div>
+            </li>
+          </ul>
         </div>
         <div class="sort-footer">
-
+          <van-button type="primary" native-type="submit" >保存</van-button>
+          <van-button type="info" @click="backtoList()">取消</van-button>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </template>
 
 <script>
 import iuSearch from 'coms/common/iu-search';
-
-import ManageTop from './childComps/manage-top'
 
 export default{
   data(){
@@ -140,6 +136,42 @@ export default{
           title: '魚香肉絲',
           price: '43',
           originPrice: '80'
+        },
+        {
+          number: 3,
+          title: '魚香肉絲',
+          price: '43',
+          originPrice: '80'
+        },
+        {
+          number: 4,
+          title: '魚香肉絲',
+          price: '43',
+          originPrice: '80'
+        },
+        {
+          number: 5,
+          title: '魚香肉絲',
+          price: '43',
+          originPrice: '80'
+        },
+                {
+          number: 3,
+          title: '魚香肉絲',
+          price: '43',
+          originPrice: '80'
+        },
+        {
+          number: 4,
+          title: '魚香肉絲',
+          price: '43',
+          originPrice: '80'
+        },
+        {
+          number: 5,
+          title: '魚香肉絲',
+          price: '43',
+          originPrice: '80'
         }
 
       ],
@@ -153,8 +185,12 @@ export default{
     }
   },
   components: {
-    ManageTop,
     iuSearch
+  },
+  methods: {
+    backtoList(){
+      this.$router.push('/manage/sort/list');
+    }
   }
 }
 </script>
@@ -167,77 +203,13 @@ export default{
 .food-sort{
   display: flex;
 }
-.food-sort-side{
-  background: #fff;
-  border-radius: 10px;
-  min-height: 100%;
-  width: 200px;
-  .side-title{
-    background: $iu-background-black;
-    height: 50px; 
-    line-height: 50px;
-    color: #fff;
-    padding-left: 20px;
-    border-radius: 10px 10px 0 0;
-    margin: 0;
-    .van-icon{
-      margin-right: 5px;
-    }
-  }
-  .side-menu{
-    li{
-      border-bottom: 1px solid $iu-border-gary;
-      height: 52px; 
-      line-height: 52px;
-    }
-    li.active{
-      color: $iu-orange;
-    }
-    li:last-child{
-      border-bottom: 0;
-    }
-  }
-  .van-button--icon{
-    border: 0;
-    min-width: 0;
-    font-size: 24px;
-    color: $iu-orange;
-    vertical-align: -5px;
-  }
-}
-.food-sort-tent{
-  margin-left: 20px;
-  flex: 1;
-  .tent-title{
-    color: $iu-orange;
-  }
-  .tent-list-m{
-    margin-bottom: 10px;
-    background: $iu-white;
-    display: flex;
-    padding: 10px 15px;
-    justify-content: space-between;
-    .list-m-l{
-      display: flex;
-      align-items: center;
-      b{
-        min-width: 200px;
-      }
-      .price{
-        color: $iu-orange;
-        min-width: 100px;
-        margin-right: 20px;
-      }
-      .origin-price{
-        text-decoration: line-through;
-      }
-    }
-  }
-}
+
 .food-item-menu{
 
   .list{
     margin-top: 15px;
+    height: calc(100% - 400px);
+    overflow: hidden;
     li{
       height: 55px;
       line-height: 55px;
@@ -261,11 +233,19 @@ export default{
   .sort-top{
     display: flex;
     margin-bottom: 15px;
+    justify-content: center;
+    align-items: center;
   }
   .sort-main{
     background: $iu-white;
     padding: 10px;
-    height: calc(100% - 50px);
+    height: calc(100% - 90px);
+    border-radius: 10px;
+    position: relative;
+    .sort-m-list{
+      height: calc(100% - 290px);
+      overflow: hidden;
+    }
     ul li{
       padding: 15px 15px;
       border-bottom: 1px solid $iu-border-gary;
@@ -286,6 +266,16 @@ export default{
       height: 30px;
       line-height: 30px;
       min-width: 90px;
+    }
+    .sort-footer{
+      position: absolute;
+      bottom: 20px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      .van-button{
+        margin: 0 20px;
+      }
     }
   }
 }

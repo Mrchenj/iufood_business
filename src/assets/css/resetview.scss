@@ -261,7 +261,7 @@
 分頁
 */
 .van-pagination{
-    width: 350px;
+    width: 300px;
     margin: 40px auto 0;
     font-size: 18px;
     .van-pagination__item{
@@ -271,11 +271,30 @@
         line-height: 50px;
         font-weight: bold;
         border-radius: 50px;
+        overflow: hidden;
+        text-indent: -1000%;
+        display: block;
     }
     .van-pagination__page-desc{
         height: 50px;
         line-height:50px;
         font-size:23px;
+        min-width: 150px;
+    }
+    .van-pagination__prev::before,.van-pagination__next::before{
+        font-family:"vant-icon";
+        display: block;
+        text-indent: 0;
+        font-size: 30px;
+    }
+    .van-pagination__prev::before{
+        content: "\F008";
+    }
+    .van-pagination__next::before{
+        content: "\F00A";
+    }
+    .van-pagination--simple .van-pagination__prev::after, .van-pagination--simple .van-pagination__next::after{
+        border: 0;
     }
 }
 

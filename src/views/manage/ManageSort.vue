@@ -9,5 +9,7 @@
 </script>
 
 <style lang="scss" scoped>
- 
+ .manage-main{
+   height: 100%
+ }
 </style>

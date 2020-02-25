@@ -2,7 +2,6 @@
   <div class="page">
     <PageHeader :title="titleMsg" :member="memberMsg" />
     <div class="iu-page-main">
-      {{number}}
       <PageSidebar :title="titleMsg" :sidebarMessage="sidebarMessageMsg" @transferIndex='getIndex' />
       <section class="iu-tent-main">
         <router-view/>
@@ -19,7 +18,6 @@ import PageSidebar from 'coms/content/page-sidebar';
 export default {
   data() {
     return {
-      number: 0,
       titleMsg: '營業設置',
       memberMsg: '員工編號112',
       sidebarMessageMsg: [
@@ -42,7 +40,7 @@ export default {
   },
   methods: {
     getIndex(msg) {
-      this.number = msg
+      this.titleMsg = this.sidebarMessageMsg[msg].sideTitle
     }
   },
 };
