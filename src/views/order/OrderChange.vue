@@ -10,7 +10,7 @@
             <p class="order-text">{{item.orderTent}}</p>
           </div>
           <div class="order-t-r">
-            <van-button plain type="transfer">轉移<van-icon class-prefix="iu-icon" name="transfer" /></van-button>
+            <van-button plain type="transfer" @click="dialogShow" >轉移<van-icon class-prefix="iu-icon" name="transfer"/></van-button>
           </div>
         </van-panel>
         <!-- 分頁 -->
@@ -20,6 +20,20 @@
           mode="simple"
         />
     </div>
+    <!-- 换桌对话框 -->
+    <van-dialog
+      v-model="isShow"
+      show-cancel-button
+      :beforeClose="beforeClose"
+      title="將把您的桌號更換為"
+    >
+      <div class="">
+        <van-field v-model="number" type="number" label="桌號"/>
+        <div class="">
+
+        </div>
+      </div>
+    </van-dialog>
   </div>
 </template>
 
@@ -66,6 +80,13 @@ export default {
         },
       ],
       currentPage: 1,
+      value1: 0,
+      option: [
+        { text: '全部商品', value: 0 },
+        { text: '新款商品', value: 1 },
+        { text: '活动商品', value: 2 }
+      ],
+      isShow: false,
     };
   },
   components: {
@@ -76,8 +97,18 @@ export default {
       this.$router.go(-1);
     },
     onClickRight() {
-      Toast('退出');
+
     },
+    dialogShow(){
+      this.isShow = !this.isShow
+    },
+    beforeClose(action, done){
+      if (action === 'confirm') {
+        setTimeout(done, 1000);
+      } else {
+        done();
+      }
+    }
   },
 };
 </script>

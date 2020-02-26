@@ -54,16 +54,26 @@
         <van-submit-bar
           :price="3050"
           button-text="提交订单"
-          @submit="onSubmit"
+          @submit="dialogShow"
         />
     </div>
+    <!-- 订单对话框 -->
+    <van-dialog
+      v-model="isShow"
+      show-cancel-button
+      :beforeClose="beforeClose"
+      title="下单"
+    >
+      <div class="">
+        是否确认下单
+      </div>
+    </van-dialog>
+
   </div>
 </template>
 
 <script>
 import iuSearch from 'coms/common/iu-search'
-
-import { Toast } from 'vant';
 
 export default {
   data() {
@@ -126,6 +136,7 @@ export default {
       loading: false,
       finished: false,
       activeName: 'a',
+      isShow: false,
     };
   },
   components: {
@@ -138,9 +149,16 @@ export default {
     onClickRight() {
       Toast('退出');
     },
-    onSubmit() {
-      Toast('提交订单');
+    dialogShow(){
+      this.isShow = !this.isShow
     },
+    beforeClose(action, done){
+      if (action === 'confirm') {
+        setTimeout(done, 1000);
+      } else {
+        done();
+      }
+    }
   },
 };
 </script>

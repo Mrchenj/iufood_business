@@ -12,6 +12,7 @@
       v-model="isShow"
       show-cancel-button
       :beforeClose="beforeClose"
+      title="标题"
     >
       <van-field
           v-model="userName"
