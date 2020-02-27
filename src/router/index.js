@@ -125,10 +125,6 @@ const routes = [
           },
         ],
       },
-      // {
-      //   path: 'sort',
-      //   component: () => import('../views/manage/ManageSort.vue'),
-      // },
       {
         path: 'sort',
         component: () => import('../views/manage/ManageSort.vue'),
@@ -158,6 +154,29 @@ const routes = [
     meta: {
       title: '財務管理'
     },
+  },
+  {
+    path: '/account',
+    name: 'account',
+    component: () => import('../views/account/AccountIndex.vue'),
+    meta: {
+      title: '帳務管理'
+    },
+    redirect: '/account/list',
+    children: [
+      {
+        path: 'list',
+        component: () => import('../views/account/AccountList.vue'),
+      },     
+      {
+        path: 'add',
+        component: () => import('../views/account/AccountAdd.vue'),
+      },
+      {
+        path: 'set',
+        component: () => import('../views/account/AccountSet.vue'),
+      },
+    ],
   },
   {
     path: '/member',

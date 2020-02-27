@@ -1,9 +1,44 @@
 <template>
-  <div class="page">
-      <PageHeader :title="titleMsg" :member="memberMsg" />
-      <router-view>
-      </router-view>
-  </div>
+    <div class="iu-page-main">
+     <div class="finance">
+       <div class="form-header line-between">
+         <div class="header-left">
+         </div>
+         <div class="header-right">
+          <van-button type="info" @click="goto()"><van-icon name="plus" />添加店員帳號</van-button>
+         </div>
+       </div>
+       <div class="form-main">
+          <table>
+            <thead>
+              <tr>
+                <th>序列號</th>
+                <th>菜名</th>
+                <th>金額</th>
+                <th>時間</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in financeDate" >
+                <td>{{item.number}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.date}}</td>
+              </tr>
+            </tbody>
+          </table>
+       </div>
+       <div class="form-footer line-between">
+          
+          <!-- 分頁 -->
+          <van-pagination
+            v-model="currentPage"
+            :page-count="12"
+            mode="simple"
+          />
+       </div>
+     </div>
+    </div>
 </template>
 
 <script>

@@ -51,6 +51,7 @@ export default {
         {
           text: '帳號管理',
           icon: 'macco',
+          to: '/account'
         },
       ],
     };
