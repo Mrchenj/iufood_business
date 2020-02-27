@@ -1,8 +1,23 @@
 <template>
-  <div class="tent-main">
-    <van-field label="營業時間" :value="openTime" readonly />
-    <van-field label="打烊時間" :value="closeTime" readonly />
-    <van-button type="primary">保存</van-button>
+  <div class="form-main">
+    <table>
+      <thead>
+        <tr>
+          <th>序列號</th>
+          <th>套餐</th>
+          <th>金額</th>
+          <th>時間</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in financeDate" >
+          <td>{{item.number}}</td>
+          <td>{{item.title}}</td>
+          <td>{{item.amount}}</td>
+          <td>{{item.date}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -10,9 +25,33 @@
 export default {
   data() {
     return {
-      openTime: '09/00',
-      closeTime: '22/00',
-    };
+    financeDate: [
+      {
+        number: '20160502',
+        title: '單月套餐',
+        amount: '5,414',
+        date: '20160502',
+      }, 
+      {
+        number: '20160502',
+        title: '單月套餐',
+        amount: '5,414',
+        date: '20160502',
+      }, 
+      {
+        number: '20160502',
+        title: '單月套餐',
+        amount: '5,414',
+        date: '20160502',
+      }, 
+      {
+        number: '20160502',
+        title: '單月套餐',
+        amount: '5,414',
+        date: '20160502',
+      }
+      ],
+    }
   },
 };
 </script>

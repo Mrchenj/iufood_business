@@ -78,27 +78,32 @@ export default {
         { text: '香辣火鍋', value: 'b' },
         { text: '香辣火鍋', value: 'c' },
       ],
-      financeDate: [{
+      financeDate: [
+      {
         number: '20160502',
         title: '香辣火鍋',
         amount: '5,414',
         date: '20160502',
-      }, {
+      }, 
+      {
         number: '20160502',
         title: '香辣火鍋',
         amount: '5,414',
         date: '20160502',
-      }, {
+      }, 
+      {
         number: '20160502',
         title: '香辣火鍋',
         amount: '5,414',
         date: '20160502',
-      }, {
+      }, 
+      {
         number: '20160502',
         title: '香辣火鍋',
         amount: '5,414',
         date: '20160502',
-      }],
+      }
+      ],
       currentPage: 0,
     };
   },
@@ -151,29 +156,7 @@ export default {
 
   }
 }
-.form-main{
-  width: 100%;
-  margin-top: 15px;
-  table{
-    width: 100%;
-    thead{
-      background: $iu-background-black;
-      color: #fff;
-      height: 55px;
-      line-height: 55px;
-      margin-bottom: 10px;
-    }
-    tbody{
-      tr{
-        background: #fff;
-        border-bottom: 1px dotted $iu-border-gary;
-        height: 55px;
-        line-height: 55px;
-        text-align: center;
-      }
-    }
-  }
-}
+
 .form-footer{
   margin-top: 20px;
   .van-button--info{

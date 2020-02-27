@@ -333,6 +333,33 @@
     }
 }
 
+/*
+*表格
+*/
+.form-main{
+    width: 100%;
+    margin-top: 15px;
+    table{
+      width: 100%;
+      thead{
+        background: $iu-background-black;
+        color: #fff;
+        height: 55px;
+        line-height: 55px;
+        margin-bottom: 10px;
+      }
+      tbody{
+        tr{
+          background: #fff;
+          border-bottom: 1px dotted $iu-border-gary;
+          height: 55px;
+          line-height: 55px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
 
 
 @media screen and (min-width: 760px){

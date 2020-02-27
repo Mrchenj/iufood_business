@@ -15,7 +15,7 @@
         </li>
       </ul>
       <p>到期按每年300自動續費，可隨時取消</p>
-      <van-button type="primary" native-type="submit" >保存</van-button>
+      <van-button type="primary" native-type="submit" >確定</van-button>
     </div>
   </div>
 </template>
