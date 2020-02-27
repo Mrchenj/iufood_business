@@ -159,6 +159,26 @@ const routes = [
       title: '財務管理'
     },
   },
+  {
+    path: '/member',
+    name: 'member',
+    component: () => import('../views/member/MemberIndex.vue'),
+    meta: {
+      title: '會員中心'
+    },
+    // 給二級頁面設置默認顯示地址
+    redirect: '/member/recharge',
+    children: [
+      {
+        path: 'recharge',
+        component: () => import('../views/member/MemberRecharge.vue'),
+      },
+      {
+        path: 'history',
+        component: () => import('../views/member/MemberHistory.vue'),
+      },
+    ],
+  },
 ];
 
 const router = new VueRouter({

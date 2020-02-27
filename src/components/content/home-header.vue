@@ -3,7 +3,7 @@
       <van-nav-bar>
         <div slot="left">
           <span>系統到期时间：{{maturityTime}}</span>
-          <van-button plain type="primary">购买服务/续费</van-button>
+          <van-button plain type="primary" @click="goToBuy()">购买服务/续费</van-button>
         </div>
         <div slot="right" >
           <span>{{member}}</span>
@@ -26,6 +26,9 @@ export default {
     onClickLeft() {
       this.$router.push('/home/');
     },
+    goToBuy(){
+      this.$router.push('/member')
+    }
   },
 };
 </script>
