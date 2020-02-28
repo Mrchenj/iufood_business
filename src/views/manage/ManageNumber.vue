@@ -4,7 +4,7 @@
     <ManageTop>
       <div slot="h-right">
         <van-button icon="printer" type="info">導出所有桌子</van-button>
-        <van-button icon="plus" type="primary">增加桌位</van-button>
+        <van-button icon="plus" type="primary" @click="addNumber()">增加桌位</van-button>
       </div>
     </ManageTop>
     <!-- 號碼列表 -->
@@ -12,7 +12,7 @@
       <ul>
         <li v-for="(item,index) in numberList" :key="index" >
           <span class="number-text">桌號：<b>{{item}}</b></span>
-          <van-button icon="clear" type="transfer">刪除</van-button>
+          <van-button icon="clear" type="transfer" @click="deleNumber(index)">刪除</van-button>
         </li>
       </ul>
     </div>
@@ -22,6 +22,24 @@
       :page-count="12"
       mode="simple"
     />
+    <!-- 刪除桌號 -->
+    <van-dialog
+      v-model="isShow"
+      show-cancel-button
+      :beforeClose="beforeClose"
+      :title="delTitle"
+    >
+     <p>是否刪除桌號 <b>{{delItem}}</b></p>
+    </van-dialog>
+    <!-- 增加桌號 -->
+    <van-dialog
+      v-model="addShow"
+      show-cancel-button
+      :beforeClose="beforeClose"
+      title="新增桌號"
+    >
+     <van-field v-model="value" placeholder="请输入桌號" />
+    </van-dialog>
   </div>
 </template>
 
@@ -33,11 +51,39 @@ export default{
     return{
       numberList: [ '01','02','03','04','05','06','07','08','09','10','11','12', ],
       currentPage: 1,
+      isShow: false,
+      addShow: false,
+      delItem: 0,
+      value: 0,
+    }
+  },
+  computed: {
+    reverseSum() {
+      return this.allSum.numberList();
+    },
+    delTitle(){
+      return '刪除桌號' + this.delItem
     }
   },
   components: {
     ManageTop
-  }
+  },
+  methods: {
+    deleNumber(index){
+      this.delItem = this.numberList[index]
+      this.isShow = !this.isShow
+    },
+    beforeClose(action, done){
+      if (action === 'confirm') {
+        setTimeout(done, 1000);
+      } else {
+        done();
+      }
+    },
+    addNumber(){
+      this.addShow = !this.addShow
+    }
+  },
 }
 </script>
 
@@ -68,5 +114,8 @@ export default{
       margin-right: 0;
     }
   }
+}
+.van-field__control{
+  background: $iu-background-black
 }
 </style>

@@ -34,7 +34,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="item in financeDate" >
+              <tr v-for="(item,index) in financeDate" :key="index">
                 <td>{{item.number}}</td>
                 <td>{{item.title}}</td>
                 <td>{{item.amount}}</td>
@@ -65,7 +65,7 @@ export default {
     return {
       titleMsg: '營業設置',
       memberMsg: '員工編號112',
-      totalAmount: '545,248',
+      // totalAmount: '545,248',
       value1: 0,
       value2: 'a',
       option1: [
@@ -79,33 +79,42 @@ export default {
         { text: '香辣火鍋', value: 'c' },
       ],
       financeDate: [
-      {
-        number: '20160502',
-        title: '香辣火鍋',
-        amount: '5,414',
-        date: '20160502',
-      }, 
-      {
-        number: '20160502',
-        title: '香辣火鍋',
-        amount: '5,414',
-        date: '20160502',
-      }, 
-      {
-        number: '20160502',
-        title: '香辣火鍋',
-        amount: '5,414',
-        date: '20160502',
-      }, 
-      {
-        number: '20160502',
-        title: '香辣火鍋',
-        amount: '5,414',
-        date: '20160502',
-      }
+        {
+          number: '502',
+          title: '香辣火鍋',
+          amount: 5414,
+          date: '20160502',
+        }, 
+        {
+          number: '502',
+          title: '香辣火鍋',
+          amount: 5414,
+          date: '20160502',
+        }, 
+        {
+          number: '502',
+          title: '香辣火鍋',
+          amount: 5414,
+          date: '20160502',
+        }, 
+        {
+          number: '502',
+          title: '香辣火鍋',
+          amount: 5414,
+          date: '20160502',
+        }
       ],
       currentPage: 0,
-    };
+    }
+  },
+  computed: {
+    totalAmount: function(){
+      let result = 0
+      for(let financedate of this.financeDate){
+        result += financedate.amount
+      }
+      return result
+    }
   },
   components: {
     PageHeader,
