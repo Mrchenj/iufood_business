@@ -3,7 +3,7 @@
     <!-- 頂部 -->
     <ManageTop>
       <div slot="h-right">
-        <van-button icon="printer" type="info">導出所有桌子</van-button>
+        <van-button icon="printer" type="info" >導出所有桌子</van-button>
         <van-button icon="plus" type="primary" @click="addNumber()">增加桌位</van-button>
       </div>
     </ManageTop>
@@ -12,7 +12,10 @@
       <ul>
         <li v-for="(item,index) in numberList" :key="index" >
           <span class="number-text">桌號：<b>{{item}}</b></span>
-          <van-button icon="clear" type="transfer" @click="deleNumber(index)">刪除</van-button>
+          <div>
+            <van-button icon="setting" type="transfer" @click="exportNumber(index)">修改</van-button>
+            <van-button icon="clear" type="transfer" @click="deleNumber(index)">刪除</van-button>
+          </div>
         </li>
       </ul>
     </div>
@@ -37,8 +40,36 @@
       show-cancel-button
       :beforeClose="beforeClose"
       title="新增桌號"
+      className="add-number"
     >
-     <van-field v-model="value" placeholder="请输入桌號" />
+     <van-field v-model="value" label="桌號" placeholder="请输入桌號" />
+    </van-dialog>
+    <!-- 編輯桌號 -->
+    <van-dialog
+      v-model="exportShow"
+      show-cancel-button
+      :beforeClose="beforeClose"
+      :title="exportTitle"
+      className="export-number"
+    >
+     <div class="export-line">
+       <label>更改桌號</label>
+       <div class="line-tent">
+         <van-field v-model="value" label="桌號" placeholder="请输入桌號" />
+       </div>
+     </div>
+     <div class="export-line">
+       <label>二維碼</label>
+       <div class="line-tent">
+         <van-field v-model="value" label="桌號" placeholder="请输入桌號" />
+       </div>
+     </div>
+      <div class="export-line">
+       <label>操作</label>
+       <div class="line-tent">
+         <van-field v-model="value" label="桌號" placeholder="请输入桌號" />
+       </div>
+     </div>
     </van-dialog>
   </div>
 </template>
@@ -53,8 +84,10 @@ export default{
       currentPage: 1,
       isShow: false,
       addShow: false,
+      exportShow: false,
       delItem: 0,
       value: 0,
+      number: 0,
     }
   },
   computed: {
@@ -63,6 +96,9 @@ export default{
     },
     delTitle(){
       return '刪除桌號' + this.delItem
+    },
+    exportTitle(){
+      return '桌號' + this.number
     }
   },
   components: {
@@ -82,6 +118,10 @@ export default{
     },
     addNumber(){
       this.addShow = !this.addShow
+    },
+    exportNumber(index){
+      this.number = this.numberList[index]
+      this.exportShow = !this.exportShow
     }
   },
 }
@@ -109,6 +149,11 @@ export default{
           color: $iu-orange;
         }
       }
+      div{
+        .van-button{
+          margin: 0 5px;
+        }
+      }
     }
     li:nth-child(2n){
       margin-right: 0;
@@ -117,5 +162,14 @@ export default{
 }
 .van-field__control{
   background: $iu-background-black
+}
+.add-number{
+  .van-cell{
+    background: $iu-text-black;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 20px;
+    padding-left: 30px;
+  }
 }
 </style>

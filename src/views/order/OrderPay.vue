@@ -4,14 +4,14 @@
     <iuSearch :searchTips="searchTipsMsg" />
     <div class="order-tent">
       <!-- 訂單列表 -->
-      <van-panel v-for="item in orderList" v-bind:key="item.id">
+      <van-panel v-for="(item,index) in orderList" :key="index">
         <div class="order-t-l">
           <strong class="order-title">取餐號碼：<b>{{item.orderNumber}}</b></strong>
           <span class="order-time">下單時間：{{item.orderTime}}</span>
           <p class="order-text">{{item.orderTent}}</p>
         </div>
         <div class="order-t-r">
-          <van-button type="primary">結帳</van-button>
+          <van-button type="primary" @click="dialogPay(index)">結帳</van-button>
         </div>
       </van-panel>
       <!-- 分頁 -->
@@ -21,6 +21,47 @@
         mode="simple"
       />
     </div>
+
+    <!-- 訂單彈窗 -->
+    <van-dialog
+      v-model="isShowOrder"
+      show-cancel-button
+      :beforeClose="beforeClose"
+      :title="orderTitle"
+      width="1000px"
+      className="pay-food"
+      confirmButtonText="付款"
+    >
+      <div class="pay-line">
+        <label>已經上的菜</label>
+        <p>炒米粉*1 /炒面*1 /炒浪粉*1 /炒桂林粉*1</p>
+      </div>
+      <div class="pay-line">
+        <label>未上的菜</label>
+        <p>炒河粉*1</p>
+      </div>
+      <div class="pay-line last-line">
+        <div>
+          總金額<b>$200</b>已優惠<b>$20</b><van-field v-model="tel" type="tel" label="加減項" />
+        </div>
+        <div>
+          應付金額<b>$180</b>
+        </div>
+      </div>
+    </van-dialog>
+
+    <!-- 確認下單对话框 -->
+    <van-dialog
+      v-model="isShow"
+      show-cancel-button
+      :beforeClose="beforeClose"
+      title="下单"
+    >
+      <div class="">
+        是否确认下单
+      </div>
+    </van-dialog>
+
   </div>
 </template>
 
@@ -32,56 +73,64 @@ export default {
     return {
       searchTipsMsg: '請輸入桌號',
       isShow: false,
+      isShowOrder: false,
       activeKey: 0,
       title: '下單',
       unit: '¥',
       orderList: [
         {
-          orderKey: '0',
           orderNumber: '12',
           orderTime: '12:50:30',
           orderTent: '蜂蜜面包棍、乐蔬沙拉、松露雜菌湯、桂圆灵芝汤、牛油果慕斯、爽脆青酱意粉、桂花圣女果、草莓牛油果慕斯',
         },
         {
-          orderKey: '1',
           orderNumber: '12',
           orderTime: '12:50:30',
           orderTent: '蜂蜜面包棍、乐蔬沙拉、松露雜菌湯、桂圆灵芝汤、牛油果慕斯、',
         },
         {
-          orderKey: '2',
           orderNumber: '12',
           orderTime: '12:50:30',
           orderTent: '蜂蜜面包棍、乐蔬沙拉、松露雜菌湯、桂圆灵芝汤、牛油果慕斯、爽脆青酱意粉、桂花圣女果、草莓牛油果慕斯',
         },
         {
-          orderKey: '3',
           orderNumber: '12',
           orderTime: '12:50:30',
           orderTent: '蜂蜜面包棍、乐蔬沙拉、松露雜菌湯、桂圆灵芝汤、牛油果慕斯、爽脆青酱意粉、桂花圣女果、草莓牛油果慕斯',
         },
         {
-          orderKey: '4',
           orderNumber: '12',
           orderTime: '12:50:30',
           orderTent: '蜂蜜面包棍、乐蔬沙拉、松露雜菌湯、桂圆灵芝汤、牛油果慕斯、爽脆青酱意粉、桂花圣女果、草莓牛油果慕斯',
         },
       ],
       currentPage: 1,
+      number: '',
+      tel: '',
     };
+  },
+  computed: {
+    orderTitle(){
+      return '桌號:' + this.number
+    }
   },
   components: {
     iuSearch,
   },
   methods: {
-    onClick() {
-      // this.$dialog.alert({
-      //     message: "hello world",
-      // })
-      this.isShow = !this.isShow;
+    dialogPay(index){
+      this.number = this.orderList[index].orderNumber
+      this.isShowOrder = !this.isShowOrder
+    },
+    beforeClose(action, done){
+      if (action === 'confirm') {
+        setTimeout(done, 1000);
+      } else {
+        done();
+      }
     },
     onClickRight() {
-      // Toast('退出');
+      
     },
   },
 };
@@ -128,11 +177,37 @@ export default {
     }
   }
 }
-
-
-.van-pagination{
-  width: 350px;
-  margin: 40px auto;
-  font-size: 18px;
+.pay-food{
+  .van-dialog__content{
+    .pay-line{
+      display: flex;
+      justify-content: left;
+      flex-direction: column;
+      label{
+        font-weight: bold;
+      }
+    }
+    .pay-line:first-child{
+      border-bottom: 1px solid $iu-border-gary;
+      margin-bottom: 15px;
+    }
+    .last-line{
+      justify-content: space-between;
+      flex-direction: row;
+      position: absolute;
+      left: 40px;
+      right: 40px;
+      bottom: 0;
+      background: #eaeaea;
+      b{
+        color: $iu-orange;
+      }
+      .van-cell{
+        width: 300px;
+        display: inline-block;
+        .van-field__control{width: 50px;}
+      }
+    }
+  }
 }
 </style>

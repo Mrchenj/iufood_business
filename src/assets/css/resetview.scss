@@ -79,6 +79,23 @@
 }
 
 /*
+訂單菜單欄icon
+*/
+.order-tent{
+    .van-sidebar-item--select{
+        .van-sidebar-item__text{
+            display: block;
+        }
+        .van-sidebar-item__text:after{
+            font-family:"vant-icon";
+            content: "\F00A";
+            float: right;
+        }
+    }
+}
+
+
+/*
 頂欄icon
 */
 .van-hairline--top::after{border: 0}
@@ -214,7 +231,6 @@
 }
 
 
-
 /*
 左側菜單
 */
@@ -307,6 +323,9 @@
         border: 0;
     }
 }
+.van-pagination--simple .van-pagination__prev::after, .van-pagination--simple .van-pagination__next::after{
+    border: 0;
+}
 
 /*
 主頁搜索&菜單
@@ -320,7 +339,16 @@
 }
 
 /*
-食物添加和編輯
+*添加食物彈窗
+*/
+.add-food,.pay-food,.add-number{
+    .van-dialog__content{
+        padding: 20px;
+    }
+}
+
+/*
+食物添加和編輯彈窗
 */
 .food-add{
     .van-cell__title, .van-cell__value{
@@ -345,6 +373,36 @@
             padding-top: 0;
         }
     }
+}
+
+/*
+*出單彈窗
+*/
+.serve-food{
+    .van-dialog__content{
+      flex-direction: column;
+    }
+}
+
+/*
+*更換桌號彈窗
+*/
+.changeNumber,.add-number{
+    .van-field__control{
+        color:#fff;
+    }
+}
+
+/*
+*付款彈窗
+*/
+.pay-food .van-dialog__content{
+    flex-direction: column;
+    align-items: unset;
+    justify-content: unset;
+    min-height: 400px;
+    padding: 40px;
+    position: relative;
 }
 
 /*
@@ -399,6 +457,7 @@
         padding: 20px;
         .van-button{
             margin: 0 40px;
+            flex: auto;
         }
         .van-hairline--left::after{
             border: 0;
@@ -611,6 +670,7 @@
             }
         }
     }
+
 
 }
 

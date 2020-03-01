@@ -4,13 +4,13 @@
     <iuSearch :searchTips="searchTipsMsg" />
     <div class="order-tent">
         <!-- 桌號列表 -->
-        <van-panel v-for="item in orderList" v-bind:key="item.id">
+        <van-panel v-for="(item,index) in orderList" :key="index">
           <div class="order-t-l">
             <strong class="order-title">桌號：<b>{{item.orderNumber}}</b></strong>
             <p class="order-text">{{item.orderTent}}</p>
           </div>
           <div class="order-t-r">
-            <van-button plain type="transfer" @click="dialogShow" >轉移<van-icon class-prefix="iu-icon" name="transfer"/></van-button>
+            <van-button plain type="transfer" @click="dialogChange(index)" >轉移<van-icon class-prefix="iu-icon" name="transfer"/></van-button>
           </div>
         </van-panel>
         <!-- 分頁 -->
@@ -26,9 +26,10 @@
       show-cancel-button
       :beforeClose="beforeClose"
       title="將把您的桌號更換為"
+      className="changeNumber"
     >
       <div class="">
-        <van-field v-model="number" type="number" label="桌號"/>
+        <van-field v-model="number" type="number" label="桌號" placeholder="請輸入桌號"/>
         <div class="">
 
         </div>
@@ -87,6 +88,7 @@ export default {
         { text: '活动商品', value: 2 }
       ],
       isShow: false,
+      number: "",
     };
   },
   components: {
@@ -99,7 +101,7 @@ export default {
     onClickRight() {
 
     },
-    dialogShow(){
+    dialogChange(){
       this.isShow = !this.isShow
     },
     beforeClose(action, done){
@@ -156,9 +158,13 @@ export default {
     }
   }
 }
-.van-pagination{
-  width: 350px;
-  margin: 40px auto;
-  font-size: 18px;
+.changeNumber{
+  .van-cell{
+    background: $iu-text-black;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 20px;
+    padding-left: 30px;
+  }
 }
 </style>

@@ -4,14 +4,14 @@
     <iuSearch :searchTips="searchTipsMsg" />
     <div class="order-tent">
       <!-- 訂單列表 -->
-      <van-panel v-for="item in orderList" v-bind:key="item.id">
+      <van-panel v-for="(item,index) in orderList" :key="index">
         <div class="order-t-l">
           <strong class="order-title">取餐號碼：<b>{{item.orderNumber}}</b></strong>
           <span class="order-time">下單時間：{{item.orderTime}}</span>
           <p class="order-text">{{item.orderTent}}</p>
         </div>
         <div class="order-t-r">
-          <van-button type="primary">上菜</van-button>
+          <van-button type="primary" @click="serveFood(index)">上菜</van-button>
         </div>
       </van-panel>
       <!-- 分頁 -->
@@ -21,7 +21,31 @@
         mode="simple"
       />
     </div>
-
+    <!-- 食物選項彈窗 -->
+    <van-dialog
+      v-model="isShow"
+      show-cancel-button
+      :beforeClose="beforeClose"
+      :title="numberTitle"
+      width="1100px"
+      className="serve-food"
+    >
+      <h3>選擇要上的菜</h3>
+      <div class="serve-food-list">
+        <ul>
+          <li class="active"><a>手撕包菜</a></li>
+          <li><a>手撕包菜</a></li>
+          <li><a>手撕包菜</a></li>
+          <li><a>手撕包菜</a></li>
+          <li><a>手撕包菜</a></li>
+          <li><a>手撕包菜</a></li>
+          <li><a>手撕包菜</a></li>
+          <li><a>手撕包菜</a></li>
+          <li><a>手撕包菜</a></li>
+          <li><a>手撕包菜</a></li>
+        </ul>
+      </div>
+    </van-dialog>
   </div>
 </template>
 
@@ -69,20 +93,32 @@ export default {
         },
       ],
       currentPage: 1,
+      isShow: false,
+      number: '',
     };
+  },
+  computed: {
+    numberTitle(){
+      return '桌號:' + this.number
+    }
   },
   components: {
     iuSearch,
   },
   methods: {
-    onClick() {
-      // this.$dialog.alert({
-      //     message: "hello world",
-      // })
-      this.isShow = !this.isShow;
+    serveFood(index){
+      this.number = this.orderList[index].orderNumber
+      this.isShow = !this.isShow
+    },
+    beforeClose(action, done){
+      if (action === 'confirm') {
+        setTimeout(done, 1000);
+      } else {
+        done();
+      }
     },
     onClickRight() {
-      // Toast('退出');
+
     },
   },
 };
@@ -129,5 +165,33 @@ export default {
     }
   }
 }
-
+.serve-food{
+  .van-dialog__content{
+    h3{margin-bottom: 10px;}
+    .serve-food-list{
+      padding: 0 20px 20px;
+      ul{
+        display: flex;
+        flex-wrap: wrap;
+        li{
+          margin: 13px;
+          a{
+            width: 120px;
+            height: 90px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            background: #dedede;
+            display: block;
+          }
+        }
+        .active{
+          a{
+            background: $iu-orange;
+            color:#fff;
+          }
+        }
+      }
+    }
+  }
+}
 </style>
