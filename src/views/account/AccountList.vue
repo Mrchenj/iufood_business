@@ -1,44 +1,53 @@
 <template>
-    <div class="iu-page-main">
-     <div class="finance">
-       <div class="form-header line-between">
-         <div class="header-left">
-         </div>
-         <div class="header-right">
-          <van-button type="info" @click="goto()"><van-icon name="plus" />添加店員帳號</van-button>
-         </div>
-       </div>
-       <div class="form-main">
-          <table>
-            <thead>
-              <tr>
-                <th>序列號</th>
-                <th>菜名</th>
-                <th>金額</th>
-                <th>時間</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="item in financeDate" >
-                <td>{{item.number}}</td>
-                <td>{{item.title}}</td>
-                <td>{{item.amount}}</td>
-                <td>{{item.date}}</td>
-              </tr>
-            </tbody>
-          </table>
-       </div>
-       <div class="form-footer line-between">
-          
-          <!-- 分頁 -->
-          <van-pagination
-            v-model="currentPage"
-            :page-count="12"
-            mode="simple"
-          />
-       </div>
-     </div>
+  <div class="finance">
+    <div class="form-header line-between">
+      <div class="header-left">
+      </div>
+      <div class="header-right">
+      <van-button type="info" @click="goto()"><van-icon name="plus" />添加店員帳號</van-button>
+      </div>
     </div>
+    <div class="form-main">
+      <table>
+        <thead>
+          <tr>
+            <th v-for="(item, index) in financeType" :key="index" >{{item}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in financeDate" :key="index" >
+            <td>{{item.number}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.account}}</td>
+            <td>{{item.state}}</td>
+            <td>{{item.time}}</td>
+            <td>
+              <van-button plain type="primary" @click="gotoSet()">查看/編輯</van-button>
+              <van-button plain type="delete" @click="deleAccount(index)">刪除</van-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="form-footer line-between">
+      
+      <!-- 分頁 -->
+      <van-pagination
+        v-model="currentPage"
+        :page-count="12"
+        mode="simple"
+      />
+    </div>
+    <!-- 刪除帳號 -->
+    <van-dialog
+      v-model="isShow"
+      show-cancel-button
+      :beforeClose="beforeClose"
+      :title="delTitle"
+    >
+     <p>是否刪除桌號 <b>{{delName}}</b></p>
+    </van-dialog>
+  </div>
 </template>
 
 <script>
@@ -50,46 +59,46 @@ export default {
       titleMsg: '營業設置',
       memberMsg: '員工編號112',
       totalAmount: '545,248',
-      value1: 0,
-      value2: 'a',
-      option1: [
-        { text: '全部菜品', value: 0 },
-        { text: '川菜', value: 1 },
-        { text: '粵菜', value: 2 }
-      ],
-      option2: [
-        { text: '香辣火鍋', value: 'a' },
-        { text: '香辣火鍋', value: 'b' },
-        { text: '香辣火鍋', value: 'c' },
-      ],
+      financeType: ['序列號', '店員名', '帳號', '狀態', '創建時間', '操作'],
       financeDate: [
-      {
-        number: '20160502',
-        title: '香辣火鍋',
-        amount: '5,414',
-        date: '20160502',
-      }, 
-      {
-        number: '20160502',
-        title: '香辣火鍋',
-        amount: '5,414',
-        date: '20160502',
-      }, 
-      {
-        number: '20160502',
-        title: '香辣火鍋',
-        amount: '5,414',
-        date: '20160502',
-      }, 
-      {
-        number: '20160502',
-        title: '香辣火鍋',
-        amount: '5,414',
-        date: '20160502',
-      }
+        {
+          number: 1,
+          name: '李冰冰',
+          account: 5625685452,
+          state: '正常',
+          time: 20190101
+        }, 
+        {
+          number: 1,
+          name: '李冰冰',
+          account: 5625685452,
+          state: '正常',
+          time: 20190101
+        }, 
+        {
+          number: 1,
+          name: '李冰冰',
+          account: 5625685452,
+          state: '正常',
+          time: 20190101
+        }, 
+        {
+          number: 1,
+          name: '李冰冰',
+          account: 5625685452,
+          state: '正常',
+          time: 20190101
+        }
       ],
       currentPage: 0,
+      delName: '',
+      isShow: false,
     };
+  },
+  computed: {
+    delTitle(){
+      return '刪除帳號' + this.delName
+    }
   },
   components: {
     PageHeader,
@@ -99,8 +108,22 @@ export default {
       
     },
     goto(){
-        this.$router.push('/account/add')
-    }
+      this.$router.push('/account/add')
+    },
+    gotoSet(){
+      this.$router.push('/account/set')
+    },
+    deleAccount(index){
+      this.delName = this.financeDate[index].name
+      this.isShow = !this.isShow
+    },
+    beforeClose(action, done){
+      if (action === 'confirm') {
+        setTimeout(done, 1000);
+      } else {
+        done();
+      }
+    },
   },
 };
 </script>
@@ -132,17 +155,30 @@ export default {
     }
   }
   .header-right{
-    .total-amount{
-      background: $iu-orange;
-      color: #fff;
-      border-radius: 100px;
-      padding: 0 20px;
-      font-size: 20px;
-      font-weight: bold;
+    .van-button{
+      min-width: 200px;
+      .van-icon{
+        vertical-align: -2px;
+        margin-right: 5px;
+      }
     }
 
   }
 }
+
+.form-main{
+  td{
+    padding-top: 5px;
+    vertical-align: center;
+  }
+  th:last-child{
+    width: 320px;
+  }
+  .van-button{
+    margin: 0 10px;
+  }
+}
+
 
 .form-footer{
   margin-top: 20px;

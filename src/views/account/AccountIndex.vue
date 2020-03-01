@@ -1,8 +1,10 @@
 <template>
   <div class="page">
       <PageHeader :title="titleMsg" :member="memberMsg" />
-      <router-view>
-      </router-view>
+      <div class="iu-page-main">
+        <router-view/>
+      </div>
+      
   </div>
 </template>
 

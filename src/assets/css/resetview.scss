@@ -105,33 +105,25 @@
         color: $iu-orange;
     }
 }
-.van-button--edit,.van-button--delete{
-    width: 107px;
-    height: 107px;
-    color: $iu-white;
-    border: 0;
-    border-radius: 10px;
-}
-.van-button--edit{
-    background-color: $iu-orange;
-}
-.van-button--delete{
-    background-color: $iu-background-black;
-}
+
 .van-button--clear{
     color: $iu-orange;
     border-color: $iu-orange;
 }
-.van-button--plain.van-button--primary{
-    min-width: 80px;
-    background: rgba(255, 255, 255, .2);
-    color: $iu-white;
-    border-radius: 20px;
-    border: 2px solid $iu-white;
-    margin-left: 10px;
-    height: 35px;
-    line-height: 35px;
+
+.iu-nav{
+    .van-button--plain.van-button--primary{
+        min-width: 80px;
+        background: rgba(255, 255, 255, .2);
+        color: $iu-white;
+        border-radius: 20px;
+        border: 2px solid $iu-white;
+        margin-left: 10px;
+        height: 35px;
+        line-height: 35px;
+    }
 }
+
 .tent-main,.recharge{
     .van-field__control{
         background-color: $iu-ipt-bg;
@@ -141,17 +133,39 @@
         padding-left: 20px;
         font-size: $iu-font;
     }
-    .van-button--primary{
-        background-color: $iu-orange;
+    .van-button{
         border: 0;
         height: $iu-ipt-height;
-        line-height: $iu-ipt-height;
-        min-width: 250px;
-        border-radius: $iu-ipt-height;
+        line-height: 55px;
+        border-radius: 55px;
         font-size: $iu-font;
+        margin: 0 5px;
         margin-top: $iu-gap;
     }
+    .van-button--primary{
+        background-color: $iu-orange;
+        min-width: 250px;
+    }
+
 }
+
+.van-card__footer{
+    .van-button--edit,.van-button--delete{
+        width: 107px;
+        height: 107px;
+        color: $iu-white;
+        border: 0;
+        border-radius: 10px;
+    }
+    .van-button--edit{
+        background-color: $iu-orange;
+    }
+    .van-button--delete{
+        background-color: $iu-background-black;
+    }
+}
+
+
 
 /*
 内页搜索重置
