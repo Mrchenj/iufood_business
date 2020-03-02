@@ -26,7 +26,7 @@
             </div>
             <div slot="footer">
               <van-button type="edit">編輯</van-button>
-              <van-button size="delete">刪除</van-button>
+              <van-button size="delete" @click="deleteFood(index)">刪除</van-button>
             </div>
           </van-card>
         </li>
@@ -38,6 +38,15 @@
       :page-count="12"
       mode="simple"
     />
+    <!-- 刪除食物對話框 -->
+    <van-dialog
+      v-model="isShow"
+      show-cancel-button
+      :beforeClose="beforeClose"
+      :title="delTitle"
+    >
+     <p>是否刪除食物 <b>{{delItem}}</b></p>
+    </van-dialog>
   </div>
 </template>
 
@@ -74,16 +83,27 @@ export default{
         }
       ],
       currentPage: 1,
+      delItem: '',
+      isShow: false,
     }
   },
   components: {
     ManageTop,
     IuSearch,
   },
+  computed: {
+    delTitle(){
+      return '刪除食物';
+    }
+  },
   methods: {
     onClick() {
      this.$router.push('/manage/food/add');
     },
+    deleteFood(index){
+      this.delItem = this.listFood[index].foodTitle;
+      this.isShow = !this.isShow
+    }
   }
 }
 </script>

@@ -396,13 +396,33 @@
 /*
 *付款彈窗
 */
-.pay-food .van-dialog__content{
-    flex-direction: column;
-    align-items: unset;
-    justify-content: unset;
-    min-height: 400px;
-    padding: 40px;
-    position: relative;
+.pay-food,.export-number{
+    .van-dialog__content{
+        flex-direction: column;
+        align-items: unset;
+        justify-content: unset;
+        min-height: 400px;
+        padding: 40px;
+        position: relative;
+    }
+}
+
+/*
+*桌號管理彈窗
+*/
+.export-number{
+    .van-dialog__content{
+        justify-content: unset;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .van-field__control{
+            background:#f2f2f2;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 5px;
+            padding-left:20px;
+        }
+    }
 }
 
 /*

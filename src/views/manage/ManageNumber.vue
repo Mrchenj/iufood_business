@@ -25,7 +25,7 @@
       :page-count="12"
       mode="simple"
     />
-    <!-- 刪除桌號 -->
+    <!-- 刪除桌號對話框 -->
     <van-dialog
       v-model="isShow"
       show-cancel-button
@@ -34,7 +34,7 @@
     >
      <p>是否刪除桌號 <b>{{delItem}}</b></p>
     </van-dialog>
-    <!-- 增加桌號 -->
+    <!-- 增加桌號對話框 -->
     <van-dialog
       v-model="addShow"
       show-cancel-button
@@ -44,7 +44,7 @@
     >
      <van-field v-model="value" label="桌號" placeholder="请输入桌號" />
     </van-dialog>
-    <!-- 編輯桌號 -->
+    <!-- 編輯桌號對話框 -->
     <van-dialog
       v-model="exportShow"
       show-cancel-button
@@ -55,19 +55,19 @@
      <div class="export-line">
        <label>更改桌號</label>
        <div class="line-tent">
-         <van-field v-model="value" label="桌號" placeholder="请输入桌號" />
+         <van-field v-model="value" placeholder="请输入桌號" />
        </div>
      </div>
      <div class="export-line">
        <label>二維碼</label>
        <div class="line-tent">
-         <van-field v-model="value" label="桌號" placeholder="请输入桌號" />
+         <img class="code" src="https://img.yzcdn.cn/vant/ipad.jpeg" >
        </div>
      </div>
       <div class="export-line">
        <label>操作</label>
        <div class="line-tent">
-         <van-field v-model="value" label="桌號" placeholder="请输入桌號" />
+         <van-button type="primary">導出信息</van-button>
        </div>
      </div>
     </van-dialog>
@@ -170,6 +170,22 @@ export default{
     color: #fff;
     font-size: 20px;
     padding-left: 30px;
+  }
+}
+.export-number{
+  .export-line{
+    display: flex;
+    width: 100%;
+    label{
+      width: 130px;
+    }
+    .code{
+      width: 170px;
+      height: 170px;
+    }
+    .van-button{
+      min-width: 150px;
+    }
   }
 }
 </style>
