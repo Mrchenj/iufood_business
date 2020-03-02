@@ -15,13 +15,9 @@
     <div class="food-sort">
       <!-- 側欄 -->
       <div class="food-sort-side">
-        <h3 class="side-title"><van-icon name="wap-nav" />分類</h3>
-        <ul class="side-menu">
-          <li v-for="(item,index) in menuList" :key="index">
-              <van-button type="icon"><van-icon name="clear" /></van-button>
-              <span>{{item.title}}</span>
-          </li>
-        </ul>
+        <van-sidebar v-model="activeKey" >
+          <van-sidebar-item v-for="(item,index) in menuList" :key="index" :title="item.title" />
+        </van-sidebar>
       </div>
       <!-- 內容 -->
       <div class="food-sort-tent">
@@ -31,12 +27,13 @@
             <div class="list-m-l">
               <span class="price">{{item.number}}</span>
               <b class="title">{{item.title}}</b>
+              <em class="surplus">剩餘數量: <span>{{item.surplus}}</span></em>
             </div>
             <div class="list-m-r">
               <div class="">
 
               </div>
-              <van-button icon="setting" type="transfer">修改</van-button>
+              <van-button icon="setting" type="transfer" @click="surplusSet(index)" >修改</van-button>
             </div>
           </div>
         </div>
@@ -48,6 +45,18 @@
         />
       </div>
     </div>
+
+    <!-- 確認下單对话框 -->
+    <van-dialog
+      v-model="isShow"
+      show-cancel-button
+      :beforeClose="beforeClose"
+      :title="foodName"
+    >
+      <div class="">
+        是否确认下单
+      </div>
+    </van-dialog>
 
   </div>
 </template>
@@ -79,42 +88,65 @@ export default{
       sortList: [
         {
           title: '魚香肉絲',
-          price: '43',
-          originPrice: '80',
+          surplus: '430',
           number: 1,
         },
         {
           title: '魚香肉絲',
-          price: '43',
-          originPrice: '80',
+          surplus: '430',
           number: 2,
         },
         {
           title: '魚香肉絲',
-          price: '43',
-          originPrice: '80',
+          surplus: '43',
           number: 3,
         },
         {
           title: '魚香肉絲',
-          price: '43',
-          originPrice: '80',
+          surplus: '430',
           number: 4,
         },
         {
           title: '魚香肉絲',
-          price: '43',
-          originPrice: '80',
+          surplus: '430',
+          number: 5,
+        },
+        {
+          title: '魚香肉絲',
+          surplus: '430',
+          number: 5,
+        },
+        {
+          title: '魚香肉絲',
+          surplus: '430',
           number: 5,
         }
 
       ],
       currentPage: 0,
+      isShow: false,
+    }
+  },
+  computed:{
+    foodName(){
+      return "a"
     }
   },
   components: {
     ManageTop,
     IuSearch
+  },
+  methods: {
+    surplusSet(index){
+      this.isShow = !this.isShow
+    },
+    beforeClose(action, done){
+      if (action === 'confirm') {
+        setTimeout(done, 1000);
+      } else {
+        done();
+      }
+    },
   }
 }
 </script>
@@ -125,41 +157,24 @@ export default{
   display: flex;
 }
 .food-sort-side{
+  border-radius: $iu-gap/2;
   background: #fff;
-  border-radius: 10px;
-  min-height: 100%;
-  width: 200px;
-  .side-title{
-    background: $iu-background-black;
-    height: 50px; 
-    line-height: 50px;
-    color: #fff;
-    padding-left: 20px;
-    border-radius: 10px 10px 0 0;
-    margin: 0;
-    .van-icon{
-      margin-right: 5px;
-    }
-  }
-  .side-menu{
-    li{
+  .van-sidebar{
+    width: 170px;
+    padding-top: 10px;
+    border-radius: $iu-gap/2;
+    overflow: hidden;
+    background:$iu-white;
+    .van-sidebar-item{
+      border:0px;
       border-bottom: 1px solid $iu-border-gary;
-      height: 52px; 
-      line-height: 52px;
+      background: none;
+      padding: 15px;
+      font-weight: bold
     }
-    li.active{
+    .van-sidebar-item--select{
       color: $iu-orange;
     }
-    li:last-child{
-      border-bottom: 0;
-    }
-  }
-  .van-button--icon{
-    border: 0;
-    min-width: 0;
-    font-size: 24px;
-    color: $iu-orange;
-    vertical-align: -5px;
   }
 }
 .food-sort-tent{
@@ -185,8 +200,11 @@ export default{
         min-width: 100px;
         margin-right: 20px;
       }
-      .origin-price{
-        text-decoration: line-through;
+      .surplus{
+        font-style: normal;
+        span{
+          margin-left: 10px;
+        }
       }
     }
   }

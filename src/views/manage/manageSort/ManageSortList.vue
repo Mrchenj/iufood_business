@@ -93,7 +93,6 @@ export default{
           price: '43',
           originPrice: '80'
         }
-
       ],
       foodMenu: [
         {
@@ -182,6 +181,10 @@ export default{
     li.active{
       color: $iu-orange;
     }
+    li.active:after{
+      font-family:"vant-icon";
+      content: "\F00A";
+    }
     li:last-child{
       border-bottom: 0;
     }
@@ -214,7 +217,7 @@ export default{
       }
       .price{
         color: $iu-orange;
-        min-width: 100px;
+        min-width: 70px;
         margin-right: 20px;
       }
       .origin-price{

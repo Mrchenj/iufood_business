@@ -1,5 +1,6 @@
 <template>
   <div class="food-add">
+    <!-- 輸入價格 -->
     <div class="iu-line">
         <van-field
           v-model="foodname"
@@ -16,72 +17,87 @@
           class="food-input" 
         />
     </div>
-    <div class="food-rule">
-      <div class="iu-line">
-        <div class="line-label">規格</div>
-        <div class="line-main">
-          <div class="rule-set">
-            <van-radio-group v-model="radio">
-              <van-radio name="1">單規格</van-radio>
-              <van-radio name="2">多規格</van-radio>
-            </van-radio-group>
-            <div class="food-rule-tips">注意：不填等于空（或者为0），每个分类必须有2～3个选择，否则无效；每个商品价格是所选的规格价格+原价 = 最终付款价格</div>
+    <!-- 輸入規格 -->
+    <div class="iu-line food-rule">
+      <div class="line-label">規格</div>
+      <div class="line-main">
+        <div class="rule-set">
+          <van-radio-group v-model="radio">
+            <van-radio name="1">單規格</van-radio>
+            <van-radio name="2">多規格</van-radio>
+          </van-radio-group>
+          <div class="food-rule-tips">注意：不填等于空（或者为0），每个分类必须有2～3个选择，否则无效；每个商品价格是所选的规格价格+原价 = 最终付款价格</div>
+        </div>
+        <div class="rule-input">
+          <div class="editor-name">
+            <van-field v-model="editorValue" placeholder="请输入規格名" class="food-input" /> 
           </div>
-          <div class="rule-input">
-            <div class="editor-name">
-              <van-field v-model="editorValue" placeholder="请输入規格名" class="food-input" /> 
+          <div class="editor-main">
+            <div class="editor-set">
+              <van-field v-model="value1name" placeholder="请输入選擇1" class="food-input" />
+              <van-field v-model="value1price" placeholder="请輸入價格" class="food-input input-middle" />
+              <van-field v-model="value1stock" placeholder="请输入庫存" class="food-input input-short" />
             </div>
-            <div class="editor-main">
-              <div class="editor-set">
-                <van-field v-model="value1name" placeholder="请输入選擇1" class="food-input" />
-                <van-field v-model="value1price" placeholder="请輸入價格" class="food-input input-middle" />
-                <van-field v-model="value1stock" placeholder="请输入庫存" class="food-input input-short" />
-              </div>
-              <div class="editor-set">
-                <van-field v-model="value2name" placeholder="请输入選擇2" class="food-input" />
-                <van-field v-model="value2price" placeholder="请輸入價格" class="food-input input-middle" />
-                <van-field v-model="value2stock" placeholder="请输入庫存" class="food-input input-short" />
-              </div>
-              <van-button type="info" class="add"><van-icon name="plus" /></van-button>
+            <div class="editor-set">
+              <van-field v-model="value2name" placeholder="请输入選擇2" class="food-input" />
+              <van-field v-model="value2price" placeholder="请輸入價格" class="food-input input-middle" />
+              <van-field v-model="value2stock" placeholder="请输入庫存" class="food-input input-short" />
             </div>
-          </div>
-          <div class="line-bottom">
-            <van-button type="info" class="add">新增規格</van-button>
+            <van-button type="info" class="add"><van-icon name="plus" /></van-button>
           </div>
         </div>
-      </div>
-      <div class="iu-line bottom">
-        <div class="uploader">
-          <div class="label">上傳照片</div>
-          <van-uploader :after-read="afterRead" />
-        </div>
-        <div class="describe">
-          <div class="label">簡約描述</div>
-          <van-field
-            v-model="message"
-            rows="2"
-            autosize
-            type="textarea"
-            maxlength="50"
-            placeholder="请输入简约描述"
-            show-word-limit
-          />
+        <div class="line-bottom">
+          <van-button type="info" class="add">新增規格</van-button>
         </div>
       </div>
     </div>
+    <!-- 上傳圖片和食物描述 -->
+    <div class="iu-line bottom">
+      <div class="uploader">
+        <div class="label">上傳照片</div>
+        <van-uploader :after-read="afterRead" />
+      </div>
+      <div class="describe">
+        <div class="label">簡約描述</div>
+        <van-field
+          v-model="message"
+          rows="2"
+          autosize
+          type="textarea"
+          maxlength="50"
+          placeholder="请输入简约描述"
+          show-word-limit
+        />
+      </div>
+    </div>
+    <!-- 提交上傳 -->
     <div class="iu-line add-bottom">
       <van-button type="primary" native-type="submit" >保存</van-button>
       <van-button type="info" to="/manage/food/list">取消</van-button>
     </div>
+    <!-- 右側語言 -->
     <div class="languageset">
       <b>當前語言</b>
       <ul>
         <li v-for="(item , index) in languageSet" :key="index">
            <a>{{item}}</a>
         </li>
-        <li><van-button type="primary">添加語言</van-button></li>
+        <li><van-button type="primary" @click="addLanguage()">添加語言</van-button></li>
       </ul>
     </div>
+    <!-- 語言選擇彈窗 -->
+    <van-dialog
+      v-model="isShow"
+      show-cancel-button
+      :beforeClose="beforeClose"
+      title="請選擇新增語言"
+    >
+      <div class="language-tent">
+          <ul>
+            <li v-for="(item, index) in option" :key="index"><a>{{item.text}}</a></li>
+          </ul>
+      </div>
+    </van-dialog>
   </div>
 </template>
 
@@ -113,7 +129,14 @@ export default{
       value2price: '',
       value2stock: '',
       message: '',
-      languageSet: ['繁體中文', '日文', '英文' ]
+      languageSet: ['繁體中文', '英文' ],
+      isShow: false,
+      value: 0,
+      option: [
+        { text: '繁體中文', value: 0 },
+        { text: '日文', value: 1 },
+        { text: '英文', value: 2 },
+      ],
     }
   },
   components: {
@@ -128,7 +151,17 @@ export default{
         file.status = 'failed';
         file.message = '上传失败';
       }, 1000);
-    }
+    },
+    addLanguage(){
+      this.isShow = !this.isShow
+    },
+    beforeClose(action, done){
+      if (action === 'confirm') {
+        setTimeout(done, 1000);
+      } else {
+        done();
+      }
+    },
   }
 }
 </script>
@@ -147,7 +180,7 @@ export default{
     font-size: 18px;
     height: 50px;
     line-height: 50px;
-    width: 90px;
+    width: 105px;
   }
   .rule-set{
     display:flex;
@@ -241,5 +274,19 @@ export default{
     }
   }
 }
-
+.language-tent{
+  ul{
+     display: flex;
+     a{
+       display: block;
+       padding: 10px 15px;
+       border: 1px solid $iu-border-gary;
+       margin: 10px;
+       border-radius: 10px;
+       min-width: 100px;
+       text-align: center;
+     }
+  }
+ 
+}
 </style>

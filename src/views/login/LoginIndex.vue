@@ -3,14 +3,14 @@
     <!-- 選擇語言 -->
     <div class="option-language">
       <van-dropdown-menu>
-        <van-dropdown-item v-model="value" :options="option" />
+        <van-dropdown-item v-model="value" :options="option" overlay="false" />
       </van-dropdown-menu>
     </div>
     <!-- 登入表單 -->
     <div class="login-main">
       <i class="login-logo">IUfood</i>
       <div class="login-from">
-         <!-- vant-form 引用的時候有問題待解決 -->
+        <!-- vant-form 引用的時候有問題待解決 -->
         <!-- <form > -->
           <van-field
             v-model="username"

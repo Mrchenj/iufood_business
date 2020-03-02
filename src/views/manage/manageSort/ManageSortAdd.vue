@@ -32,19 +32,21 @@
       </div>
       <div class="sort-main">
         <div class="sort-m-list">
-          <ul>
-            <li v-for="(item , index) in foodMenu" :key="index" class="line-between">
-              <div>
-                <b class="number">{{item.number}}</b>
-                <span class="title">{{item.title}}</span>
-                <span class="price">{{item.price}}</span>
-                <span class="origin-price">{{item.originPrice}}</span>
-              </div>
-              <div>
-                <van-button plain type="clear">刪除</van-button>
-              </div>
-            </li>
-          </ul>
+          <Scroll class="scroll">
+            <ul>
+              <li v-for="(item , index) in foodMenu" :key="index" class="line-between">
+                <div>
+                  <b class="number">{{item.number}}</b>
+                  <span class="title">{{item.title}}</span>
+                  <span class="price">{{item.price}}</span>
+                  <span class="origin-price">{{item.originPrice}}</span>
+                </div>
+                <div>
+                  <van-button plain type="clear">刪除</van-button>
+                </div>
+              </li>
+            </ul>
+          </Scroll>
         </div>
         <div class="sort-footer">
           <van-button type="primary" native-type="submit" >保存</van-button>
@@ -58,6 +60,7 @@
 
 <script>
 import iuSearch from 'coms/common/iu-search';
+import Scroll from 'coms/common/scroll/Scroll'
 
 export default{
   data(){
@@ -185,7 +188,8 @@ export default{
     }
   },
   components: {
-    iuSearch
+    iuSearch,
+    Scroll,
   },
   methods: {
     backtoList(){
@@ -208,7 +212,7 @@ export default{
 
   .list{
     margin-top: 15px;
-    height: calc(100% - 400px);
+    height: calc(100vh - 400px);
     overflow: hidden;
     li{
       height: 55px;
@@ -239,12 +243,13 @@ export default{
   .sort-main{
     background: $iu-white;
     padding: 10px;
-    height: calc(100% - 90px);
+    //height: calc(100% - 90px);
     border-radius: 10px;
     position: relative;
     .sort-m-list{
-      height: calc(100% - 290px);
+      height: calc(100vh - 280px);
       overflow: hidden;
+      margin-bottom: 85px;
     }
     ul li{
       padding: 15px 15px;
@@ -279,4 +284,5 @@ export default{
     }
   }
 }
+.scroll{height: 100%;}
 </style>

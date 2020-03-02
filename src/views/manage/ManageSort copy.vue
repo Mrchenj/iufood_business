@@ -74,7 +74,7 @@
         <div class="sort-top">
           <label>將已選擇的食物加入到:</label>
           <van-dropdown-menu>
-            <van-dropdown-item v-model="value" :options="option" />
+            <van-dropdown-item v-model="value" :options="option" overlay="false" />
           </van-dropdown-menu>
         </div>
         <div class="sort-main">

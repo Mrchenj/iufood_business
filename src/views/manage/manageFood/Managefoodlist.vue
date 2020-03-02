@@ -103,7 +103,14 @@ export default{
     deleteFood(index){
       this.delItem = this.listFood[index].foodTitle;
       this.isShow = !this.isShow
-    }
+    },
+    beforeClose(action, done){
+      if (action === 'confirm') {
+        setTimeout(done, 1000);
+      } else {
+        done();
+      }
+    },
   }
 }
 </script>
