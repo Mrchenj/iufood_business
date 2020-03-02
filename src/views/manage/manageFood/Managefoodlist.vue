@@ -165,7 +165,7 @@ export default{
       display: flex;
       justify-content: space-between;
       width: 260px;
-      margin-left: 9px;
+      margin-left: 10px;
     }
   }
 </style>

@@ -283,7 +283,7 @@ export default{
        border: 1px solid $iu-border-gary;
        margin: 10px;
        border-radius: 10px;
-       min-width: 95px;
+       min-width: 100px;
        text-align: center;
      }
   }
