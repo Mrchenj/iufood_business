@@ -6,8 +6,8 @@
         <iuSearch :searchTips="searchTipsMsg" />
       </div>
       <div slot="h-right">
-        <van-button type="info">一鍵停售</van-button>
-        <van-button type="primary">一鍵開售</van-button>
+        <van-button type="info" @click="saleEmpty()">一鍵停售</van-button>
+        <van-button type="primary" @click="setAll()">一鍵開售</van-button>
       </div>
     </ManageTop>
 
@@ -46,15 +46,57 @@
       </div>
     </div>
 
+    <!-- 一鍵清空对话框 -->
+    <van-dialog
+      v-model="isShowEmpty"
+      show-cancel-button
+      :beforeClose="beforeClose"
+      title="一鍵賣完"
+    >
+      <div class="">
+        是否把所有商品設置為賣空狀態
+      </div>
+    </van-dialog>
+
+    <!-- 一鍵設定对话框 -->
+    <van-dialog
+      v-model="isShowAll"
+      show-cancel-button
+      :beforeClose="beforeClose"
+      title="一鍵設定"
+      className="all-set"
+    >
+      <div>
+      <p>您將把所有菜的數量設定為</p>
+      <van-field v-model="value"  placeholder="请输入數量" />
+      </div>
+    </van-dialog>
+
     <!-- 確認下單对话框 -->
     <van-dialog
       v-model="isShow"
       show-cancel-button
       :beforeClose="beforeClose"
       :title="foodName"
+      className="surplus-set"
+      width="850px"
     >
-      <div class="">
-        是否确认下单
+      <div class="set-main">
+        <h3>請給不同規格設置剩餘數量</h3>
+        <ul>
+          <!-- <li v-for="(item, index) in sortList" :key="index">
+            <label for="">{{item.surplusDetial}}</label>
+          </li> -->
+          <li>
+            <van-field v-model="number" type="number" label="不辣" placeholder="輸入剩餘數量" />
+          </li>
+          <li>
+            <van-field v-model="number2" type="number" label="中辣" placeholder="輸入剩餘數量" />
+          </li>
+          <li>
+            <van-field v-model="number3" type="number" label="香辣" placeholder="輸入剩餘數量" />
+          </li>
+        </ul>
       </div>
     </van-dialog>
 
@@ -120,17 +162,36 @@ export default{
           title: '魚香肉絲',
           surplus: '430',
           number: 5,
+          surplusDetial: [
+            {
+              formatName: '不辣',
+              formatNumber: 323,
+            },
+            {
+              formatName: '中辣',
+              formatNumber: 323,
+            },
+            {
+              formatName: '香辣',
+              formatNumber: 323,
+            },
+          ],
         }
 
       ],
       currentPage: 0,
       isShow: false,
+      isShowEmpty: false,
+      isShowAll: false,
+      foodName: '',
+      number: 100,
+      number2: 100,
+      number3: 100,
+      value: '',
     }
   },
   computed:{
-    foodName(){
-      return "a"
-    }
+
   },
   components: {
     ManageTop,
@@ -138,7 +199,14 @@ export default{
   },
   methods: {
     surplusSet(index){
+      this.foodName = this.sortList[index].title
       this.isShow = !this.isShow
+    },
+    saleEmpty(){
+      this.isShowEmpty = !this.isShowEmpty
+    },
+    setAll(){
+      this.isShowAll = !this.isShowAll
     },
     beforeClose(action, done){
       if (action === 'confirm') {
@@ -207,6 +275,36 @@ export default{
         }
       }
     }
+  }
+}
+.surplus-set{
+  .set-main{
+    text-align: left;
+    ul{
+      display: flex;
+      li{
+        .van-field__label{
+          height: 50px;
+          line-height: 50px;
+        }
+        .van-field__control{
+          width: 100px;
+        }
+      }
+    }
+    
+  }
+}
+.all-set{
+  .van-cell{
+    background: $iu-text-black;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 20px;
+    padding-left: 30px;
+  }
+  .van-field__control{
+    color: #fff
   }
 }
 </style>

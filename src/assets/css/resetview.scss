@@ -397,7 +397,7 @@
 /*
 *付款彈窗
 */
-.pay-food,.export-number{
+.pay-food,.export-number,.surplus-set{
     .van-dialog__content{
         flex-direction: column;
         align-items: unset;
@@ -411,7 +411,7 @@
 /*
 *桌號管理彈窗
 */
-.export-number{
+.export-number,.surplus-set{
     .van-dialog__content{
         justify-content: unset;
         flex-direction: row;
@@ -425,6 +425,18 @@
         }
     }
 }
+
+/*
+*食物管理剩餘數量彈窗
+*/
+.surplus-set{
+    .van-field__control{width: 100px;}
+}
+.all-set{
+    .van-field__control{
+      color: #fff
+    }
+  }
 
 /*
 *表格
