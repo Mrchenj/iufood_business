@@ -7,9 +7,21 @@
         :key="index"
         :icon="value.icon"
         :text="value.text"
+        @click="setStatus(index)"
       />
     </van-grid>
-    <van-icon class-prefix="my-icon" name="extra1" />
+
+    <!-- 修改營業狀態对话框 -->
+    <van-dialog
+      v-model="isShow"
+      show-cancel-button
+      :beforeClose="beforeClose"
+      :title="dialogTitle"
+    >
+      <div class="">
+        是否將營業狀態設置為<b>{{status}}</b>
+      </div>
+    </van-dialog>
   </div>
 
 </template>
@@ -18,7 +30,7 @@
 export default {
   data() {
     return {
-      status: '營業中',
+      status: '',
       menuList: [
         {
           text: '開門營業',
@@ -29,8 +41,28 @@ export default {
           icon: 'stclose',
         },
       ],
+      dialogTitle: '修改營業狀態',
+      isShow: false,
     };
   },
+  mounted: {
+    finallyStatus(){
+      
+    }
+  },
+  methods: {
+    setStatus(index){
+      this.status = this.menuList[index].text
+      this.isShow = !this.isShow
+    },
+    beforeClose(action, done){
+      if (action === 'confirm') {
+        setTimeout(done, 1000);
+      } else {
+        done();
+      }
+    },
+  }
 };
 </script>
 
@@ -41,7 +73,15 @@ export default {
 */
 .status-title{
   text-align: center;
+  font-size: 20px;
   b{color: $iu-orange;}
 } 
+
+.van-dialog__content{
+  b{
+    color: $iu-orange;
+    margin-left: 10px;
+  }
+}
 
 </style>
