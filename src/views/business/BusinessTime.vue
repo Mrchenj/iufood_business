@@ -1,8 +1,16 @@
 <template>
   <div class="tent-main">
-    <van-field label="營業時間" :value="openTime" readonly />
-    <van-field label="打烊時間" :value="closeTime" readonly />
+    <van-cell-group>
+      <van-field v-model="openTime" label="營業开始時間"  />
+      <van-field v-model="openTime" label="營業结束時間"  />
+    </van-cell-group>
     <van-button type="primary">保存</van-button>
+    <van-datetime-picker
+      v-model="currentTime"
+      type="time"
+      :min-hour="10"
+      :max-hour="20"
+    />
   </div>
 </template>
 
@@ -10,8 +18,8 @@
 export default {
   data() {
     return {
-      openTime: '09/00',
-      closeTime: '22/00',
+      openTime: '09:00',
+      closeTime: '22:00',
     };
   },
 };

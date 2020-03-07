@@ -45,7 +45,7 @@ export default {
       isShow: false,
     };
   },
-  mounted: {
+  computed: {
     finallyStatus(){
       
     }
@@ -57,6 +57,7 @@ export default {
     },
     beforeClose(action, done){
       if (action === 'confirm') {
+        
         setTimeout(done, 1000);
       } else {
         done();
