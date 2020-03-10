@@ -9,21 +9,7 @@
           <van-sidebar-item v-for="(item,index) in menuList" :key="index" :title="item.title" />
         </van-sidebar>
         <!-- 食物類別 對應品項 -->
-        <div class="menu-detail" >
-          <Scroll class="scroll">
-            <ul>
-              <li v-for="(item, index) in attribute" :key="index">
-                <div class="food-inf">
-                  <b class="food-name">{{item.name}}</b>
-                  <span class="food-number">編號:{{item.number}}</span>
-                  <span class="food-cprice">{{unit}}{{item.currentPrice}}</span>
-                  <span class="food-oprice">{{unit}}{{item.originalPrice}}</span>
-                  <van-button type="default" class="btn-join" @click="addFood(index)">加入訂單</van-button>
-                </div>
-              </li>
-            </ul>
-          </Scroll>
-        </div>
+        <MenuDetial v-bind:attribute="attribute" :unit="unit" />
       </div>
     </div>
     <div class="order-form">
@@ -35,25 +21,7 @@
           </van-nav-bar>
         </div>
         <!-- 已點菜單列表 -->
-        <div class="order-f-middle">
-          <Scroll class="scroll2">
-            <ul>
-              <li>
-                <van-card
-                  price="2.00"
-                  origin-price="2.00"
-                  desc="描述信息"
-                  title="商品标题"
-                >
-                  <div slot="footer">
-                    <van-checkbox v-model="checked"></van-checkbox>
-                    <van-stepper v-model="value" min="1" max="8" />
-                  </div>
-                </van-card>
-              </li>
-            </ul>
-          </Scroll>
-        </div>
+        <OrderedMenu />
         <!-- 提交訂單 -->
         <van-submit-bar
           :price="3050"
@@ -123,6 +91,9 @@
 <script>
 import iuSearch from 'coms/common/iu-search'
 import Scroll from 'coms/common/scroll/Scroll'
+
+import MenuDetial from './childComps/MenuDetial'
+import OrderedMenu from './childComps/OrderedMenu'
 
 export default {
   data() {
@@ -201,7 +172,9 @@ export default {
   },
   components: {
     iuSearch,
-    Scroll
+    Scroll,
+    MenuDetial,
+    OrderedMenu
   },
   methods: {
     onClickLeft() {
@@ -257,62 +230,6 @@ export default {
           color: $iu-orange;
         }
       }
-      .menu-detail{
-        margin-left: 15px;
-        flex: 1;
-        padding-right: 10px;
-        .food-inf{
-          background: $iu-white;
-          text-align: left;
-          border-radius: $iu-gap/2;
-          padding: 15px;
-          position: relative;
-          span,b{
-            display: block
-          }
-          .food-name{
-            font-size: 18px;
-            max-height: 50px;
-            margin-bottom: 5px;
-            color: $iu-text-black;
-          }
-          .food-number{
-            color: $iu-text-gary;
-            margin-bottom: 5px;
-          }
-          .food-cprice{
-            font-size: 22px;
-            font-weight: bold;
-            color: $iu-orange;
-            margin-bottom: 5px;
-          }
-          .food-oprice{
-            display: inline-block;
-            padding: 0 5px;
-            position: relative;
-            text-decoration:line-through;
-            color: $iu-text-gary;
-          }
-          .van-button--default{
-            position: absolute;
-            right: 15px;
-            bottom: 15px;
-          }
-          .btn-join{
-            height: 38px;
-            line-height: 38px;
-            font-size: 16px;
-            color: $iu-text-black;
-          }
-        }
-        ul li{
-          margin-top: 15px;
-        }
-        ul li:first-child{
-          margin-top: 0;
-        }
-      }
-
     }
   }
   .order-form{
@@ -350,66 +267,7 @@ export default {
         }
       } 
     }
-    .order-f-middle{
-      background: $iu-white;
-      padding: 20px;
-      ul{
-        li{
-          border-bottom:1px solid $iu-border-gary;
-        }
-      }
-      .van-card{
-        display: flex;
-        padding:0;
-        padding-left: 35px;
-        background: none;
-        .van-card__header{
-          flex: 1;
-          padding-right: 15px;
-          .van-card__title{
-            font-size: 18px;
-            line-height: 20px;
-            height: 40px;
-            overflow:hidden; 
-            text-overflow:ellipsis; 
-            white-space:nowrap;
-          }
-          .van-card__desc{
-            font-size: 16px;
-          }
-          .van-card__content{
-            flex-direction: row;
-            padding-right: 10px;
-            min-height: 70px;
-            div:first-child{
-              color: $iu-orange;
-              width: auto;
-            }
-            .van-card__bottom{
-              display: flex;
-              flex-direction: column;
-              .van-card__price,.van-card__price-currency,.van-card__price-integer{
-                font-size: 22px;
-              }
-              .van-card__origin-price{
-                font-size: 20px;
-                margin-top: 10px;
-              }
-            }
-          }
-        }
-        .van-card__footer{
-          width: 100px;
-          display: flex;
-          justify-content: center; /* 水平居中 */
-          align-items: center;     /* 垂直居中 */
-          .van-checkbox{
-            position: absolute;
-            left: 0;
-          }
-        }
-      }
-    }
+
     .van-submit-bar{
       position: absolute;
       background: #e5e5e5;
@@ -420,10 +278,7 @@ export default {
     }
   }
 }
-.scroll{
-  height: calc(100vh - 180px);
-  overflow: hidden;
-}
+
 .scroll2{
   height: calc(100vh - 260px);
   overflow: hidden;
