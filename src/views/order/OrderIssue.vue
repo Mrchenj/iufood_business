@@ -8,7 +8,9 @@
         <div class="order-t-l">
           <strong class="order-title">取餐號碼：<b>{{item.orderNumber}}</b></strong>
           <span class="order-time">下單時間：{{item.orderTime}}</span>
-          <p class="order-text">{{item.orderTent}}</p>
+          <p class="order-text">
+            <span v-for="(item , index) in item.orderTent" :key="index">{{item}}</span>
+          </p>
         </div>
         <div class="order-t-r">
           <van-button type="primary" @click="serveFood(index)">上菜</van-button>
@@ -34,11 +36,11 @@
       <div class="serve-food-list">
         <ul>
           <!-- <li class="active"><a>手撕包菜</a></li> -->
-          <li v-for="(item , index) in orderList.orderTent" 
+          <li v-for="(item , index) in orderList[index]" 
               :key="index" 
               :class="{active: index === currentIndex}" 
               @click="itemClick(index)" >
-              {{item}}
+              {{item.orderTent}}
           </li>
         </ul>
       </div>
@@ -63,36 +65,60 @@ export default {
           orderNumber: '12',
           orderTime: '12:50:30',
           orderTent: [
-            '蜂蜜面包棍',
-            '蜂蜜面包棍',
-            '蜂蜜面包棍',
-            '蜂蜜面包棍',
-            '蜂蜜面包棍',
+            '蜂蜜面包棍1',
+            '蜂蜜面包棍2',
+            '蜂蜜面包棍3',
+            '蜂蜜面包棍4',
+            '蜂蜜面包棍5',
           ],
         },
         {
-          orderKey: '1',
+          orderKey: '0',
           orderNumber: '12',
           orderTime: '12:50:30',
-          orderTent: '蜂蜜面包棍、乐蔬沙拉、松露雜菌湯、桂圆灵芝汤、牛油果慕斯、',
-        },
+          orderTent: [
+            '蜂蜜面包棍1',
+            '蜂蜜面包棍2',
+            '蜂蜜面包棍3',
+            '蜂蜜面包棍4',
+            '蜂蜜面包棍5',
+          ],
+        },        
         {
-          orderKey: '2',
+          orderKey: '0',
           orderNumber: '12',
           orderTime: '12:50:30',
-          orderTent: '蜂蜜面包棍、乐蔬沙拉、松露雜菌湯、桂圆灵芝汤、牛油果慕斯、爽脆青酱意粉、桂花圣女果、草莓牛油果慕斯',
-        },
+          orderTent: [
+            '蜂蜜面包棍1',
+            '蜂蜜面包棍2',
+            '蜂蜜面包棍3',
+            '蜂蜜面包棍4',
+            '蜂蜜面包棍5',
+          ],
+        },        
         {
-          orderKey: '3',
+          orderKey: '0',
           orderNumber: '12',
           orderTime: '12:50:30',
-          orderTent: '蜂蜜面包棍、乐蔬沙拉、松露雜菌湯、桂圆灵芝汤、牛油果慕斯、爽脆青酱意粉、桂花圣女果、草莓牛油果慕斯',
-        },
+          orderTent: [
+            '蜂蜜面包棍1',
+            '蜂蜜面包棍2',
+            '蜂蜜面包棍3',
+            '蜂蜜面包棍4',
+            '蜂蜜面包棍5',
+          ],
+        },        
         {
-          orderKey: '4',
+          orderKey: '0',
           orderNumber: '12',
           orderTime: '12:50:30',
-          orderTent: '蜂蜜面包棍、乐蔬沙拉、松露雜菌湯、桂圆灵芝汤、牛油果慕斯、爽脆青酱意粉、桂花圣女果、草莓牛油果慕斯',
+          orderTent: [
+            '蜂蜜面包棍1',
+            '蜂蜜面包棍2',
+            '蜂蜜面包棍3',
+            '蜂蜜面包棍4',
+            '蜂蜜面包棍5',
+          ],
         },
       ],
       currentPage: 1,
