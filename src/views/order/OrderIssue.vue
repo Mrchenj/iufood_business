@@ -33,16 +33,13 @@
       <h3>選擇要上的菜</h3>
       <div class="serve-food-list">
         <ul>
-          <li class="active"><a>手撕包菜</a></li>
-          <li><a>手撕包菜</a></li>
-          <li><a>手撕包菜</a></li>
-          <li><a>手撕包菜</a></li>
-          <li><a>手撕包菜</a></li>
-          <li><a>手撕包菜</a></li>
-          <li><a>手撕包菜</a></li>
-          <li><a>手撕包菜</a></li>
-          <li><a>手撕包菜</a></li>
-          <li><a>手撕包菜</a></li>
+          <!-- <li class="active"><a>手撕包菜</a></li> -->
+          <li v-for="(item , index) in orderList.orderTent" 
+              :key="index" 
+              :class="{active: index === currentIndex}" 
+              @click="itemClick(index)" >
+              {{item}}
+          </li>
         </ul>
       </div>
     </van-dialog>
@@ -65,7 +62,13 @@ export default {
           orderKey: '0',
           orderNumber: '12',
           orderTime: '12:50:30',
-          orderTent: '蜂蜜面包棍、乐蔬沙拉、松露雜菌湯、桂圆灵芝汤、牛油果慕斯、爽脆青酱意粉、桂花圣女果、草莓牛油果慕斯',
+          orderTent: [
+            '蜂蜜面包棍',
+            '蜂蜜面包棍',
+            '蜂蜜面包棍',
+            '蜂蜜面包棍',
+            '蜂蜜面包棍',
+          ],
         },
         {
           orderKey: '1',
@@ -120,6 +123,9 @@ export default {
     onClickRight() {
 
     },
+    itemClick(index){
+      this.currentIndex = index;
+    }
   },
 };
 </script>

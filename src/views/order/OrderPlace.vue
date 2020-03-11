@@ -21,7 +21,7 @@
           </van-nav-bar>
         </div>
         <!-- 已點菜單列表 -->
-        <OrderedMenu />
+        <MenuOrdered :checked="checked" :value="value" />
         <!-- 提交訂單 -->
         <van-submit-bar
           :price="3050"
@@ -93,7 +93,7 @@ import iuSearch from 'coms/common/iu-search'
 import Scroll from 'coms/common/scroll/Scroll'
 
 import MenuDetial from './childComps/MenuDetial'
-import OrderedMenu from './childComps/OrderedMenu'
+import MenuOrdered from './childComps/MenuOrdered'
 
 export default {
   data() {
@@ -174,7 +174,7 @@ export default {
     iuSearch,
     Scroll,
     MenuDetial,
-    OrderedMenu
+    MenuOrdered
   },
   methods: {
     onClickLeft() {

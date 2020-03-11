@@ -24,7 +24,33 @@
 import Scroll from 'coms/common/scroll/Scroll'
 export default {
   name: 'OrderedMenu',
-  props: ['unit','attribute'],
+  //props: ['unit','attribute','checked','value'],
+  props: {
+    unit: {
+      type: String,
+      default(){
+        return 
+      }
+    },
+    attribute: {
+      type: Array,
+      default(){
+        return []
+      }
+    },
+    checked: {
+      type: Boolean,
+      default(){
+        return []
+      }
+    },
+    value: {
+      type: Number,
+      default(){
+        return []
+      }
+    },
+  },
   data() {
     return {
       
