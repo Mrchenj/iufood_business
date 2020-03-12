@@ -36,9 +36,9 @@
       <div class="serve-food-list">
         <ul>
           <!-- <li class="active"><a>手撕包菜</a></li> -->
-          <li v-for="item in orderList[index].orderTent" 
+          <li v-for="(item,index) in orderActiveTent" 
               :class="{active: index === currentIndex}" 
-              @click="itemClick(index)" >
+              @click="itemClick(index)" :key="index">
               {{item}}
           </li>
         </ul>
@@ -120,6 +120,8 @@ export default {
           ],
         },
       ],
+      orderActiveTent:[],
+      currentIndex:0,
       currentPage: 1,
       isShow: false,
       number: '',
@@ -136,6 +138,8 @@ export default {
   methods: {
     serveFood(index){
       this.number = this.orderList[index].orderNumber
+      this.orderActiveTent = this.orderList[index].orderTent
+      // console.log(this.orderList[index]);
       this.isShow = !this.isShow
     },
     beforeClose(action, done){
@@ -150,6 +154,7 @@ export default {
     },
     itemClick(index){
       this.currentIndex = index;
+      console.log(index);
     }
   },
 };
