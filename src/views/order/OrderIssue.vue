@@ -36,11 +36,10 @@
       <div class="serve-food-list">
         <ul>
           <!-- <li class="active"><a>手撕包菜</a></li> -->
-          <li v-for="(item , index) in orderList[index]" 
-              :key="index" 
+          <li v-for="item in orderList[index].orderTent" 
               :class="{active: index === currentIndex}" 
               @click="itemClick(index)" >
-              {{item.orderTent}}
+              {{item}}
           </li>
         </ul>
       </div>
