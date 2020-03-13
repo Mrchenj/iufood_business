@@ -39,7 +39,7 @@
           <li v-for="(item,index) in orderActiveTent" 
               :class="{active: index === currentIndex}" 
               @click="itemClick(index)" :key="index">
-              {{item}}
+              <a>{{item}}</a>
           </li>
         </ul>
       </div>
@@ -192,6 +192,9 @@ export default {
           overflow:hidden; //超出的文本隐藏
           text-overflow:ellipsis; //溢出用省略号显示
           white-space:nowrap;
+          span{
+            margin-right: 15px;
+          }
         }
       }
       .order-t-r{
@@ -203,7 +206,10 @@ export default {
 }
 .serve-food{
   .van-dialog__content{
-    h3{margin-bottom: 10px;}
+    h3{
+      margin-bottom: 10px;
+      color: #222333;
+    }
     .serve-food-list{
       padding: 0 20px 20px;
       ul{
@@ -227,6 +233,7 @@ export default {
           }
         }
       }
+      min-height: 350px;
     }
   }
 }
