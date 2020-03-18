@@ -34,18 +34,19 @@
     >
       <div class="pay-line">
         <label>已經上的菜</label>
-        <p>炒米粉*1 /炒面*1 /炒浪粉*1 /炒桂林粉*1</p>
+        <p>炒米粉*1 / 炒面*1 / 炒浪粉*1 / 炒桂林粉*1</p>
       </div>
       <div class="pay-line">
         <label>未上的菜</label>
         <p>炒河粉*1</p>
       </div>
       <div class="pay-line last-line">
-        <div>
-          總金額<b>$200</b>已優惠<b>$20</b><van-field v-model="tel" type="tel" label="加減項" />
+        <div class="line-left compute-paid">
+          <div class="compute-main">應付金額<b>$200</b>已優惠<b>$20</b></div>
+          <div class="compute-bottom"><van-field v-model="tel" type="tel" label="加減項" /></div>
         </div>
-        <div>
-          應付金額<b>$180</b>
+        <div class="line-right actually-paid">
+          實付金額<b>$180</b>
         </div>
       </div>
     </van-dialog>
@@ -183,8 +184,13 @@ export default {
       display: flex;
       justify-content: left;
       flex-direction: column;
+      padding-bottom: 10px;
       label{
         font-weight: bold;
+      }
+      p{
+        color: $iu-text-gary;
+        margin: 10px 0;
       }
     }
     .pay-line:first-child{
@@ -197,16 +203,32 @@ export default {
       position: absolute;
       left: 40px;
       right: 40px;
-      bottom: 0;
-      background: #eaeaea;
+      bottom: 20px;
+      background: #f3f3f3;
+      padding: 20px;
+      font-size: 24px;
+      border-radius: 10px;
       b{
         color: $iu-orange;
+        margin: 0 10px;
       }
-      .van-cell{
-        width: 300px;
-        display: inline-block;
-        .van-field__control{width: 50px;}
+      .compute-paid{
+        width: 50%;
+        .compute-main{
+          padding-bottom: 10px;
+          border-bottom: 1px solid $iu-border-gary;
+        }
+        .van-cell{
+          width: 300px;
+          display: inline-block;
+          background: none;
+          .van-field__control{width: 50px;}
+          .van-field__label{
+            font-size: 20px;
+          }
+        }
       }
+
     }
   }
 }

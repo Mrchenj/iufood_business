@@ -486,11 +486,13 @@
         font-size: 20px;
     }
     .van-dialog__footer{
-        background-color: #ccc;
+        background-color: #dedede;
         padding: 20px;
+        justify-content: center;
         .van-button{
             margin: 0 40px;
             flex: auto;
+            max-width: 200px;
         }
         .van-hairline--left::after{
             border: 0;
